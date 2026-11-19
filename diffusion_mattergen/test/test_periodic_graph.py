@@ -1,8 +1,10 @@
 """Periodic graph regressions, independent of the dataset and denoiser."""
 
 from pathlib import Path
+from itertools import product
 import sys
 import unittest
+from unittest.mock import patch
 
 from pymatgen.core import Structure
 import torch
@@ -20,7 +22,7 @@ def edge_keys(index, images):
 class TestPeriodicGraph(unittest.TestCase):
     def test_cubic_cutoff_includes_second_image_and_excludes_origin(self):
         frac = torch.zeros(1, 3)
-        index, images, vectors, distances, counts, ptr = build_periodic_graph(
+        index, images, vectors, distances, counts, ptr, _ = build_periodic_graph(
             frac, 2 * torch.eye(3), cutoff=4, max_neighbor=None
         )
         self.assertEqual(counts.tolist(), [32])
@@ -56,8 +58,9 @@ class TestPeriodicGraph(unittest.TestCase):
             key = (int(i), int(j), *(image + shifts[i] - shifts[j]).tolist())
             expected[key] = ((frac[j] - frac[i] + image) @ lattice, length)
 
-        index, images, vectors, distances, counts, _ = build_periodic_graph(
-            frac + shifts, lattice, cutoff, max_neighbor=None
+        # This reference intentionally needs images beyond the default cap.
+        index, images, vectors, distances, counts, _, _ = build_periodic_graph(
+            frac + shifts, lattice, cutoff, max_neighbor=None, max_cell_images_per_dim=7
         )
         keys = edge_keys(index, images)
         self.assertEqual(counts.item(), len(expected))
@@ -72,7 +75,7 @@ class TestPeriodicGraph(unittest.TestCase):
         frac = torch.tensor([[.98, 0, 0], [0, 0, 0], [.02, 0, 0], [.5, .5, .5]])
         batch = torch.tensor([2, 0, 2, 1])
         lattice = torch.stack([scale * torch.eye(3) for scale in (2, 10, 10, 10)])
-        index, images, vectors, distances, counts, ptr = build_periodic_graph(
+        index, images, vectors, distances, counts, ptr, _ = build_periodic_graph(
             frac, lattice, 2, batch, max_neighbor=1
         )
         self.assertEqual(counts.tolist(), [6, 0, 2, 0])
@@ -90,7 +93,7 @@ class TestPeriodicGraph(unittest.TestCase):
             (torch.empty(0, 3), torch.empty(0, 3, 3), []),
         ):
             with self.subTest(counts=counts):
-                index, images, vectors, distances, num_edges, ptr = build_periodic_graph(frac, lattice, 1)
+                index, images, vectors, distances, num_edges, ptr, _ = build_periodic_graph(frac, lattice, 1)
                 self.assertEqual([t.shape for t in (index, images, vectors, distances)],
                                  [(2, 0), (0, 3), (0, 3), (0,)])
                 self.assertTrue(all(t.dtype == torch.long for t in (index, images, num_edges, ptr)))
@@ -112,7 +115,7 @@ class TestPeriodicGraph(unittest.TestCase):
 
     def test_neighbor_limit_keeps_reverse_and_drops_unselected_pair(self):
         frac = torch.tensor([[0, 0, 0], [.1, 0, 0], [.3, 0, 0]])
-        index, images, _, distances, counts, ptr = build_periodic_graph(
+        index, images, _, distances, counts, ptr, _ = build_periodic_graph(
             frac, 10 * torch.eye(3), cutoff=3.1, max_neighbor=1
         )
         self.assertCountEqual(index.T.tolist(), [[0, 1], [1, 0], [1, 2], [2, 1]])
@@ -120,6 +123,55 @@ class TestPeriodicGraph(unittest.TestCase):
         torch.testing.assert_close(distances.sort().values, torch.tensor([1., 1., 2., 2.]))
         self.assertEqual(counts.tolist(), [4])
         self.assertEqual(ptr.tolist(), [0, 4])
+
+    def check_bounded_image_search(self, device):
+        frac = torch.zeros(1, 3, dtype=torch.float64, device=device)
+        arange, cartesian_prod = torch.arange, torch.cartesian_prod
+
+        def bounded_axis(start, stop, **kwargs):
+            # Fail before allocating if the OOM regression is reintroduced.
+            self.assertGreater(stop - start, 0)
+            self.assertLessEqual(stop - start, 11)
+            return arange(start, stop, **kwargs)
+
+        def bounded_product(*axes):
+            self.assertLessEqual(axes[0].numel() * axes[1].numel() * axes[2].numel(), 1331)
+            return cartesian_prod(*axes)
+
+        cells = (
+            # Uncapped inverse-derived bounds even exceed int64 here.
+            1e-20 * torch.eye(3, dtype=frac.dtype, device=device),
+            frac.new_tensor([[4., 4., 4.], [4., 4.0000001, 4.], [4., 4., 4.0000001]]),
+        )
+        for cell in cells:
+            with (self.subTest(device=device, cell=cell.tolist()),
+                  patch("src.geometry.torch.arange", side_effect=bounded_axis),
+                  patch("src.geometry.torch.cartesian_prod", side_effect=bounded_product)):
+                graph = build_periodic_graph(frac, cell, max_neighbor=None)
+            self.assertGreater(graph[1].shape[0], 0)
+            self.assertTrue((graph[1].abs() <= 5).all())
+            self.assertTrue(torch.isfinite(graph[2]).all())
+            self.assertTrue(torch.isfinite(graph[3]).all())
+            self.assertCountEqual(graph[1].tolist(), (-graph[1]).tolist())
+
+    def test_near_singular_image_search_is_bounded_before_allocation(self):
+        self.check_bounded_image_search("cpu")
+
+    @unittest.skipUnless(torch.cuda.is_available(), "requires CUDA")
+    def test_cuda_near_singular_image_search_is_bounded_before_allocation(self):
+        self.check_bounded_image_search("cuda")
+
+    def test_configured_image_cap_matches_finite_radius_search(self):
+        frac = torch.zeros(1, 3, dtype=torch.float64)
+        for cap in (1, 2, 5):
+            with self.subTest(cap=cap):
+                graph = build_periodic_graph(
+                    frac, torch.eye(3).to(frac), cutoff=3.1, max_neighbor=None,
+                    max_cell_images_per_dim=cap)
+                expected = [shift for shift in product(range(-cap, cap + 1), repeat=3)
+                            if 0 < sum(x * x for x in shift) <= 3.1 ** 2]
+                self.assertCountEqual([tuple(shift) for shift in graph[1].tolist()], expected)
+                torch.testing.assert_close(graph[2], graph[1].to(frac))
 
     def check_gradients(self, device):
         frac = torch.tensor([[.875, .25, .25], [.125, .25, .25]], device=device, requires_grad=True)
@@ -146,6 +198,9 @@ class TestPeriodicGraph(unittest.TestCase):
         for limit in (0, -1, 1.5, True):
             with self.subTest(limit=limit), self.assertRaisesRegex(ValueError, "max_neighbor"):
                 build_periodic_graph(frac, lattice, max_neighbor=limit)
+        for limit in (None, 0, -1, 1.5, True):
+            with self.subTest(limit=limit), self.assertRaisesRegex(ValueError, "max_cell_images_per_dim"):
+                build_periodic_graph(frac, lattice, max_cell_images_per_dim=limit)
         with self.assertRaisesRegex(ValueError, "nonsingular"):
             build_periodic_graph(frac, torch.zeros(3, 3))
         with self.assertRaisesRegex(ValueError, "finite"):

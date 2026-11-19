@@ -40,6 +40,22 @@ def wrap_frac(frac):
     return frac - torch.floor(frac)
 
 
+def polar_decomposition(lattice):
+    """Return the symmetric left polar factor for row-vector lattices.
+
+    Accept [3, 3] or [B, 3, 3], preserving shape, dtype and device.
+    For L = U diag(s) V.T, return P = U diag(s) U.T, so P P.T = L L.T."""
+    if lattice.ndim not in (2, 3) or lattice.shape[-2:] != (3, 3):
+        raise ValueError("lattice must have shape [3, 3] or [B, 3, 3]")
+    if not lattice.is_floating_point() or not torch.isfinite(lattice).all():
+        raise ValueError("lattice must be a finite floating-point tensor")
+
+    axes, singular_values, _ = torch.linalg.svd(lattice, full_matrices=False)
+    symmetric = (axes * singular_values.unsqueeze(-2)) @ axes.transpose(-1, -2)
+    # Remove floating-point asymmetry without changing the polar factor.
+    return 0.5 * (symmetric + symmetric.transpose(-1, -2))
+
+
 def periodic_displace(fracs, lattice):
     """Pair displacements [N, N, 3] for one crystal, using rounded fractional images.
 
@@ -118,8 +134,14 @@ def _max_neighbor_mask(edge_index, distances, num_nodes, max_neighbor):
     return distances <= torch.maximum(radii[center], radii[neighbor])
 
 
-def build_periodic_graph(frac, lattice, cutoff=7.0, batch=None, max_neighbor=50):
+def build_periodic_graph(frac, lattice, cutoff=7.0, batch=None, max_neighbor=50,
+                         max_cell_images_per_dim=5):
     """Build directed periodic edges within an inclusive Cartesian cutoff (Å).
+
+    As in MatterGen, cap periodic shifts of wrapped sites in each direction
+    before enumerating images. The default permits shifts from -5 to +5;
+    very small or skewed cells may have additional radius neighbors beyond
+    this finite search range.
 
     N is the total number of input atoms, B is the number of crystals, and E
     is the total number of returned directed edges after neighbor filtering.
@@ -146,6 +168,9 @@ def build_periodic_graph(frac, lattice, cutoff=7.0, batch=None, max_neighbor=50)
     if max_neighbor is not None and (isinstance(max_neighbor, bool)
                                      or not isinstance(max_neighbor, Integral) or max_neighbor < 1):
         raise ValueError("max_neighbor must be a positive integer or None")
+    if (isinstance(max_cell_images_per_dim, bool)
+            or not isinstance(max_cell_images_per_dim, Integral) or max_cell_images_per_dim < 1):
+        raise ValueError("max_cell_images_per_dim must be a positive integer")
     if batch is None:
         if lattice.shape[0] > 1:
             raise ValueError("batch is required when passing multiple lattices")
@@ -160,7 +185,11 @@ def build_periodic_graph(frac, lattice, cutoff=7.0, batch=None, max_neighbor=50)
         inverse, info = torch.linalg.inv_ex(lattice.double())
         if info.any() or not torch.isfinite(inverse).all():
             raise ValueError("lattice must be nonsingular")
-        limits = (cutoff * torch.linalg.vector_norm(inverse, dim=-2)).ceil().long()
+        # MatterGen's image cap prevents near-singular noisy cells from
+        # allocating huge axes/cartesian products, before distance chunking.
+        # Clamp in floating point first so large bounds cannot overflow int64.
+        limits = (cutoff * torch.linalg.vector_norm(inverse, dim=-2)).ceil()
+        limits = limits.clamp_max(max_cell_images_per_dim).long()
     for graph_id, bounds in enumerate(limits.tolist()):
         nodes = (batch == graph_id).nonzero(as_tuple=True)[0]
         if nodes.numel() == 0:

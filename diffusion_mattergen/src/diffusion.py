@@ -20,7 +20,7 @@ def atomtype_ce(logits, atomic_numbers, mask):
     """Mean cross entropy over selected atoms, using clean 1-based atomic numbers."""
     if not torch.any(mask):
         return logits.sum() * 0.0
-    return F.cross_entropy(logits[mask], atomic_numbers[mask] - 1)
+    return F.cross_entropy(logits[mask], atomic_numbers[mask])
 
 
 def add_coord_noise(frac_0, sigma_t, noise=None):
@@ -61,7 +61,8 @@ def coordinate_target(noise, sigmas, sigmas_norm):
 
 class JointDiffusion(nn.Module):
     def __init__(self, denoiser, atom_corruption, position_corruption, lattice_corruption, 
-                 cutoff=7.0, max_neighbor=50, max_offset_integer=3, loss_fn=None):
+                 cutoff=7.0, max_neighbor=50, max_offset_integer=3, loss_fn=None,
+                 max_cell_images_per_dim=5):
         super().__init__()
         if atom_corruption.mask_type != 0:
             raise ValueError("The batch convention requires MASK = 0")
@@ -71,6 +72,7 @@ class JointDiffusion(nn.Module):
         self.lattice_corruption = lattice_corruption
         self.radial_basis = RadialBasis(denoiser.num_radial, cutoff=cutoff)
         self.max_neighbor = max_neighbor
+        self.max_cell_images_per_dim = max_cell_images_per_dim
         # Keep the already verified position target's default, also used upstream.
         self.max_offset_integer = max_offset_integer
         self.loss_fn = JointDiffusionLoss() if loss_fn is None else loss_fn
@@ -125,8 +127,8 @@ class JointDiffusion(nn.Module):
         return value
 
     @torch.no_grad()
-    def q_sample(self, clean, k, noise=None):
-        """Return (noisy_state, info) for integer k in 1..K, scalar or [B].
+    def q_sample(self, clean, t, noise=None):
+        """Return (noisy_state, info) for t in [t_min, 1), scalar or [B].
 
         Optional noise keys: atom_uniform [N] in [0,1), position [N,3] IID
         standard Gaussian, lattice [B,3,3] IID standard Gaussian BEFORE
@@ -138,15 +140,10 @@ class JointDiffusion(nn.Module):
             raise ValueError("Clean atomic numbers must not contain MASK")
         frac, lattice = clean["frac_coords"], clean["lattice"]
         counts, batch = clean["num_atoms"], clean["batch"]
-        k = torch.as_tensor(k, device=frac.device)
-        if k.dtype not in (torch.int8, torch.int16, torch.int32, torch.int64, torch.uint8):
-            raise ValueError("k must contain integer diffusion steps")
-        if k.ndim == 0:
-            k = k.expand(counts.shape)
-        if k.shape != counts.shape or torch.any(k < 1) or torch.any(k > self.timesteps):
-            raise ValueError("k must be scalar or [B], with values in 1..K")
-        k = k.long().clone()
-        t = k.to(frac) / self.timesteps
+        t = torch.as_tensor(t, dtype=frac.dtype, device=frac.device)
+        if t.ndim == 0:
+            t = t.expand(counts.shape)
+        t = self._check_time(t, clean).clone()
 
         noise = {} if noise is None else noise
         if set(noise) - {"atom_uniform", "position", "lattice"}:
@@ -165,8 +162,8 @@ class JointDiffusion(nn.Module):
                  "batch": batch.clone()}
         sigma_x, sigma_l = self.noise_scales(noisy, t)
         info = {
-            "k_graph": k, "t_graph": t, "masked_atom": masked,
-            "atom_target": clean["atomic_numbers"] - 1,
+            "t_graph": t, "masked_atom": masked,
+            "atom_target": clean["atomic_numbers"],
             "coord_target": self.position_corruption.score_target(
                 frac, frac_t, t, counts, batch,
                 max_offset_integer=self.max_offset_integer),
@@ -194,7 +191,8 @@ class JointDiffusion(nn.Module):
         t = self._check_time(t, noisy)
         edges = geometry.build_periodic_graph(
             noisy["frac_coords"], noisy["lattice"], cutoff=self.radial_basis.cutoff,
-            batch=noisy["batch"], max_neighbor=self.max_neighbor)
+            batch=noisy["batch"], max_neighbor=self.max_neighbor,
+            max_cell_images_per_dim=self.max_cell_images_per_dim)
         edge_index, edge_image, vectors, distances, num_edges, edge_ptr, edge_batch = edges
         graph = {
             "edge_index": edge_index, "edge_vectors": vectors,
@@ -213,21 +211,23 @@ class JointDiffusion(nn.Module):
             prediction["graph"] = {**graph, "edge_image": edge_image}
         return prediction
 
-    def compute_loss(self, clean, k=None, noise=None):
-        """Sample time/noise, predict once, and return (loss, field metrics).
+    def compute_loss(self, clean, t=None, t_min=1e-5, noise=None):
+        """Sample time/noise, predict once, and return (loss, field metrics)."""
+        if t is None:
+            t_min = float(t_min)
+            if not 0.0 < t_min < 1.0:
+                raise ValueError("t_min must satisfy 0 < t_min < 1")
 
-        Each crystal draws one uniform integer k in 1..K, shared by all fields.
-        Explicit k/noise allow reproducible mathematical and gradient checks.
-        q_sample builds constant targets; predict and loss retain autograd.
-        The caller owns zero_grad(), backward(), and optimizer.step().
-        """
-        if k is None:
-            k = torch.randint(1, self.timesteps + 1, clean["num_atoms"].shape,
-                              device=clean["num_atoms"].device)
-        noisy, info = self.q_sample(clean, k, noise=noise)
+            t = torch.rand(
+                clean["num_atoms"].shape,
+                device=clean["lattice"].device,
+                dtype=clean["lattice"].dtype)
+            t = t * (1.0 - t_min) + t_min
+
+        noisy, info = self.q_sample(clean, t, noise=noise)
         prediction = self.predict(noisy, info["t_graph"])
         return self.loss_fn(prediction, info, clean["batch"], clean["num_atoms"])
-
+    
     def scores_from_prediction(self, prediction, noisy, t):
         """Convert an existing prediction to sampling scores without clean data."""
         sigma_x, sigma_l = self.noise_scales(noisy, t)
@@ -239,13 +239,8 @@ class JointDiffusion(nn.Module):
 
     @staticmethod
     def atom_probs_with_mask(atom_logits):
-        """Posterior class order is [Z=1,...,118,MASK], with p(clean MASK)=0.
-
-        Input states instead use atomic number 0 for MASK. For a posterior index
-        c, use atomic number c+1 for c<118 and atomic number 0 for c=118.
-        """
+        """Class order is [MASK,Z=1,...,118], matching input atomic numbers."""
         probs = atom_logits.softmax(dim=-1)
-        # return torch.cat((probs, torch.zeros_like(probs[:, :1])), dim=-1)
         return probs
 
     def forward(self, noisy, t):
