@@ -8,6 +8,7 @@
 | v1 | [`v1_periodic_gnn`](v1_periodic_gnn) | 基线：周期近邻图 + 消息传递 GNN + 连续扩散 |
 | v2 | [`v2_equivariant_gnn`](v2_equivariant_gnn) | 旋转不变 **Gram 晶格表示** + 相对位移消息 + 置换对称开关 |
 | v3 | [`v3_d3pm`](v3_d3pm) | 原子种类改用 **D3PM 离散扩散**（mask 型），并用查表嵌入 |
+| v4 | [`v4_gemnet_triplet`](v4_gemnet_triplet) | 基于合作者新版接口，加入 GemNet-T 三体角消息、连续时间扩散、统一训练与采样 |
 
 ## 每版在做什么
 
@@ -19,6 +20,9 @@
 - **v3**：把原子种类从「连续松弛 + argmax」升级为真正的**类别离散扩散（D3PM）**，
   支持吸收型（mask）与均匀型（uniform）两种前向；原子种类用查表嵌入
   （`nn.Embedding`，与 one-hot + `nn.Linear` 数学等价）。
+- **v4**：以合作者新版 `zqx` 接口为基线，加入零阶球谐/勒让德三体角消息；
+  支持 MP-20 缓存、连续时间扩散、MASK-first 原子类别、镜像搜索上限、
+  Langevin 修正、反向采样和 CIF 生成。
 
 ## ⚠️ 两点通用提醒
 
@@ -52,6 +56,10 @@ python v2_equivariant_gnn/tests/test_symmetry.py
 python v3_d3pm/tests/test_d3pm.py
 
 python v3_d3pm/scripts/train.py --steps 4000 --samples 4
+
+Set-Location v4_gemnet_triplet
+python -B -m unittest discover -s test -v
+python -B -m scripts.train --cache .\data_cache\mp_20 --max_steps 1 --device cpu
 ```
 
 各版本的实现细节、验证内容与局限见其各自的 `README.md`。
