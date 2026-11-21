@@ -1,0 +1,40 @@
+_target_: src.diffusion.JointDiffusion
+denoiser:
+  _target_: src.denoiser.Denoiser
+  hidden_dim: 512
+  num_radial: 128
+  num_layers: 4
+  atom_types: 100          # Real elements. MASK uses index zero.
+atom_corruption:
+  _target_: src.corruption.AtomTypeCorruption
+  atom_types: ${model.denoiser.atom_types}
+  scheduler:
+    _target_: src.scheduler.MaskScheduler
+    timesteps: 1000
+position_corruption:
+  _target_: src.corruption.PositionCorruption
+  scheduler:
+    _target_: src.scheduler.PositionVEScheduler
+    sigma_min: 0.01
+    sigma_max: 5.0
+lattice_corruption:
+  _target_: src.corruption.LatticeCorruption
+  scheduler:
+    _target_: src.scheduler.LatticeVPScheduler
+    limit_density: null    # null estimates mean(N / volume) over the training split.
+    beta_min: 0.1
+    beta_max: 20.0
+    limit_var_scaling_constant: 0.25
+loss_fn:
+  _target_: src.loss.JointDiffusionLoss
+  coord_weight: 0.1
+  lattice_weight: 1.0
+  atom_weight: 1.0
+  d3pm_hybrid_lambda: 0.01
+  reduce: sum
+  timesteps: ${model.atom_corruption.scheduler.timesteps}
+  num_atom_types: ${model.denoiser.atom_types}
+cutoff: 7.0                # Periodic graph radius in angstroms.
+max_neighbor: 50
+max_cell_images_per_dim: 5
+max_offset_integer: 3      # Wrapped-normal position target.

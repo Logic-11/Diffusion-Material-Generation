@@ -1,0 +1,8 @@
+val_batch_size: ${data.batchsize}
+num_workers:
+  train: 0
+  val: ${dataloader.num_workers.train}
+shuffle:
+  train: true
+  val: false
+pin_memory: false

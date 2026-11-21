@@ -1,0 +1,76 @@
+{
+  "format": "diffusion_mattergen.crystal_arrays",
+  "format_version": 1,
+  "created_utc": "2026-11-13T20:35:48.772647+00:00",
+  "source_root": "E:\\THU\\AI2DFT\\Diffusion-Material-Generation\\data\\mp_20",
+  "standardization": {
+    "primitive_tolerance_angstrom": 0.25,
+    "primitive": true,
+    "niggli": true,
+    "symmetric_lattice": true,
+    "lattice_vectors": "rows",
+    "length_unit": "angstrom"
+  },
+  "split_policy": "preserve source CSV splits and row order; CIF directories use train",
+  "core_files": {
+    "frac_coords": "pos.npy",
+    "lattice": "cell.npy",
+    "atomic_numbers": "atomic_numbers.npy",
+    "num_atoms": "num_atoms.npy",
+    "structure_id": "structure_id.npy"
+  },
+  "skip_invalid": false,
+  "num_structures": 45229,
+  "num_atoms": 464191,
+  "num_skipped": 0,
+  "sources": [
+    {
+      "path": "train.csv",
+      "split": "train",
+      "sha256": "133bab58dba02d316f9f91174839f17802dce648be4e8659d1a42b32b97fa01d"
+    },
+    {
+      "path": "val.csv",
+      "split": "val",
+      "sha256": "7b5f4085464b3eac9fd2123acee97ec372214004ce7e983b535b33395abc3e29"
+    },
+    {
+      "path": "test.csv",
+      "split": "test",
+      "sha256": "dd605c7543cf95a13e150aed630d0915e74edc8dea17e85301ee6fbfeb7f500a"
+    }
+  ],
+  "splits": {
+    "train": {
+      "num_structures": 27136,
+      "num_atoms": 279608,
+      "min_atoms": 1,
+      "max_atoms": 20,
+      "num_source_rows": 27136,
+      "num_skipped": 0,
+      "rows_with_parser_warnings": 1
+    },
+    "val": {
+      "num_structures": 9047,
+      "num_atoms": 92470,
+      "min_atoms": 1,
+      "max_atoms": 20,
+      "num_source_rows": 9047,
+      "num_skipped": 0,
+      "rows_with_parser_warnings": 0
+    },
+    "test": {
+      "num_structures": 9046,
+      "num_atoms": 92113,
+      "min_atoms": 1,
+      "max_atoms": 20,
+      "num_source_rows": 9046,
+      "num_skipped": 0,
+      "rows_with_parser_warnings": 1
+    }
+  },
+  "versions": {
+    "numpy": "2.4.6",
+    "pymatgen": "2026.9.24"
+  }
+}

@@ -1,10 +1,3 @@
-"""Joint loss using MatterGen's log-space absorbing D3PM training objective.
-
-The final atom-logit column is a LEARNED clean MASK class. With the project's
-118 real elements this requires 119 logits; upstream's 100 elements use 101.
-The coordinate/lattice targets and state dictionaries retain the local API.
-"""
-
 import math
 from numbers import Integral
 
@@ -19,7 +12,7 @@ def categorical_posterior(clean_probs, noisy_classes, transition, cumulative_pre
 
     clean_probs: [N,C], noisy_classes: [N] zero-based class indices.
     transition: Q_k, cumulative_previous: Q_bar_{k-1}, each [C,C] or [N,C,C].
-    Class order for atoms is [Z=1,...,C-1,MASK], unlike input MASK=0.
+    Class order for atoms is [MASK,Z=1,...,C-1], matching input MASK=0.
     This exact probability-space reference is independent of the training
     implementation below, which follows upstream's epsilon-smoothed logits.
     An impossible conditioning event raises explicitly.
@@ -113,15 +106,15 @@ def _absorbing_posterior_logits(clean_probs, noisy_classes, k_atom, keep_probs,
     """
     previous = k_atom - 1
     keep = keep_probs.to(device=clean_probs.device)[previous, None]
-    real_probs = keep * clean_probs[:, :-1]
-    marginal = torch.cat((real_probs, 1.0 - real_probs.sum(-1, keepdim=True)), dim=-1)
+    real_probs = keep * clean_probs[:, 1:]
+    marginal = torch.cat((1.0 - real_probs.sum(-1, keepdim=True), real_probs), dim=-1)
     marginal = torch.where(previous[:, None] == 0, clean_probs, marginal)
 
     observed = F.one_hot(noisy_classes, clean_probs.shape[-1]).to(clean_probs)
     # The schedule is evaluated on integer t, giving float32 beta upstream.
     beta = (timesteps - previous).float().reciprocal()[:, None]
-    likelihood_real = (1.0 - beta) * observed[:, :-1] + beta * observed[:, -1:]
-    likelihood = torch.cat((likelihood_real, observed[:, -1:]), dim=-1)
+    likelihood_real = (1.0 - beta) * observed[:, 1:] + beta * observed[:, :1]
+    likelihood = torch.cat((observed[:, :1], likelihood_real), dim=-1)
     return (marginal + epsilon).log() + (likelihood + epsilon).log()
 
 
@@ -129,18 +122,18 @@ def absorbing_d3pm_terms(atom_logits, atom_target, masked_atom, k_atom,
                          timesteps=1000, keep_probs=None):
     """Return per-atom (KL / first-step reconstruction NLL, auxiliary CE).
 
-    atom_logits includes real elements AND a learned final MASK logit.
-    atom_target uses zero-based real-element labels; MASK is not a clean label.
+    atom_logits includes a learned first MASK logit AND real elements.
+    atom_target uses atomic numbers 1..C-1; MASK is not a clean label.
     k_atom is one-based (upstream's zero-based loss index is k_atom-1).
     This is the log_space=True, predict_x0=True, step_size=1 official path;
     it does not assume zero predicted clean MASK probability.
     """
     if atom_logits.ndim != 2 or not atom_logits.is_floating_point():
-        raise ValueError("atom_logits must be floating [N,C_real+1], with MASK last")
+        raise ValueError("atom_logits must be floating [N,C_real+1], with MASK first")
     n, c = atom_logits.shape
     if (atom_target.shape != (n,) or atom_target.dtype != torch.long
-            or torch.any(atom_target < 0) or torch.any(atom_target >= c - 1)):
-        raise ValueError("atom_target must be zero-based int64 element labels [N]")
+            or torch.any(atom_target < 1) or torch.any(atom_target >= c)):
+        raise ValueError("atom_target must be int64 atomic numbers in 1..C-1 with shape [N]")
     if masked_atom.shape != (n,) or masked_atom.dtype != torch.bool:
         raise ValueError("masked_atom must be bool [N]")
     if isinstance(timesteps, bool) or not isinstance(timesteps, Integral) or timesteps < 1:
@@ -158,7 +151,7 @@ def absorbing_d3pm_terms(atom_logits, atom_target, masked_atom, k_atom,
         keep_probs = _standard_mask_keep_probs(timesteps)
     if keep_probs.shape != (timesteps + 1,):
         raise ValueError("keep_probs must include all times 0..timesteps")
-    noisy_classes = torch.where(masked_atom, c - 1, atom_target)
+    noisy_classes = torch.where(masked_atom, 0, atom_target)
     true_clean = F.one_hot(atom_target, c).to(logits)
     true_logits = _absorbing_posterior_logits(
         true_clean, noisy_classes, k_atom, keep_probs, timesteps)
@@ -217,7 +210,7 @@ class JointDiffusionLoss(nn.Module):
         if prediction["atom_logits"].shape != (n, self.num_atom_types + 1):
             raise ValueError(
                 f"atom_logits must have shape [{n}, {self.num_atom_types + 1}]: "
-                f"{self.num_atom_types} real elements plus a learned final MASK logit. "
+                f"a learned first MASK logit plus {self.num_atom_types} real elements. "
                 "Update Denoiser.output_head; do not append a constant MASK column.")
         if "t_graph" not in info:
             raise ValueError("info must include t_graph shared by corruption and prediction")

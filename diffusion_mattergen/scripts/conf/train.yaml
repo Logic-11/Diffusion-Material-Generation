@@ -1,0 +1,54 @@
+defaults:
+  - dataloader: default
+  - model: joint_diffusion
+  - _self_
+
+# Relative paths start at the directory where training is launched.
+data:
+  input: data_cache/mp_20
+  output: output/${now:%Y-%m-%d}/${now:%H-%M-%S-%f}
+  batchsize: 2
+
+trainer:
+  seed: 42
+  device: cuda
+  max_epochs: 10000
+  max_steps: 1000000
+  check_val_every_n_epoch: 5
+  lr_scheduler_monitor: loss_train  # loss_train each epoch, or loss_val after validation.
+  check_gradients: true
+  gradient_clip_val: 0.5     # Set to 0 or null to disable clipping.
+  gradient_clip_algorithm: value  # value or norm
+  t_min: 1.0e-5              # Lower bound for uniform time sampling in training and validation.
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  _convert_: all
+  lr: 1.0e-4
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+  weight_decay: 0.0
+
+# Epoch-based schedule. Set lr_scheduler=null to disable it.
+lr_scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  _convert_: all
+  mode: min
+  factor: 0.6
+  patience: 40
+  threshold: 1.0e-3
+  threshold_mode: rel
+  cooldown: 0
+  min_lr: 1.0e-6
+  eps: 1.0e-8
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: ${data.output}
+  sweep:
+    dir: ${data.output}
+    subdir: ${hydra.job.num}

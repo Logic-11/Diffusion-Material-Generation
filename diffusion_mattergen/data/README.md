@@ -9,11 +9,6 @@
 从项目根目录运行以下 PowerShell 命令。输入路径中的 `mp_20` 实际包含三个 CSV；每行的 `cif` 列是一个完整、多行的 CIF 字符串，`material_id` 标识材料。代码按 CSV 记录读取，不能把物理文本行当成结构数量。
 
 ```powershell
-Set-Location 'E:\THU\AI2DFT\Diffusion-Material-Generation\diffusion_mattergen'
-. './scripts/activate_diffusion.ps1'
-if ($env:CONDA_DEFAULT_ENV -ne 'diffusion' -or (Get-Command python).Source -ne 'D:\Anaconda\anaconda3\envs\diffusion\python.exe') {
-    throw 'Expected the diffusion Python environment.'
-}
 $source = 'E:\THU\AI2DFT\Diffusion-Material-Generation\data\mp_20'
 $cache = 'E:\THU\AI2DFT\Diffusion-Material-Generation\diffusion_mattergen\data\processed\mp_20'
 python -B -m data build $source --output $cache
