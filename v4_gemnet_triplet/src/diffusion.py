@@ -200,7 +200,7 @@ class JointDiffusion(nn.Module):
             batch=noisy["batch"], max_neighbor=self.max_neighbor,
             max_cell_images_per_dim=self.max_cell_images_per_dim)
         edge_index, edge_image, vectors, distances, num_edges, edge_ptr, edge_batch = edges
-        # [GemNet-T triplet] Rebuild angles from the current noisy geometry.
+        # [GemNet-T triplet] Rebuild angles from current noisy geometry.
         if getattr(self.denoiser, "use_triplets", False):
             id3_center_b, id3_center_c, cos_phi = geometry.build_triplet_graph(
                 edge_index,

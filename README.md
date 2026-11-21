@@ -59,7 +59,7 @@ python v3_d3pm/scripts/train.py --steps 4000 --samples 4
 
 Set-Location v4_gemnet_triplet
 python -B -m unittest discover -s test -v
-python -B -m scripts.train --cache .\data_cache\mp_20 --max_steps 1 --device cpu
+python -B -m scripts.train data.input=data_cache/mp_20 trainer.max_steps=1 trainer.device=cpu
 ```
 
 各版本的实现细节、验证内容与局限见其各自的 `README.md`。

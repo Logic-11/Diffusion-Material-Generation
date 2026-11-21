@@ -93,7 +93,11 @@ class LatticeCorruption(nn.Module):
 
     @staticmethod
     def symmetric_noise(noise):
-        """Symmetrize IID noise [B, 3, 3], preserving each entry's variance."""
+        """Form symmetric noise from [B, 3, 3] or [B, 1, 1] Gaussian draws.
+
+        A predictor draw g broadcasts to g on the diagonal and sqrt(2) * g
+        off the diagonal. Full matrix draws preserve each entry's variance.
+        """
         eye = torch.eye(3, dtype=noise.dtype, device=noise.device)
         symmetric = (noise + noise.transpose(-1, -2)) / (2.0 ** 0.5)
         return (1.0 - eye) * symmetric + eye * noise

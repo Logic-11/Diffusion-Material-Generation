@@ -32,20 +32,21 @@ Triplet-specific tests are in `test/test_triplet_integration.py`.
 ## Training
 
 ```powershell
+pip install -r requirements-train.txt
 python -B -m scripts.train `
-  --cache .\data_cache\mp_20 `
-  --max_steps 1 `
-  --device cpu
+  data.input=data_cache/mp_20 `
+  trainer.max_steps=1 `
+  trainer.device=cpu
 ```
 
 Disable angular interactions for an ablation:
 
 ```powershell
 python -B -m scripts.train `
-  --cache .\data_cache\mp_20 `
-  --max_steps 1 `
-  --device cpu `
-  --disable-triplets
+  data.input=data_cache/mp_20 `
+  trainer.max_steps=1 `
+  trainer.device=cpu `
+  model.denoiser.use_triplets=false
 ```
 
 ## Generation

@@ -42,10 +42,7 @@ def load_model(checkpoint_path: str | Path,
     state_dict = checkpoint["model_state_dict"]
 
     # [GemNet-T triplet] Pre-triplet checkpoints remain loadable as baselines.
-    has_triplet_parameters = any(
-        ".triplet_interaction." in name for name in state_dict
-    )
-    if not has_triplet_parameters:
+    if not any(".triplet_interaction." in name for name in state_dict):
         model_config = {**model_config, "use_triplets": False}
 
     denoiser = Denoiser(**model_config)
@@ -126,9 +123,9 @@ def main(argv: list[str] | None = None) -> None:
                         help="Path to statistic.json. Defaults to the file beside the checkpoint.")
     parser.add_argument("-o", "--output", type=Path, default=Path("generated"),
                         help="Directory for CIF files. Defaults to generated.")
-    parser.add_argument("-n", "--num-samples", "--num_samples", type=int, default=1,
+    parser.add_argument("-n", "--num-samples", "--num_samples", type=int, default=640,
                         help="Total crystals to generate. Defaults to 1.")
-    parser.add_argument("-b", "--batch-size", "--batch_size", type=int, default=1,
+    parser.add_argument("-b", "--batch-size", "--batch_size", type=int, default=64,
                         help="Maximum crystals per batch. Defaults to 1.")
     parser.add_argument("--device", help="Torch device, e.g. cpu or cuda:0. Defaults to CUDA if available, else CPU.")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for sampling. Defaults to 42.")
