@@ -26,27 +26,23 @@ class TestLatticePredictor(unittest.TestCase):
         return alpha, mu, variance
 
     @staticmethod
-    def symmetric_reference(raw):
-        # Six independent entries; diagonal noise must not be rescaled.
-        symmetric = raw.clone()
-        for i in range(3):
-            for j in range(i + 1, 3):
-                symmetric[:, i, j] = symmetric[:, j, i] = (
-                    raw[:, i, j] + raw[:, j, i]) / 2**0.5
-        return symmetric
+    def predictor_noise_reference(draw):
+        weights = draw.new_full((3, 3), 2**0.5)
+        weights.fill_diagonal_(1.0)
+        return draw * weights
 
-    def test_oracle_score_matches_gaussian_conditional_for_mixed_sizes(self):
+    def test_oracle_score_gives_conditional_mean_and_mattergen_noise(self):
         counts = torch.tensor([1, 8, 27])
         t = torch.tensor([0.7, 1.0, 0.3], dtype=torch.float64)
         s = torch.tensor([0.2, 0.6, 0.1], dtype=torch.float64)
         alpha_t, mu, var_t = self.analytical_parameters(t, counts)
         alpha_s, _, var_s = self.analytical_parameters(s, counts)
-        clean = mu + self.symmetric_reference(torch.randn(3, 3, 3, dtype=t.dtype))
+        clean = mu + self.corruption.symmetric_noise(torch.randn_like(mu))
         marginal_t = mu + alpha_t[:, None, None] * (clean - mu)
         marginal_s = mu + alpha_s[:, None, None] * (clean - mu)
-        lattice = marginal_t + self.symmetric_reference(torch.randn_like(clean))
+        lattice = marginal_t + self.corruption.symmetric_noise(torch.randn_like(clean))
         score = -(lattice - marginal_t) / var_t[:, None, None]
-        raw_noise = torch.arange(27, dtype=t.dtype).reshape(3, 3, 3) / 10 - 1
+        raw_noise = t.new_tensor([-1.25, 0.0, 0.75])[:, None, None]
 
         # Gaussian conditioning: Cov(L_s,L_t|L_0) = var_s * alpha_t / alpha_s.
         covariance = var_s * alpha_t / alpha_s
@@ -54,7 +50,7 @@ class TestLatticePredictor(unittest.TestCase):
         expected_mean = marginal_s + gain[:, None, None] * (lattice - marginal_t)
         conditional_var = var_s - covariance.square() / var_t
         expected_sample = expected_mean + conditional_var.sqrt()[:, None, None] * (
-            self.symmetric_reference(raw_noise))
+            self.predictor_noise_reference(raw_noise))
         sample, mean = self.predictor.lattice_predict(lattice, score, t, s, counts, raw_noise)
         torch.testing.assert_close(mean, expected_mean)
         torch.testing.assert_close(sample, expected_sample)
@@ -69,7 +65,7 @@ class TestLatticePredictor(unittest.TestCase):
         marginal_t = mu + alpha_t[:, None, None] * (clean - mu)
         lattice = (marginal_t + 0.1).requires_grad_()
         score = (-(lattice.detach() - marginal_t) / var_t[:, None, None]).requires_grad_()
-        noise = torch.ones_like(lattice)
+        noise = torch.ones_like(t)[:, None, None]
         inputs = (lattice, score, t, s, counts, noise)
         originals = [value.detach().clone() for value in inputs]
         sample, mean = self.predictor.lattice_predict(*inputs)
@@ -94,7 +90,7 @@ class TestLatticePredictor(unittest.TestCase):
         s = torch.tensor([0.1, 0.1, 0.0], dtype=torch.float64)
         mu = counts.double().pow(1 / 3)[:, None, None] * torch.eye(3, dtype=t.dtype)
         lattice, score = mu + 0.5, torch.full_like(mu, 0.125)
-        noise = torch.ones_like(lattice)
+        noise = torch.ones_like(t)[:, None, None]
         raw_ratio = torch.exp(-10.0 * (t - s))
         limit_var = counts.double().pow(2 / 3)
         var_t = (1 - torch.exp(-20.0 * t)) * limit_var
@@ -105,7 +101,7 @@ class TestLatticePredictor(unittest.TestCase):
         expected_mean = mu + (lattice - mu + transition_var[:, None, None] * score) / (
             clipped_ratio[:, None, None])
         expected_sample = expected_mean + (transition_var * var_s / var_t).sqrt()[:, None, None] * (
-            self.symmetric_reference(noise))
+            self.predictor_noise_reference(noise))
         with self.assertLogs("src.sampling", level="WARNING") as logs:
             sample, mean = predictor.lattice_predict(lattice, score, t, s, counts, noise)
         self.assertIn("0.001", logs.output[0])
@@ -113,30 +109,29 @@ class TestLatticePredictor(unittest.TestCase):
         torch.testing.assert_close(sample, expected_sample, atol=1e-10, rtol=1e-12)
         torch.testing.assert_close(sample[-1], mean[-1], atol=0, rtol=0)
 
-    def test_random_draws_have_six_independent_entries_and_independent_crystals(self):
-        repeats = 8192
-        counts = torch.tensor([1, 8]).repeat(repeats)
+    def test_random_step_draws_one_gaussian_per_crystal(self):
+        counts = torch.tensor([1, 8, 27, 1])
         t = torch.full((counts.numel(),), 0.8, dtype=torch.float64)
         s = torch.full_like(t, 0.3)
         alpha_t, mu, var_t = self.analytical_parameters(t, counts)
         alpha_s, _, var_s = self.analytical_parameters(s, counts)
         covariance = var_s * alpha_t / alpha_s
         conditional_var = var_s - covariance.square() / var_t
+        # Use the same CPU RNG state for the reference and the predictor.
+        with torch.random.fork_rng(devices=[]):
+            draws = torch.randn((counts.numel(), 1, 1), dtype=t.dtype)
+            next_draw = torch.randn((), dtype=t.dtype)
         sample, mean = self.predictor.lattice_predict(mu, torch.zeros_like(mu), t, s, counts)
         torch.testing.assert_close(mean, mu)
-        torch.testing.assert_close(sample, sample.transpose(-1, -2), atol=0, rtol=0)
-        residual = (sample - mean) / conditional_var.sqrt()[:, None, None]
-        rows, cols = torch.triu_indices(3, 3)
-        # Twelve entries also detect accidentally sharing a draw across crystals.
-        independent = residual[:, rows, cols].reshape(repeats, 12)
-        self.assertLess(independent.mean(0).abs().max().item(), 0.05)
-        self.assertLess((torch.cov(independent.T) - torch.eye(12)).abs().max().item(), 0.07)
+        expected_noise = self.predictor_noise_reference(draws)
+        torch.testing.assert_close(sample - mean, conditional_var.sqrt()[:, None, None] * expected_noise)
+        torch.testing.assert_close(torch.randn((), dtype=t.dtype), next_draw, atol=0, rtol=0)
 
     def test_predictor_does_not_apply_polar_or_positive_definite_projection(self):
         lattice = -torch.eye(3, dtype=torch.float64)[None]
         sample, mean = self.predictor.lattice_predict(
             lattice, torch.zeros_like(lattice), [0.8], [0.2], torch.tensor([1]),
-            torch.zeros_like(lattice))
+            lattice.new_zeros((1, 1, 1)))
         self.assertTrue(torch.all(torch.linalg.eigvalsh(mean) < 0))
         torch.testing.assert_close(sample, mean, atol=0, rtol=0)
 
@@ -164,9 +159,10 @@ class TestLatticePredictor(unittest.TestCase):
                    dict(s=[0.5]), dict(s=[0.6]), dict(s=[-0.1]), dict(s=[float('nan')]),
                    dict(num_atoms=torch.tensor([0])), dict(num_atoms=torch.tensor([1, 2])),
                    dict(num_atoms=torch.tensor([1.0])),
-                   dict(noise=torch.zeros(3, 3, dtype=torch.float64)),
-                   dict(noise=torch.zeros(1, 3, 3, dtype=torch.float32)),
-                   dict(noise=torch.full((1, 3, 3), float('inf'), dtype=torch.float64))]
+                   dict(noise=torch.zeros(1, 3, 3, dtype=torch.float64)),
+                   dict(noise=torch.zeros(2, 1, 1, dtype=torch.float64)),
+                   dict(noise=torch.zeros(1, 1, 1, dtype=torch.float32)),
+                   dict(noise=torch.full((1, 1, 1), float('inf'), dtype=torch.float64))]
         for changes in invalid:
             with self.subTest(changes=changes), self.assertRaises(ValueError):
                 self.predictor.lattice_predict(**(valid | changes))

@@ -246,12 +246,12 @@ class LatticePredictor:
 
     @torch.no_grad()
     def lattice_predict(self, lattice, score, t, s, num_atoms, noise=None):
-        """Shifted VP ancestral step; return (sample, mean).
+        """Return (sample, mean) for a shifted VP ancestral step.
 
-        lattice/score/noise: [B, 3, 3]; t/s/num_atoms: [B], 0 <= s < t <= 1.
-        score is lattice_score from scores_from_prediction, already divided
-        by the marginal standard deviation. Optional noise is raw IID standard
-        normal noise; it is symmetrized here while preserving entry variances.
+        lattice and score have shape [B, 3, 3]. The score is already divided by
+        the marginal standard deviation. t, s and num_atoms have shape [B],
+        with 0 <= s < t <= 1. Optional noise has shape [B, 1, 1] and supplies
+        one standard normal draw per crystal, as in MatterGen.
         """
         if (lattice.ndim != 3 or lattice.shape[1:] != (3, 3)
                 or lattice.shape[0] == 0 or not lattice.is_floating_point()):
@@ -303,10 +303,10 @@ class LatticePredictor:
         score_coeff = (forward_var / alpha_ratio)[:, None, None]
 
         if noise is None:
-            noise = torch.randn_like(lattice)
-        elif (noise.shape != lattice.shape or noise.dtype != lattice.dtype
+            noise = torch.randn_like(x_coeff)
+        elif (noise.shape != x_coeff.shape or noise.dtype != lattice.dtype
                 or noise.device != lattice.device or not torch.isfinite(noise).all()):
-            raise ValueError("noise must be finite and match lattice's shape, dtype and device")
+            raise ValueError("noise must be finite with shape [B, 1, 1] and match lattice's dtype and device")
         symmetric_noise = self.lat_corr.symmetric_noise(noise)
         mean = x_coeff * lattice + score_coeff * score + (1.0 - x_coeff) * limit_mean
         sample = mean + reverse_std[:, None, None] * symmetric_noise

@@ -35,15 +35,15 @@ class TestPeriodicGraph(unittest.TestCase):
         torch.testing.assert_close(vectors, 2 * images.to(frac))
         torch.testing.assert_close(distances, vectors.norm(dim=1))
 
-    def test_returned_lengths_are_inclusive_cutoffs(self):
-        cell = torch.tensor([[1.323, -.296, .416], [-.713, 1.951, .166], [.381, .521, 2.122]],
-                            dtype=torch.float64)
-        frac = cell.new_tensor([[.1, .2, .3], [.8, .6, .4], [.21, .93, .63]])
-        full = build_periodic_graph(frac, cell, 2, max_neighbor=None)
-        for radius in full[3].unique().tolist():
-            within = full[3] <= radius
-            graph = build_periodic_graph(frac, cell, radius, max_neighbor=None)
-            self.assertCountEqual(edge_keys(*graph[:2]), edge_keys(full[0][:, within], full[1][within]))
+    def test_radius_excludes_overlapping_sites_and_includes_cutoff(self):
+        cell = torch.eye(3, dtype=torch.float64)
+        frac = cell.new_zeros((6, 3))
+        frac[:, 0] = cell.new_tensor([0., 0., .005, .01, .02, .25])
+        index, images, _, distances, _, _, _ = build_periodic_graph(
+            frac, cell, cutoff=.02, max_neighbor=None)
+        self.assertCountEqual(index.T.tolist(), [[0, 4], [1, 4], [2, 4], [4, 0], [4, 1], [4, 2]])
+        self.assertTrue((images == 0).all())
+        self.assertTrue(((distances > .01) & (distances <= .02)).all())
 
     def test_skew_cell_and_unwrapped_sites_match_pymatgen(self):
         lattice = torch.tensor([[2., 0., 0.], [5.9, 1., 0.], [.3, .2, 4.]], dtype=torch.float64)
@@ -76,7 +76,7 @@ class TestPeriodicGraph(unittest.TestCase):
         batch = torch.tensor([2, 0, 2, 1])
         lattice = torch.stack([scale * torch.eye(3) for scale in (2, 10, 10, 10)])
         index, images, vectors, distances, counts, ptr, _ = build_periodic_graph(
-            frac, lattice, 2, batch, max_neighbor=1
+            frac, lattice, 2, batch, max_neighbor=6
         )
         self.assertEqual(counts.tolist(), [6, 0, 2, 0])
         self.assertEqual(ptr.tolist(), [0, 6, 6, 8, 8])
@@ -86,6 +86,11 @@ class TestPeriodicGraph(unittest.TestCase):
         expected = torch.einsum("ei,eij->ej", frac[j] - frac[i] + images, lattice[batch[i]])
         torch.testing.assert_close(vectors, expected)
         torch.testing.assert_close(distances, vectors.norm(dim=1))
+        for start, stop in zip(ptr[:-1].tolist(), ptr[1:].tolist()):
+            middle = (start + stop) // 2
+            torch.testing.assert_close(index[:, middle:stop], index[:, start:middle].flip([0]))
+            torch.testing.assert_close(images[middle:stop], -images[start:middle])
+            torch.testing.assert_close(vectors[middle:stop], -vectors[start:middle])
 
     def test_empty_edge_shapes(self):
         for frac, lattice, counts in (
@@ -102,27 +107,38 @@ class TestPeriodicGraph(unittest.TestCase):
                 self.assertEqual(num_edges.tolist(), counts)
                 self.assertEqual(ptr.tolist(), [0] * (len(counts) + 1))
 
-    def test_neighbor_limit_keeps_complete_shell(self):
+    def test_neighbor_limit_cuts_tied_shell_before_mirroring(self):
         frac = torch.zeros(1, 3, dtype=torch.float64)
-        for k, count in ((1, 6), (7, 18), (50, 32)):
+        cell = 2 * torch.eye(3).to(frac)
+        images = [shift for shift in product(range(-2, 3), repeat=3)
+                  if 0 < sum(c * c for c in shift) <= 4]
+        squared = (2 * frac.new_tensor(images)).square().sum(dim=1)
+        ranked = squared[None, :].sort(dim=1).indices[0]
+        for k in (1, 7, 50):
             with self.subTest(max_neighbor=k):
-                graph = build_periodic_graph(frac, 2 * torch.eye(3).to(frac), 4, max_neighbor=k)
-                self.assertEqual(graph[4].tolist(), [count])
-                self.assertEqual(graph[5].tolist(), [0, count])
-        lattice = torch.diag(frac.new_tensor([2., 2. + 5e-7, 4.]))
-        graph = build_periodic_graph(frac, lattice, 3, max_neighbor=1)
-        self.assertCountEqual(graph[1].tolist(), [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0]])
+                selected = set(ranked[:k].tolist())
+                half = [s for i, s in enumerate(images) if i in selected and s < (0, 0, 0)]
+                expected = half + [tuple(-c for c in s) for s in half]
+                graph = build_periodic_graph(frac, cell, cutoff=4, max_neighbor=k)
+                self.assertEqual([tuple(s) for s in graph[1].tolist()], expected)
+                self.assertEqual(graph[5].tolist(), [0, len(expected)])
 
-    def test_neighbor_limit_keeps_reverse_and_drops_unselected_pair(self):
-        frac = torch.tensor([[0, 0, 0], [.1, 0, 0], [.3, 0, 0]])
-        index, images, _, distances, counts, ptr, _ = build_periodic_graph(
-            frac, 10 * torch.eye(3), cutoff=3.1, max_neighbor=1
-        )
-        self.assertCountEqual(index.T.tolist(), [[0, 1], [1, 0], [1, 2], [2, 1]])
-        self.assertTrue((images == 0).all())
-        torch.testing.assert_close(distances.sort().values, torch.tensor([1., 1., 2., 2.]))
-        self.assertEqual(counts.tolist(), [4])
-        self.assertEqual(ptr.tolist(), [0, 4])
+        lattice = torch.diag(frac.new_tensor([2., 2. + 5e-7, 4.]))
+        graph = build_periodic_graph(frac, lattice, 3, max_neighbor=2)
+        self.assertEqual(graph[1].tolist(), [[-1, 0, 0], [1, 0, 0]])
+
+    def test_one_sided_neighbor_survives_only_in_the_canonical_direction(self):
+        for middle, expected in ((.1, [[1, 0], [2, 1], [0, 1], [1, 2]]),
+                                 (.2, [[2, 1], [1, 2]])):
+            with self.subTest(middle=middle):
+                frac = torch.tensor([[0, 0, 0], [middle, 0, 0], [.3, 0, 0]])
+                index, images, _, distances, counts, ptr, _ = build_periodic_graph(
+                    frac, 10 * torch.eye(3), cutoff=3.1, max_neighbor=1)
+                self.assertEqual(index.T.tolist(), expected)
+                self.assertTrue((images == 0).all())
+                torch.testing.assert_close(distances, (frac[index[1]] - frac[index[0]]).norm(dim=1) * 10)
+                self.assertEqual(counts.tolist(), [len(expected)])
+                self.assertEqual(ptr.tolist(), [0, len(expected)])
 
     def check_bounded_image_search(self, device):
         frac = torch.zeros(1, 3, dtype=torch.float64, device=device)
@@ -139,16 +155,16 @@ class TestPeriodicGraph(unittest.TestCase):
             return cartesian_prod(*axes)
 
         cells = (
-            # Uncapped inverse-derived bounds even exceed int64 here.
-            1e-20 * torch.eye(3, dtype=frac.dtype, device=device),
-            frac.new_tensor([[4., 4., 4.], [4., 4.0000001, 4.], [4., 4., 4.0000001]]),
+            # All images within the search cap fall below the minimum distance.
+            (1e-20 * torch.eye(3, dtype=frac.dtype, device=device), False),
+            (frac.new_tensor([[4., 4., 4.], [4., 4.0000001, 4.], [4., 4., 4.0000001]]), True),
         )
-        for cell in cells:
+        for cell, has_edges in cells:
             with (self.subTest(device=device, cell=cell.tolist()),
                   patch("src.geometry.torch.arange", side_effect=bounded_axis),
                   patch("src.geometry.torch.cartesian_prod", side_effect=bounded_product)):
                 graph = build_periodic_graph(frac, cell, max_neighbor=None)
-            self.assertGreater(graph[1].shape[0], 0)
+            self.assertEqual(graph[1].shape[0] > 0, has_edges)
             self.assertTrue((graph[1].abs() <= 5).all())
             self.assertTrue(torch.isfinite(graph[2]).all())
             self.assertTrue(torch.isfinite(graph[3]).all())

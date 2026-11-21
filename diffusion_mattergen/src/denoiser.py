@@ -1,3 +1,5 @@
+import math
+
 import torch
 from torch import nn
 from .gnn import MPBlock, EdgeReadout
@@ -7,15 +9,14 @@ agg_method = MPBlock.agg_messages
 class TimeEmbedding(nn.Module):
     def __init__(self, hidden_dim=64):
         super().__init__()
-        self.time_mlp = nn.Sequential(nn.Linear(1, hidden_dim),
-                                      nn.SiLU(),
-                                      nn.Linear(hidden_dim, hidden_dim))
+        self.hidden_dim = hidden_dim
+        div_term = torch.exp( torch.arange(0, hidden_dim, 2) * (-math.log(10000.0) / hidden_dim) )
+        self.register_buffer("div_term", div_term)
+
     def forward(self, t_graph, batch):
-        '''inputs: t_graph: (B,), batch: (N,)
-           output: t_node_embed: (N, H)'''
-        t_graph_embed = self.time_mlp(t_graph.unsqueeze(-1))
-        t_node_embed = t_graph_embed[batch]
-        return t_node_embed
+        angles = t_graph[:, None] * self.div_term
+        embedding = torch.stack((angles.sin(), angles.cos()), dim=-1).flatten(1)
+        return embedding[:, :self.hidden_dim][batch]
 
 class Denoiser(nn.Module):
     def __init__(self, hidden_dim=64, num_radial=32, num_layers=3, atom_types=118):
@@ -27,6 +28,7 @@ class Denoiser(nn.Module):
         self.node_embedding = nn.Embedding(atom_types+1, hidden_dim)
         self.edge_init_mlp = nn.Sequential(nn.Linear(2*hidden_dim+num_radial, hidden_dim), nn.SiLU(), nn.Linear(hidden_dim, hidden_dim))
         self.time_embedding = TimeEmbedding(hidden_dim)
+        self.atom_latent_emb = nn.Linear(2 * hidden_dim, hidden_dim)
 
         self.num_layers = num_layers
         self.MPlayers = nn.ModuleList([MPBlock(hidden_dim, num_radial) for i in range(num_layers)])
@@ -64,7 +66,9 @@ class Denoiser(nn.Module):
                 edge_batch):
 
         # initialize
-        node_features = self.node_embedding(atomic_numbers) + self.time_embedding(t_graph, batch)
+        atom_features = self.node_embedding(atomic_numbers)
+        time_features = self.time_embedding(t_graph, batch).to(dtype=atom_features.dtype)
+        node_features = self.atom_latent_emb(torch.cat((atom_features, time_features), dim=-1))
         edge_features = self.edge_init(node_features, radial_features, edge_index)
         alphas = edge_features.new_zeros((self.num_layers+1, edge_features.shape[0], 1))
         betas  = edge_features.new_zeros((self.num_layers+1, edge_features.shape[0], 1))

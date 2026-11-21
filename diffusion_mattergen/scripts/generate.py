@@ -119,9 +119,9 @@ def main(argv: list[str] | None = None) -> None:
                         help="Path to statistic.json. Defaults to the file beside the checkpoint.")
     parser.add_argument("-o", "--output", type=Path, default=Path("generated"),
                         help="Directory for CIF files. Defaults to generated.")
-    parser.add_argument("-n", "--num-samples", "--num_samples", type=int, default=1,
+    parser.add_argument("-n", "--num-samples", "--num_samples", type=int, default=640,
                         help="Total crystals to generate. Defaults to 1.")
-    parser.add_argument("-b", "--batch-size", "--batch_size", type=int, default=1,
+    parser.add_argument("-b", "--batch-size", "--batch_size", type=int, default=64,
                         help="Maximum crystals per batch. Defaults to 1.")
     parser.add_argument("--device", help="Torch device, e.g. cpu or cuda:0. Defaults to CUDA if available, else CPU.")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for sampling. Defaults to 42.")
