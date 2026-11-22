@@ -22,6 +22,11 @@ from src.scheduler import LatticeVPScheduler, MaskScheduler, PositionVEScheduler
 if TYPE_CHECKING:
     from pymatgen.core import Structure
 
+# MatterGen's SELECTED_ATOMIC_NUMBERS for unconditional generation.
+MATTERGEN_ALLOWED_ATOMIC_NUMBERS = tuple(
+    z for z in range(1, 84) if z not in {2, 10, 18, 36, 43, 54, 61}
+)
+
 
 def load_model(checkpoint_path: str | Path,
                device: str | torch.device = "cpu") -> JointDiffusion:
@@ -120,10 +125,10 @@ def main(argv: list[str] | None = None) -> None:
                         help="Path to statistic.json. Defaults to the file beside the checkpoint.")
     parser.add_argument("-o", "--output", type=Path, default=Path("generated"),
                         help="Directory for CIF files. Defaults to generated.")
-    parser.add_argument("-n", "--num-samples", "--num_samples", type=int, default=640,
-                        help="Total crystals to generate. Defaults to 1.")
+    parser.add_argument("-n", "--num-samples", "--num_samples", type=int, default=64,
+                        help="Total crystals to generate. Defaults to 64.")
     parser.add_argument("-b", "--batch-size", "--batch_size", type=int, default=64,
-                        help="Maximum crystals per batch. Defaults to 1.")
+                        help="Maximum crystals per batch. Defaults to 64.")
     parser.add_argument("--device", help="Torch device, e.g. cpu or cuda:0. Defaults to CUDA if available, else CPU.")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for sampling. Defaults to 42.")
     args = parser.parse_args(argv)
@@ -143,8 +148,11 @@ def main(argv: list[str] | None = None) -> None:
 
     device = args.device or ("cuda" if torch.cuda.is_available() else "cpu")
     model = load_model(args.checkpoint, device=device)
+    allowed_atomic_numbers = [
+        z for z in MATTERGEN_ALLOWED_ATOMIC_NUMBERS if z <= model.atom_corruption.atom_types
+    ]
     sampler = Sampler(
-        atom_pred=AtomTypePredictor(model.atom_corruption),
+        atom_pred=AtomTypePredictor(model.atom_corruption, allowed_atomic_numbers=allowed_atomic_numbers),
         pos_pred=PositionPredictor(model.position_corruption),
         lat_pred=LatticePredictor(model.lattice_corruption),
         corrector=LangevinCorrector(),

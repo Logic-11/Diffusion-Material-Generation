@@ -26,15 +26,31 @@ python -B -m data inspect $cache
 | 单个 CSV | 文件名为 train/val/test 时使用对应划分，其他文件名使用 train。 |
 | 单个 CIF 或递归包含 CIF 的目录 | 全部进入 train；用相对文件路径作为结构 ID。 |
 
-CSV 必须包含 `material_id` 和 `cif` 列。每个 CIF 文件或 CIF 字符串仍只能描述一个结构。`standardize_cif_text(text)` 也是公开接口，可直接用于内存中的 CIF 文本。
+CSV 必须包含 `material_id` 和 `cif` 列。默认 `strict` 模式要求每个 CIF 文件或 CIF 字符串只描述一个结构。`standardize_cif_text(text)` 可直接用于内存中的 CIF 文本。
 
 默认遇到无效结构就中止，错误包含来源文件、CSV 记录序号和材料 ID；失败不会留下可误认为完整缓存的目标目录。可显式传 `--skip-invalid`，将无效结构记录到 `errors.jsonl`。重复材料 ID（包括跨划分）、CSV 格式错误和磁盘错误始终中止。原始 CSV 不会被修改。
 
-输出目录必须不存在；重建时使用新路径，例如 `mp_20_v2`。批量构建不提供覆盖选项。`--primitive-tolerance` 默认仍为 `0.25` Å，所有结构与单晶体接口使用同一套标准化方法。
+输出目录须为新路径，例如 `mp_20_v2`。默认 `strict` 模式与单晶体接口共用预处理，`--primitive-tolerance` 默认为 `0.25` Å。
+
+### 构建官方 MatterGen MP-20 缓存
+
+在项目根目录激活 `diffusion` 后，运行以下命令。数据来源是官方发布的三份 CSV。
+
+```powershell
+$officialCsv = 'E:\THU\AI2DFT\Diffusion-Material-Generation\data\mattergen\mp_20'
+$matterGenCache = 'data/processed/mp_20_mattergen'
+python -B -m data build $officialCsv --output $matterGenCache --preprocess mattergen
+if ($LASTEXITCODE -ne 0) { throw 'MatterGen cache build failed.' }
+python -B -m data inspect $matterGenCache
+```
+
+`mattergen` 模式按官方流程从 CIF 解析原胞，选取首个解析结果，再按 pymatgen 的默认原胞参数和 Niggli 约化得到缓存数组。它在元数据中记录 `symmetric_lattice: false`，由 `CrystalDataset` 在样本晶格转换为训练 dtype 后做左极分解。
+
+启动训练时，通过 Hydra 参数 `data.input=data/processed/mp_20_mattergen` 选择该缓存。
 
 ## 数据集存储格式
 
-核心数组采用 [MatterGen 数据集的字段和拼接布局](https://github.com/microsoft/mattergen/blob/main/mattergen/common/data/dataset.py)。官方对称晶格变换可在加载阶段执行；本项目延续单晶体接口，在预处理阶段完成同一极分解表示。额外的 JSON 元数据是本项目的溯源格式，不等同于官方条件属性缓存。
+核心数组采用 MatterGen 数据集的字段和拼接布局。`strict` 模式缓存已对称化的晶格，`mattergen` 模式缓存 Niggli 约化后的晶格。JSON 元数据保存缓存的预处理方式和来源。 [官方数据集实现](https://github.com/microsoft/mattergen/blob/main/mattergen/common/data/dataset.py)
 
 ```text
 data/processed/mp_20/

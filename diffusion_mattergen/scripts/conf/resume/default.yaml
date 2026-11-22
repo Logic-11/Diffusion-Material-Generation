@@ -1,0 +1,8 @@
+# Restore training state before starting the loop.
+enabled: false
+# When enabled and null, load latest.pt from this run's output directory.
+# Set data.output to the existing run directory to continue it in place.
+checkpoint_path: null
+# Also save latest.pt at this optimizer-step interval, including mid-epoch.
+# Applies to fresh and resumed runs. Null saves at epoch and step-limit boundaries.
+save_every_n_steps: null

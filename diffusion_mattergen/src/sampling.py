@@ -1,6 +1,7 @@
 import json
 import logging
-from collections.abc import Mapping
+from collections.abc import Iterable, Mapping
+from numbers import Integral
 from pathlib import Path
 
 import math
@@ -106,13 +107,23 @@ class LangevinCorrector:
         return polar_decomposition(corrected)
 
 class AtomTypePredictor:
-    def __init__(self, atom_corr):
+    def __init__(self, atom_corr, *, allowed_atomic_numbers: Iterable[int] | None = None):
         if atom_corr.mask_type != 0:
             raise ValueError("AtomTypePredictor requires class order [MASK=0, Z=1, ...]")
         self.atom_corr = atom_corr
         # Use the same rounded cumulative schedule as the official D3PM and
         # training loss, rather than the algebraic (K-k)/K approximation.
         self._keep_probs = _standard_mask_keep_probs(atom_corr.scheduler.timesteps)
+        self._allowed_mask = None
+        if allowed_atomic_numbers is not None:
+            numbers = list(allowed_atomic_numbers)
+            if not numbers or any(
+                isinstance(z, bool) or not isinstance(z, Integral)
+                or not 1 <= z <= atom_corr.atom_types for z in numbers
+            ):
+                raise ValueError("allowed_atomic_numbers must contain supported real elements")
+            self._allowed_mask = torch.zeros(atom_corr.atom_types + 1, dtype=torch.bool)
+            self._allowed_mask[numbers] = True
 
     @torch.no_grad()
     def posterior_logits(self, atomic_numbers, atom_logits, t, batch):
@@ -121,12 +132,12 @@ class AtomTypePredictor:
         atomic_numbers: int64 [M], including MASK=0; atom_logits: float [M, C]
         predicting clean types, with C=atom_corr.atom_types+1; t: float [B] in
         [0,1]; batch: int64 [M]. All atom tensors share a device. Negative
-        infinity may exclude classes, but each logit row needs a finite entry.
+        infinity may exclude classes, but each row needs a finite allowed logit.
 
         This is one discrete reverse step k -> k-1, where
-        k=floor(t*(K-1))+1. In particular t=0 selects the LAST reverse step
-        k=1, not an identity update. Like MatterGen's default predictor, this
-        method does not skip discrete steps or force the final MASK mass to 0.
+        k=floor(t*(K-1))+1. At t=0 this selects the last reverse step k=1.
+        An element whitelist constrains the predicted clean classes. The
+        absorbing-state posterior can still retain MASK at intermediate steps.
 
         For row-stochastic Q_k and clean prediction pi=softmax(atom_logits):
         logits[j] = log((pi @ Q_bar_{k-1})[j] + 1e-20)
@@ -138,9 +149,16 @@ class AtomTypePredictor:
                 or atom_logits.shape[0] == 0
                 or atom_logits.shape[1] != self.atom_corr.atom_types + 1):
             raise ValueError("atom_logits must be floating [M, atom_types+1], with MASK first")
+
+        logits = (atom_logits.float() if atom_logits.dtype in (torch.float16, torch.bfloat16)
+                  else atom_logits)
+        if self._allowed_mask is not None:
+            allowed_mask = self._allowed_mask.to(device=logits.device)
+            self._allowed_mask = allowed_mask
+            logits = logits.masked_fill(~allowed_mask, -torch.inf)
         if (torch.isnan(atom_logits).any() or torch.isposinf(atom_logits).any()
-                or not torch.isfinite(atom_logits).any(dim=-1).all()):
-            raise ValueError("atom_logits may contain -inf, but each row needs a finite entry and no NaN/+inf")
+                or not torch.isfinite(logits).any(dim=-1).all()):
+            raise ValueError("atom_logits need a finite allowed entry per row and no NaN/+inf")
         num_atoms, num_classes = atom_logits.shape
         if (atomic_numbers.shape != (num_atoms,) or atomic_numbers.dtype != torch.long
                 or atomic_numbers.device != atom_logits.device
@@ -158,8 +176,6 @@ class AtomTypePredictor:
                 or torch.any(batch < 0) or torch.any(batch >= t.numel())):
             raise ValueError("batch must be int64 [M] indexing the graph times on the logits device")
 
-        logits = (atom_logits.float() if atom_logits.dtype in (torch.float16, torch.bfloat16)
-                  else atom_logits)
         k_atom = self.atom_corr.scheduler.step_from_time(t)[batch]
         return _absorbing_posterior_logits(
             logits.softmax(dim=-1), atomic_numbers, k_atom, self._keep_probs,

@@ -1,0 +1,77 @@
+{
+  "format": "diffusion_mattergen.crystal_arrays",
+  "format_version": 1,
+  "created_utc": "2026-11-22T14:24:57.453082+00:00",
+  "source_root": "E:\\THU\\AI2DFT\\Diffusion-Material-Generation\\data\\mattergen\\mp_20",
+  "standardization": {
+    "preprocess": "mattergen",
+    "primitive_tolerance_angstrom": null,
+    "primitive": true,
+    "niggli": true,
+    "symmetric_lattice": false,
+    "lattice_vectors": "rows",
+    "length_unit": "angstrom"
+  },
+  "split_policy": "preserve source CSV splits and row order; CIF directories use train",
+  "core_files": {
+    "frac_coords": "pos.npy",
+    "lattice": "cell.npy",
+    "atomic_numbers": "atomic_numbers.npy",
+    "num_atoms": "num_atoms.npy",
+    "structure_id": "structure_id.npy"
+  },
+  "skip_invalid": false,
+  "num_structures": 45229,
+  "num_atoms": 464092,
+  "num_skipped": 0,
+  "sources": [
+    {
+      "path": "train.csv",
+      "split": "train",
+      "sha256": "2c3748db25cebdb3bd741e6309e31f4a7fdab959c7cad28847ec1621c1ba1e07"
+    },
+    {
+      "path": "val.csv",
+      "split": "val",
+      "sha256": "9fc61548f8b09ddcdffc0def55d27238335e63dc52c35dd1b0c4acc1b55c9084"
+    },
+    {
+      "path": "test.csv",
+      "split": "test",
+      "sha256": "5f131ad37b64d4ecf588ebcd40031f6bdfbb05d4ea77fa82500e088777461311"
+    }
+  ],
+  "splits": {
+    "train": {
+      "num_structures": 27136,
+      "num_atoms": 279553,
+      "min_atoms": 1,
+      "max_atoms": 20,
+      "num_source_rows": 27136,
+      "num_skipped": 0,
+      "rows_with_parser_warnings": 1
+    },
+    "val": {
+      "num_structures": 9047,
+      "num_atoms": 92454,
+      "min_atoms": 1,
+      "max_atoms": 20,
+      "num_source_rows": 9047,
+      "num_skipped": 0,
+      "rows_with_parser_warnings": 0
+    },
+    "test": {
+      "num_structures": 9046,
+      "num_atoms": 92085,
+      "min_atoms": 1,
+      "max_atoms": 20,
+      "num_source_rows": 9046,
+      "num_skipped": 0,
+      "rows_with_parser_warnings": 1
+    }
+  },
+  "versions": {
+    "numpy": "2.4.6",
+    "pymatgen": "2026.9.24"
+  }
+}

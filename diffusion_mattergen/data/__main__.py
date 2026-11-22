@@ -33,14 +33,17 @@ def _write_npz(path: Path, arrays: dict[str, np.ndarray], overwrite: bool) -> No
 
 
 def _dataset_main(argv) -> int:
-    from .cache import build_dataset, inspect_dataset
+    from .cache import PREPROCESS_MODES, build_dataset, inspect_dataset
 
     parser = argparse.ArgumentParser(prog="python -m data", description="Build or inspect standardized crystal caches.")
     commands = parser.add_subparsers(dest="command", required=True)
     build = commands.add_parser("build", help="Convert split CSVs or CIF files into NumPy caches")
     build.add_argument("source", type=Path, help="train/val/test CSV directory, one CSV, or CIF file/directory")
     build.add_argument("--output", type=Path, required=True, help="new cache directory (must not exist)")
-    build.add_argument("--primitive-tolerance", type=float, default=DEFAULT_PRIMITIVE_TOLERANCE)
+    build.add_argument("--preprocess", choices=PREPROCESS_MODES, default="strict",
+                       help="CIF preprocessing method (default: strict)")
+    build.add_argument("--primitive-tolerance", type=float, default=DEFAULT_PRIMITIVE_TOLERANCE,
+                       help="Primitive-cell site tolerance for strict preprocessing, in angstrom")
     build.add_argument("--skip-invalid", action="store_true", help="skip invalid crystals and record errors.jsonl")
     inspect = commands.add_parser("inspect", help="Read cache counts and preprocessing metadata")
     inspect.add_argument("cache", type=Path)
@@ -53,7 +56,8 @@ def _dataset_main(argv) -> int:
     try:
         if args.command == "build":
             result = build_dataset(args.source, args.output, primitive_tolerance=args.primitive_tolerance,
-                                   skip_invalid=args.skip_invalid, progress=progress)
+                                   preprocess=args.preprocess, skip_invalid=args.skip_invalid,
+                                   progress=progress)
         else:
             result = inspect_dataset(args.cache)
     except (ValueError, OSError, csv.Error) as exc:

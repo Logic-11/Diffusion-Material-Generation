@@ -1,13 +1,14 @@
 defaults:
   - dataloader: default
   - model: joint_diffusion
+  - resume: default
   - _self_
 
 # Relative paths start at the directory where training is launched.
 data:
   input: data_cache/mp_20
   output: output/${now:%Y-%m-%d}/${now:%H-%M-%S-%f}
-  batchsize: 2
+  batchsize: 64
 
 trainer:
   seed: 42
