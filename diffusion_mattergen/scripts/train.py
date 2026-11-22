@@ -1,4 +1,5 @@
 import json
+import logging
 import math
 import os
 import random
@@ -23,6 +24,7 @@ if __name__ == "__main__" and not __package__:
 from data import CrystalDataset, collate_crystals
 from src.diffusion import JointDiffusion
 
+logger = logging.getLogger(__name__)
 CONFIG_FILE = Path(__file__).resolve().parent / "conf" / "train.yaml"
 GRADIENT_CLIPPERS = {
     'value': torch.nn.utils.clip_grad_value_,
@@ -288,8 +290,9 @@ def main(cfg: DictConfig) -> None:
             if total_batches == 0:
                 break
 
+            epoch_lr = optimizer.param_groups[0]['lr']
             with tqdm(total=total_batches,
-                      desc=f"Train epoch {epoch+1}/{trainer.max_epochs}",
+                      desc=f"Train epoch {epoch + 1}",
                       unit="batch",
                       dynamic_ncols=True) as pbar:
                 for batch in train_loader:
@@ -328,6 +331,15 @@ def main(cfg: DictConfig) -> None:
                 elif lr_scheduler is not None:
                     lr_scheduler.step()
 
+            logger.info(
+                "Train epoch %d%s | global_step=%d | loss_train=%.6f | loss_val=%s | lr=%.3e",
+                epoch + 1,
+                " (partial)" if partial_epoch else "",
+                step,
+                epoch_loss,
+                f"{val_loss:.6f}" if val_loss is not None else "N/A",
+                epoch_lr,
+            )
             latest_path = save_model(
                 epoch, epoch_loss, val_loss, diffusion_model, optimizer, lr_scheduler,
                 output_dir=output_dir, configs=run_config, global_step=step,
