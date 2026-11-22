@@ -60,7 +60,7 @@ def coordinate_target(noise, sigmas, sigmas_norm):
 
 
 class JointDiffusion(nn.Module):
-    def __init__(self, denoiser, atom_corruption, position_corruption, lattice_corruption, 
+    def __init__(self, denoiser, atom_corruption, position_corruption, lattice_corruption,
                  cutoff=7.0, max_neighbor=50, max_offset_integer=3, loss_fn=None,
                  max_cell_images_per_dim=5):
         super().__init__()
@@ -194,16 +194,40 @@ class JointDiffusion(nn.Module):
             batch=noisy["batch"], max_neighbor=self.max_neighbor,
             max_cell_images_per_dim=self.max_cell_images_per_dim)
         edge_index, edge_image, vectors, distances, num_edges, edge_ptr, edge_batch = edges
+        # Rebuild angles from current noisy geometry.
+        if getattr(self.denoiser, "use_triplets", False):
+            id3_center_b, id3_center_c, cos_phi = geometry.build_triplet_graph(
+                edge_index,
+                vectors,
+                distances,
+                num_nodes=noisy["frac_coords"].shape[0],
+            )
+        else:
+            id3_center_b = edge_index.new_empty(0)
+            id3_center_c = edge_index.new_empty(0)
+            cos_phi = vectors.new_empty(0)
+        # GemNet's edge direction points from the neighbor image to the center.
+        edge_lattice_cosines = F.cosine_similarity(
+            -vectors[:, None, :], noisy["lattice"][edge_batch], dim=-1,
+        )
         graph = {
             "edge_index": edge_index, "edge_vectors": vectors,
             "edge_distance": distances, "num_edges": num_edges,
             "edge_ptr": edge_ptr, "edge_batch": edge_batch,
             "radial_features": self.radial_basis(distances),
+            "edge_lattice_cosines": edge_lattice_cosines,
+            "id3_center_b": id3_center_b,
+            "id3_center_c": id3_center_c,
+            "cos_phi": cos_phi,
         }
         raw = self.denoiser(atomic_numbers=noisy["atomic_numbers"],
                             t_graph=t, batch=noisy["batch"], **graph)
+        atom_logits = raw["atom_logits"]
+        if getattr(self.denoiser, "atom_class_order", "mask_first") == "mask_last":
+            # The local D3PM uses atomic numbers as class indices, with MASK at zero.
+            atom_logits = torch.cat((atom_logits[:, -1:], atom_logits[:, :-1]), dim=-1)
         prediction = {
-            "atom_logits": raw["atom_logits"],
+            "atom_logits": atom_logits,
             "coord_score_times_std": geometry.cart_to_frac(raw["coord_cart"], noisy["lattice"], noisy["batch"]),
             "lattice_score_times_std": raw["lattice_pred"],
         }

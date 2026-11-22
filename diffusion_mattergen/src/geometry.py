@@ -250,3 +250,74 @@ def build_periodic_graph(frac, lattice, cutoff=7.0, batch=None, max_neighbor=50,
     num_edges = torch.bincount(edge_batch, minlength=lattice.shape[0])
     edge_ptr = torch.cat((num_edges.new_zeros(1), num_edges.cumsum(0)))
     return edge_index, edge_image, edge_vector, edge_distance, num_edges, edge_ptr, edge_batch
+
+
+def reverse_edge_ids(num_edges, edge_ptr, edge_batch):
+    """Map each edge to its paired reverse in a graph from build_periodic_graph."""
+    edge_ids = torch.arange(edge_batch.numel(), device=edge_batch.device)
+    half_sizes = (num_edges // 2)[edge_batch]
+    # Each crystal stores its canonical half and its matched reverse half.
+    in_first_half = edge_ids < edge_ptr[edge_batch] + half_sizes
+    return edge_ids + torch.where(in_first_half, half_sizes, -half_sizes)
+
+
+def build_triplet_graph(edge_index, edge_vectors, edge_distance, num_nodes):
+    """Build all ordered pairs of distinct edges sharing a center.
+
+    For each edge ``a -> c``, every other edge ``a -> b`` defines an angle at
+    atom ``a``. Distinct periodic images have distinct edge IDs.
+    """
+    if (edge_index.ndim != 2 or edge_index.shape[0] != 2
+            or edge_index.dtype != torch.long):
+        raise ValueError("edge_index must be an int64 tensor with shape [2,E]")
+    num_edges = edge_index.shape[1]
+    if (edge_vectors.ndim != 2 or edge_vectors.shape != (num_edges, 3)
+            or not edge_vectors.is_floating_point()):
+        raise ValueError("edge_vectors must be a floating tensor with shape [E,3]")
+    if (edge_distance.shape != (num_edges,)
+            or edge_distance.dtype != edge_vectors.dtype
+            or edge_distance.device != edge_vectors.device):
+        raise ValueError("edge_distance must match edge_vectors dtype/device")
+    if not isinstance(num_nodes, Integral) or num_nodes < 0:
+        raise ValueError("num_nodes must be a nonnegative integer")
+
+    if num_edges == 0:
+        empty = edge_index.new_empty(0)
+        return empty, empty, edge_vectors.new_empty(0)
+
+    centers = edge_index[0]
+    if (torch.any(centers < 0) or torch.any(centers >= num_nodes)
+            or torch.any(edge_index[1] < 0)
+            or torch.any(edge_index[1] >= num_nodes)):
+        raise ValueError("edge_index contains an atom outside 0..num_nodes-1")
+
+    edges_by_center = centers.argsort(stable=True)
+    sorted_centers = centers[edges_by_center]
+    degree = torch.bincount(centers, minlength=num_nodes)
+    center_starts = degree.cumsum(0) - degree
+
+    # Repeat each receiver once for every edge at its center.
+    repeats = degree[sorted_centers]
+    receiver = torch.arange(num_edges, device=edge_index.device).repeat_interleave(repeats)
+    repeat_starts = repeats.cumsum(0) - repeats
+    sender_rank = torch.arange(receiver.numel(), device=edge_index.device) - repeat_starts[receiver]
+    sender = center_starts[sorted_centers[receiver]] + sender_rank
+
+    keep = sender != receiver
+    id3_b = edges_by_center[sender[keep]]
+    id3_c = edges_by_center[receiver[keep]]
+
+    valid = (edge_distance > 0) & torch.isfinite(edge_distance)
+    inverse_distance = torch.where(
+        valid,
+        edge_distance.reciprocal(),
+        torch.zeros_like(edge_distance),
+    )
+    unit_vectors = edge_vectors * inverse_distance[:, None]
+    cos_phi = (unit_vectors[id3_b] * unit_vectors[id3_c]).sum(dim=-1)
+    cos_phi = torch.where(
+        torch.isfinite(cos_phi),
+        cos_phi.clamp(-1.0, 1.0),
+        cos_phi.new_zeros(cos_phi.shape),
+    )
+    return id3_b, id3_c, cos_phi

@@ -39,6 +39,15 @@ def load_model(checkpoint_path: str | Path,
         )
     model_config = checkpoint["model_config"]
     diffusion_config = checkpoint["diffusion_config"]
+    state_dict = checkpoint["model_state_dict"]
+    if "denoiser.output_head.2.weight" in state_dict:
+        raise ValueError(
+            "This checkpoint uses the previous denoiser architecture. "
+            "Generate with the training revision or train a checkpoint with the GemNet-T denoiser."
+        )
+    atom_class_order = diffusion_config.get("atom_class_order", Denoiser.atom_class_order)
+    if atom_class_order != Denoiser.atom_class_order:
+        raise ValueError(f"Expected MASK-last denoiser weights, got {atom_class_order!r}")
 
     denoiser = Denoiser(**model_config)
     atom_corruption = AtomTypeCorruption(
@@ -60,14 +69,6 @@ def load_model(checkpoint_path: str | Path,
         loss_fn=JointDiffusionLoss(**diffusion_config["loss"]),
         **diffusion_config["graph"],
     )
-    state_dict = checkpoint["model_state_dict"]
-    atom_class_order = diffusion_config.get("atom_class_order", "mask_last")
-    if atom_class_order == "mask_last":
-        for name in ("denoiser.output_head.2.weight", "denoiser.output_head.2.bias"):
-            value = state_dict[name]
-            state_dict[name] = torch.cat((value[-1:], value[:-1]), dim=0)
-    elif atom_class_order != "mask_first":
-        raise ValueError(f"Unknown atom_class_order: {atom_class_order}")
     model.load_state_dict(state_dict, strict=True)
     model.to(device)
     model.eval()

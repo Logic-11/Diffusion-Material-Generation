@@ -3,8 +3,10 @@ denoiser:
   _target_: src.denoiser.Denoiser
   hidden_dim: 512
   num_radial: 128
+  num_spherical: 7         # Number of angular basis functions.
   num_layers: 4
   atom_types: 100          # Real elements. MASK uses index zero.
+  use_triplets: true
 atom_corruption:
   _target_: src.corruption.AtomTypeCorruption
   atom_types: ${model.denoiser.atom_types}

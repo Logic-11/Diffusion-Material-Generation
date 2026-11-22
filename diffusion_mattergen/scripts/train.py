@@ -152,12 +152,14 @@ def save_model(epoch, epoch_loss, val_loss, model: JointDiffusion, optimizer, lr
             'num_radial': model.denoiser.num_radial,
             'num_layers': model.denoiser.num_layers,
             'atom_types': model.atom_corruption.atom_types,
+            'num_spherical': model.denoiser.num_spherical,
+            'use_triplets': model.denoiser.use_triplets,
         },
         'diffusion_config': {
             'timesteps': model.timesteps,
             'input_mask_type': model.atom_corruption.mask_type,
-            'atom_class_order': 'mask_first',
-            'clean_mask_probability': 'learned; first logit column',
+            'atom_class_order': getattr(model.denoiser, 'atom_class_order', 'mask_first'),
+            'clean_mask_probability': 'learned in the first column of the joint diffusion output',
             'time_sampling': f'uniform time in [{t_min:g}, 1)',
             't_min': t_min,
             'position': {
