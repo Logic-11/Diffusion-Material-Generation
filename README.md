@@ -8,7 +8,7 @@
 | v1 | [`v1_periodic_gnn`](v1_periodic_gnn) | 基线：周期近邻图 + 消息传递 GNN + 连续扩散 |
 | v2 | [`v2_equivariant_gnn`](v2_equivariant_gnn) | 旋转不变 **Gram 晶格表示** + 相对位移消息 + 置换对称开关 |
 | v3 | [`v3_d3pm`](v3_d3pm) | 原子种类改用 **D3PM 离散扩散**（mask 型），并用查表嵌入 |
-| v4 | [`v4_gemnet_triplet`](v4_gemnet_triplet) | 基于合作者新版接口，加入 GemNet-T 三体角消息、连续时间扩散、统一训练与采样 |
+| v4 | [`diffusion_mattergen`](diffusion_mattergen) | 基于合作者新版接口，加入 GemNet-T 三体角消息、连续时间扩散、统一训练与采样 |
 
 ## 每版在做什么
 
@@ -57,7 +57,7 @@ python v3_d3pm/tests/test_d3pm.py
 
 python v3_d3pm/scripts/train.py --steps 4000 --samples 4
 
-Set-Location v4_gemnet_triplet
+Set-Location diffusion_mattergen
 python -B -m unittest discover -s test -v
 python -B -m scripts.train data.input=data_cache/mp_20 trainer.max_steps=1 trainer.device=cpu
 ```
