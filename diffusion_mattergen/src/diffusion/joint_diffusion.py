@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from . import geometry
-from .gnn import RadialBasis
+from ..backbone import geometry
+from ..backbone.gnn import RadialBasis
 from .loss import JointDiffusionLoss
 
 

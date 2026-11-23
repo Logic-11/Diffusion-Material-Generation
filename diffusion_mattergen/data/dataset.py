@@ -8,7 +8,7 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
-from src.geometry import polar_decomposition
+from src.backbone.geometry import polar_decomposition
 
 from .cache import CORE_FILES, SPLITS, inspect_dataset
 

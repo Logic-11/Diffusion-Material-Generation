@@ -9,15 +9,15 @@ if __name__ == "__main__" and not __package__:
     # Allow direct script execution to import src from the project root.
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.corruption import AtomTypeCorruption, LatticeCorruption, PositionCorruption
-from src.denoiser import Denoiser
-from src.diffusion import JointDiffusion
-from src.loss import JointDiffusionLoss
-from src.sampling import (
-    AtomTypePredictor, LangevinCorrector, LatticePredictor, PositionPredictor,
-    Sampler, sample_n, sample_prior,
-)
-from src.scheduler import LatticeVPScheduler, MaskScheduler, PositionVEScheduler
+from src.backbone.denoiser import Denoiser
+from src.diffusion.corruption import AtomTypeCorruption, LatticeCorruption, PositionCorruption
+from src.diffusion.joint_diffusion import JointDiffusion
+from src.diffusion.loss import JointDiffusionLoss
+from src.diffusion.sampling.correctors import LangevinCorrector
+from src.diffusion.sampling.pc_sampler import Sampler
+from src.diffusion.sampling.predictors import AtomTypePredictor, LatticePredictor, PositionPredictor
+from src.diffusion.sampling.prior import sample_n, sample_prior
+from src.diffusion.scheduler import LatticeVPScheduler, MaskScheduler, PositionVEScheduler
 
 if TYPE_CHECKING:
     from pymatgen.core import Structure

@@ -1,9 +1,14 @@
 import logging
 import math
+import os
 import random
 import sys
 from functools import partial
 from pathlib import Path
+
+if __name__ == "__main__" and sys.platform == "win32":
+    # NumPy's MKL and PyTorch can load conflicting OpenMP runtimes on Windows.
+    os.environ.setdefault("MKL_THREADING_LAYER", "SEQUENTIAL")
 
 import hydra
 import numpy as np
@@ -16,7 +21,7 @@ from tqdm.auto import tqdm
 if __name__ == "__main__" and not __package__:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.diffusion import JointDiffusion
+from src.diffusion.joint_diffusion import JointDiffusion
 from src.training.checkpoint import (
     EpochProgress,
     TrainingState,

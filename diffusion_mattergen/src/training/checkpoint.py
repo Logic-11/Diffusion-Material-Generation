@@ -13,7 +13,7 @@ import numpy as np
 import torch
 from hydra.utils import to_absolute_path
 
-from src.diffusion import JointDiffusion
+from src.diffusion.joint_diffusion import JointDiffusion
 
 from .distributed import TrainingProcess
 

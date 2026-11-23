@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from .geometry import wrap_frac
+from ..backbone.geometry import wrap_frac
 
 class AtomTypeCorruption(nn.Module):
     def __init__(self, scheduler, atom_types=118, mask_type=0):

@@ -2,7 +2,7 @@
 
 将有序晶体转换为模型使用的原胞表示。支持单个 CIF、内存中的 `pymatgen.Structure`，以及 MP-20 这样的 CSV 数据集。每个结构都经过原胞提取、Niggli 约化和对称正定晶格变换。
 
-单晶体接口返回四个 NumPy 数组或保存 NPZ；批量接口保存按划分组织的 NPY 缓存。`CrystalDataset` 和 `collate_crystals` 提供可直接传给 `src.geometry.build_periodic_graph` 的批次。
+单晶体接口返回四个 NumPy 数组或保存 NPZ；批量接口保存按划分组织的 NPY 缓存。`CrystalDataset` 和 `collate_crystals` 提供可直接传给 `src.backbone.geometry.build_periodic_graph` 的批次。
 
 ## 批量处理 MP-20
 
@@ -83,7 +83,7 @@ data/processed/mp_20/
 import torch
 from torch.utils.data import DataLoader
 from data import CrystalDataset, collate_crystals
-from src.geometry import build_periodic_graph
+from src.backbone.geometry import build_periodic_graph
 
 def main():
     cache = r"E:\THU\AI2DFT\Diffusion-Material-Generation\diffusion_mattergen\data\processed\mp_20"
@@ -229,7 +229,7 @@ assert np.allclose(lattice, lattice.T) and np.all(np.linalg.eigvalsh(lattice) > 
 ```python
 import numpy as np
 import torch
-from src.geometry import frac_to_cart
+from src.backbone.geometry import frac_to_cart
 
 with np.load("results/Ba2PrCu3O7.npz", allow_pickle=False) as cell:
     atomic_numbers = torch.from_numpy(cell["atomic_numbers"])
