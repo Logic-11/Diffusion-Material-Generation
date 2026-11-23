@@ -15,7 +15,6 @@ from hydra.utils import to_absolute_path
 
 from src.diffusion import JointDiffusion
 
-from .config import default_trainer
 from .distributed import TrainingProcess
 
 
@@ -120,19 +119,6 @@ def _write_checkpoint(checkpoint, output_dir, checkpoint_type):
     finally:
         temporary_path.unlink(missing_ok=True)
     return checkpoint_path
-
-
-def save_model(epoch, epoch_loss, val_loss, model: JointDiffusion, optimizer, lr_scheduler,
-               *, output_dir='./output', configs=None, global_step=None, type='latest',
-               partial_epoch=False, t_min=None, training_state=None):
-    if t_min is None:
-        t_min = default_trainer().t_min
-    checkpoint = _build_checkpoint(
-        epoch, epoch_loss, val_loss, model, optimizer, lr_scheduler,
-        configs=configs, global_step=global_step, partial_epoch=partial_epoch,
-        t_min=t_min, training_state=training_state,
-    )
-    return _write_checkpoint(checkpoint, output_dir, type)
 
 
 def save_training_checkpoint(

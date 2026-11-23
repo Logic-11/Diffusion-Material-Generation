@@ -59,58 +59,8 @@ def polar_decomposition(lattice):
     return 0.5 * (symmetric + symmetric.transpose(-1, -2))
 
 
-def periodic_displace(fracs, lattice):
-    """Pair displacements [N, N, 3] for one crystal, using rounded fractional images.
-
-    Component-wise rounding is retained from the original helper. Complete
-    periodic radius graphs, including multiple images, are built by the dataset.
-    """
-    if fracs.ndim != 2 or fracs.shape[1] != 3 or lattice.shape != (3, 3):
-        raise ValueError("Expected coordinates [N, 3] and one lattice [3, 3]")
-    frac_displace = fracs[None, :, :] - fracs[:, None, :]
-    frac_displace = frac_displace - torch.round(frac_displace)
-    return frac_displace @ lattice
-
-
 def periodic_distance(cart_displace):
     return torch.linalg.norm(cart_displace, dim=-1)
-
-
-def build_neighbor_graph(frac, lattice, cutoff, batch=None):
-    """Return concatenated indices [2, E], vectors [E, 3], distances [E].
-
-    Pass frac [N_total, 3], lattice [B, 3, 3] and batch [N_total] for multiple
-    crystals. A single crystal also accepts lattice [3, 3] without batch.
-    Only within-crystal pairs are evaluated; self pairs are excluded.
-    This helper uses rounded fractional images, not a complete periodic radius graph.
-    """
-    if frac.ndim != 2 or frac.shape[1] != 3:
-        raise ValueError("frac must have shape [N_total, 3]")
-    if lattice.shape == (3, 3):
-        lattice = lattice[None]
-    if lattice.ndim != 3 or lattice.shape[1:] != (3, 3):
-        raise ValueError("lattice must have shape [3, 3] or [B, 3, 3]")
-    if batch is None:
-        if lattice.shape[0] != 1:
-            raise ValueError("batch is required when passing multiple lattices")
-        batch = torch.zeros(frac.shape[0], dtype=torch.long, device=frac.device)
-    _validate_batch(batch, frac.shape[0], lattice.shape[0], frac.device)
-
-    edge_indices, edge_vectors, edge_distances = [], [], []
-    for graph in range(lattice.shape[0]):
-        nodes = (batch == graph).nonzero(as_tuple=True)[0]
-        displaces = periodic_displace(frac[nodes], lattice[graph])
-        distances = periodic_distance(displaces)
-        keep = distances < cutoff
-        keep.fill_diagonal_(False)
-        local_edges = keep.nonzero().T
-        edge_indices.append(nodes[local_edges])
-        edge_vectors.append(displaces[keep])
-        edge_distances.append(distances[keep])
-    if not edge_indices:
-        return (torch.empty((2, 0), dtype=torch.long, device=frac.device),
-                frac.new_zeros((0, 3)), frac.new_zeros(0))
-    return torch.cat(edge_indices, dim=1), torch.cat(edge_vectors), torch.cat(edge_distances)
 
 
 @torch.no_grad()

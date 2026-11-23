@@ -39,7 +39,7 @@ def load_model(checkpoint_path: str | Path,
     required = {"model_config", "diffusion_config", "model_state_dict"}
     if not isinstance(checkpoint, dict) or not required.issubset(checkpoint):
         raise ValueError(
-            "Expected a checkpoint from scripts.train.save_model containing "
+            "Expected a training checkpoint containing "
             "model_config, diffusion_config and model_state_dict."
         )
     model_config = checkpoint["model_config"]

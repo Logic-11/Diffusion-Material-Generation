@@ -23,7 +23,6 @@ from src.training.checkpoint import (
     read_resume_checkpoint,
     restore_rng_state,
     restore_training_state,
-    save_model as save_model,
     save_training_checkpoint,
 )
 from src.training.config import CONFIG_FILE, GRADIENT_CLIPPERS, default_trainer, validate_config

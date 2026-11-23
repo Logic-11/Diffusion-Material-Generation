@@ -7,58 +7,6 @@ from .gnn import RadialBasis
 from .loss import JointDiffusionLoss
 
 
-def mask_atomtype(atomic_numbers, t):
-    """Mask concatenated atoms [N_total] with scalar or per-atom probabilities."""
-    t = torch.as_tensor(t, dtype=torch.get_default_dtype(), device=atomic_numbers.device)
-    if t.ndim == 2 and t.shape[-1] == 1:
-        t = t.squeeze(-1)
-    mask = torch.bernoulli(t.expand_as(atomic_numbers)).bool()
-    return atomic_numbers.masked_fill(mask, 0), mask
-
-
-def atomtype_ce(logits, atomic_numbers, mask):
-    """Mean cross entropy over selected atoms, using clean 1-based atomic numbers."""
-    if not torch.any(mask):
-        return logits.sum() * 0.0
-    return F.cross_entropy(logits[mask], atomic_numbers[mask])
-
-
-def add_coord_noise(frac_0, sigma_t, noise=None):
-    """frac_0/noise [N_total, 3], sigma_t [N_total, 1] (or a scalar).
-
-    Expand crystal scales with sigma_graph[batch, None] before calling.
-    """
-    if noise is None:
-        noise = torch.randn_like(frac_0)
-    return geometry.wrap_frac(frac_0 + sigma_t * noise), noise
-
-
-def periodic_noise(displace, sigmas):
-    """Return the unnormalized wrapped-normal target for each displacement.
-
-    displace has shape [N_total, 3], sigmas [N_total, 1].
-    Other broadcastable shapes are also accepted for schedule estimation.
-    The scale must be positive; timestep zero is not used for this target.
-    """
-    displace = torch.as_tensor(displace)
-    if not displace.is_floating_point():
-        displace = displace.to(torch.get_default_dtype())
-    sigmas = torch.as_tensor(sigmas, dtype=displace.dtype, device=displace.device)
-    k = torch.arange(-10, 11, dtype=displace.dtype, device=displace.device)
-    image_displacements = displace.unsqueeze(-1) + k
-    image_sigmas = sigmas.unsqueeze(-1)
-    scaled_displacements = image_displacements / image_sigmas
-    weights = torch.softmax(-0.5 * scaled_displacements.square(), dim=-1)
-    return torch.sum(weights * scaled_displacements / image_sigmas, dim=-1)
-
-
-
-def coordinate_target(noise, sigmas, sigmas_norm):
-    """Normalized targets: noise [N_total, 3], sigmas/norms [N_total, 1]."""
-    target = periodic_noise(sigmas * noise, sigmas)
-    return target / torch.sqrt(sigmas_norm)
-
-
 class JointDiffusion(nn.Module):
     def __init__(self, denoiser, atom_corruption, position_corruption, lattice_corruption,
                  cutoff=7.0, max_neighbor=50, max_offset_integer=3, loss_fn=None,

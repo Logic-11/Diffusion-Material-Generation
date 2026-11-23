@@ -2,8 +2,6 @@ import torch
 import torch.nn as nn
 import math
 
-from .diffusion import periodic_noise
-
 
 class MaskScheduler(nn.Module):
     def __init__(self, timesteps=1000):

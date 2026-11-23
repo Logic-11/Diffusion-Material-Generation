@@ -96,7 +96,7 @@
 - **自定义元素数和步数时，损失参数可能脱节。** 直接构造 `JointDiffusion` 并省略 `loss_fn` 时，损失会自行取 118 个元素和 1000 步。若只把去噪器和 corruption 改为官方的 100 种元素，就会触发 logits 形状检查。若只改扩散步数，则加噪与损失可能套用不同的离散时刻。官方从实际 corruption 读取 N。当前本地训练脚本显式传了匹配的损失参数。[本地默认构造][ldefloss] · [本地损失映射][lred] · [本地脚本的显式配置][lconf] · [官方按 corruption 取 N][ofield]
 - **直接调用先验时，晶格密度取自调度器。** 本地 `sample_prior` 的形参 `limit_density` 没有被读取，晶格实际使用传入的 `lat_cor.scheduler.limit_density`。正常生成传入同一个配置值，结果一致。单独做密度消融时，只改函数参数不会改变晶格先验。[本地先验][lprior] · [本地生成入口][lgen] · [官方晶格先验][ovpcorr]
 - **独立调用元素边际分布时，MASK 的概率行会被覆盖。** `AtomTypeCorruption.marginal_prob` 先给 MASK 列赋遮蔽概率，再向输入元素列写入保留概率。若输入本身就是 MASK，两次写入落在同一列，行和变为 1−p。吸收态的正确行和及其 MASK 概率都应为 1。正常联合训练在入口拒绝干净 MASK，因此这项只影响单独复用该接口。[本地概率构造][latom] · [本地联合入口][lq] · [官方边际分布][oabs]
-- **部分辅助函数和旧测试采用另一套约定。** `mask_atomtype/atomtype_ce` 提供直接遮蔽和仅对遮蔽位置算 CE 的路径，`coordinate_target` 用一维镜像和另一套符号、归一化，`build_neighbor_graph` 逐分量取整且每对原子只取一个镜像。训练入口实际调用的是联合 D3PM、三维 wrapped-normal 目标和多镜像周期图。部分旧集成测试仍传入 250、1000 之类的整数时间，或断言末列 MASK 概率恒为零，与当前连续时间和训练时可学习的首列 MASK 不相容。仓库 TODO 中的周期表表示或元素 VAE 属于额外研究方向，官方基础模型采用吸收态 D3PM。[本地辅助函数][lold] · [简化邻居函数][loldgraph] · [训练入口][ltrainloss] · [旧时间断言][ltest] · [旧 MASK 断言][ltestmask] · [项目 TODO][ltodo] · [官方基础配置][obase]
+- **旧辅助函数已清理。** 直接遮蔽、仅对遮蔽位置算 CE、旧坐标目标和单镜像邻居图的辅助函数已删除。当前训练使用联合 D3PM、三维 wrapped-normal 目标和多镜像周期图。历史集成测试曾传入 250、1000 等整数时间，或断言末列 MASK 概率恒为零，与当前连续时间和训练时可学习的首列 MASK 约定有差异。仓库 TODO 中的周期表表示或元素 VAE 属于额外研究方向，官方基础模型采用吸收态 D3PM。[训练入口][ltrainloss] · [项目 TODO][ltodo] · [官方基础配置][obase]
 
 以上结论来自固定版本的源码与配置、当前工作树以及本地缓存的独立数值复算。模型质量差距的大小仍须在同一数据集、样本数和评估口径下通过训练与生成实验测量。
 
@@ -104,16 +104,16 @@
 [opublic]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/README.md#L67-L85
 [obase]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/checkpoints/mattergen_base/config.yaml#L64-L143
 [lblock]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/gnn.py:293>
-[ltripselect]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:264>
-[lrevedge]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:255>
+[ltripselect]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:214>
+[lrevedge]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:205>
 [ltripmsg]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/gnn.py:227>
 [ltripexchange]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/gnn.py:250>
 [ltripbasis]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/gnn.py:174>
 [langbasis]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/gnn.py:157>
-[ledgevec]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:240>
+[ledgevec]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:190>
 [larchcfg]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/scripts/conf/model/joint_diffusion.yaml:4>
 [lclassifier]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/denoiser.py:66>
-[latomorder]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:225>
+[latomorder]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:173>
 [oscalefile]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/gemnet/gemnet-dT.json
 [larchsave]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/scripts/train.py:150>
 [larchload]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/scripts/generate.py:40>
@@ -131,10 +131,10 @@
 [odenoiseout]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/denoiser.py#L248-L271
 [otrip]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/gemnet/gemnet.py#L383-L428
 [obasis]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/gemnet/gemnet.py#L687-L715
-[laxis]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:210>
+[laxis]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:158>
 [laxisembed]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/denoiser.py:91>
 [linit]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/gnn.py:64>
-[lpred]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:199>
+[lpred]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:147>
 [lmodel]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/denoiser.py:23>
 [lread]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/gnn.py:115>
 [ogemparam]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/gemnet/gemnet.py#L201-L228
@@ -142,9 +142,9 @@
 [oatomhead]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/denoiser.py#L196-L210
 [ltime]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/denoiser.py:10>
 [otime]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/diffusion/model_utils.py#L54-L74
-[lgraph]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:117>
-[lcut]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:174>
-[lmirror]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:234>
+[lgraph]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:67>
+[lcut]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:124>
+[lmirror]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:184>
 [oshort]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/utils/ocp_graph_utils.py#L214-L235
 [otop]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/utils/ocp_graph_utils.py#L313-L332
 [osym]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/gemnet/gemnet.py#L440-L482
@@ -175,7 +175,7 @@
 [lgen]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/scripts/generate.py:90>
 [oposterior]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/diffusion/d3pm/d3pm_predictors_correctors.py#L82-L105
 [lload]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/data/dataset.py:76>
-[lcond]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:160>
+[lcond]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:108>
 [opropfit]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/property_embeddings.py#L452-L526
 [oprop]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/property_embeddings.py#L375-L452
 [odrop]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/property_embeddings.py#L125-L226
@@ -186,7 +186,7 @@
 [lpc]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/sampling.py:345>
 [oguided]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/diffusion/sampling/classifier_free_guidance.py#L46-L99
 [ocfg]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/sampling_conf/default.yaml#L1-L40
-[lq]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:130>
+[lq]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:78>
 [lprior]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/sampling.py:43>
 [ocsp]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/conf/lightning_module/diffusion_module/csp.yaml#L2-L13
 [ocompose]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/data/condition_factory.py#L57-L77
@@ -209,7 +209,7 @@
 [ohull]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/evaluation/metrics/energy.py#L299-L355
 [opropeval]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/evaluation/metrics/property.py#L140-L160
 [oevalread]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/README.md#L130-L155
-[lsc]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/scheduler.py:8>
+[lsc]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/scheduler.py:6>
 [ove]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/diffusion/corruption.py#L215-L270
 [lpos]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/corruption.py:52>
 [llattice]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/corruption.py:94>
@@ -223,18 +223,14 @@
 [oforce]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/gemnet/gemnet.py#L748-L791
 [olread]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/gemnet/gemnet.py#L125-L139
 [olscore]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/common/utils/lattice_score.py#L28-L37
-[ltrainloss]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:252>
+[ltrainloss]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:200>
 [odiff]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/diffusion/diffusion_module.py#L73-L116
 [lred]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/loss.py:223>
 [od3loss]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/diffusion/d3pm/d3pm.py#L795-L859
 [ofield]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/diffusion/training/field_loss.py#L128-L197
 [lopt]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/scripts/train.py:233>
-[ldefloss]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:78>
+[ldefloss]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:26>
 [lconf]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/scripts/train.py:211>
 [latom]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/corruption.py:12>
 [oabs]: https://github.com/microsoft/mattergen/blob/92423660a8bd70e83679086e88f88596d484dc16/mattergen/diffusion/d3pm/d3pm.py#L498-L542
-[lold]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/diffusion.py:10>
-[loldgraph]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/src/geometry.py:62>
-[ltest]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/test/test_joint_diffusion.py:72>
-[ltestmask]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/test/test_joint_diffusion.py:146>
 [ltodo]: <E:/THU/AI2DFT/Diffusion-Material-Generation/diffusion_mattergen/TODO.md:1>
