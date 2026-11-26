@@ -40,10 +40,6 @@ def validate_config(cfg: DictConfig) -> None:
     max_steps = trainer.max_steps
     if max_steps is not None and (type(max_steps) is not int or max_steps < 0):
         raise ValueError("trainer.max_steps must be a nonnegative integer or null")
-    if type(trainer.check_val_every_n_epoch) is not int or trainer.check_val_every_n_epoch < 1:
-        raise ValueError("trainer.check_val_every_n_epoch must be a positive integer")
-    if trainer.lr_scheduler_monitor not in ('loss_train', 'loss_val'):
-        raise ValueError("trainer.lr_scheduler_monitor must be 'loss_train' or 'loss_val'")
     if trainer.gradient_clip_algorithm not in GRADIENT_CLIPPERS:
         raise ValueError("trainer.gradient_clip_algorithm must be 'value' or 'norm'")
     clip_val = trainer.gradient_clip_val
@@ -64,11 +60,22 @@ def validate_config(cfg: DictConfig) -> None:
         raise ValueError("resume.save_every_n_steps must be a positive integer or null")
 
     model = cfg.model
-    if model.loss_fn.timesteps != model.atom_corruption.scheduler.timesteps:
-        raise ValueError("The atom scheduler and D3PM loss must use the same number of timesteps")
-    atom_types = model.denoiser.atom_types
-    if model.atom_corruption.atom_types != atom_types or model.loss_fn.num_atom_types != atom_types:
-        raise ValueError("The denoiser, atom corruption and loss must agree on the number of elements")
+    atom_corruption = model.get('atom_corruption')
+    init_checkpoint = cfg.get('init_checkpoint')
+    if init_checkpoint is not None:
+        if not isinstance(init_checkpoint, str) or not init_checkpoint.strip():
+            raise ValueError("init_checkpoint must be a nonempty path or null")
+        if atom_corruption is not None:
+            raise ValueError("init_checkpoint requires model=csp")
+        if resume.enabled:
+            raise ValueError("Choose either init_checkpoint or resume.enabled")
+
+    if atom_corruption is not None:
+        if model.loss_fn.timesteps != atom_corruption.scheduler.timesteps:
+            raise ValueError("The atom scheduler and D3PM loss must use the same number of timesteps")
+        atom_types = model.denoiser.atom_types
+        if atom_corruption.atom_types != atom_types or model.loss_fn.num_atom_types != atom_types:
+            raise ValueError("The denoiser, atom corruption and loss must agree on the number of elements")
     position = model.position_corruption.scheduler
     if not (0 < position.sigma_min <= position.sigma_max and math.isfinite(position.sigma_max)):
         raise ValueError("Position VE requires finite sigmas with 0 < sigma_min <= sigma_max")

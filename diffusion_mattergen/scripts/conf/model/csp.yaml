@@ -1,0 +1,7 @@
+defaults:
+  - common/geometry@_here_
+  - _self_
+
+_target_: src.csp.diffusion.CSPDiffusion
+loss_fn:
+  _target_: src.csp.loss.CSPLoss

@@ -13,6 +13,8 @@ import numpy as np
 import torch
 from hydra.utils import to_absolute_path
 
+from src.diffusion.checkpoint import checkpoint_task, read_model_checkpoint
+from src.diffusion.crystal_diffusion import CrystalDiffusion
 from src.diffusion.joint_diffusion import JointDiffusion
 
 from .distributed import TrainingProcess
@@ -42,12 +44,67 @@ class TrainingState:
     epoch_progress: EpochProgress | None = None
 
 
-def _build_checkpoint(epoch, epoch_loss, val_loss, model: JointDiffusion, optimizer, lr_scheduler,
+def load_joint_denoiser_weights(model: CrystalDiffusion, checkpoint_path: str | Path) -> None:
+    """Initialize the denoiser from a joint checkpoint before creating the optimizer."""
+    checkpoint = read_model_checkpoint(checkpoint_path)
+    if checkpoint_task(checkpoint) != 'joint':
+        raise ValueError("init_checkpoint must point to a joint diffusion checkpoint")
+    prefix = 'denoiser.'
+    weights = {
+        key.removeprefix(prefix): value
+        for key, value in checkpoint['model_state_dict'].items()
+        if key.startswith(prefix)
+    }
+    model.denoiser.load_state_dict(weights, strict=True)
+
+
+def _build_checkpoint(epoch, epoch_loss, val_loss, model: CrystalDiffusion, optimizer, lr_scheduler,
                       *, configs, global_step, partial_epoch, t_min, training_state):
     position = model.position_corruption.scheduler
     lattice = model.lattice_corruption.scheduler
     loss_fn = model.loss_fn
+    loss = {
+        name: getattr(loss_fn, name)
+        for name in ('coord_weight', 'lattice_weight', 'reduce')
+    }
+    diffusion_config = {
+        'atom_class_order': getattr(model.denoiser, 'atom_class_order', 'mask_first'),
+        'time_sampling': f'uniform time in [{t_min:g}, 1)',
+        't_min': t_min,
+        'position': {
+            name: getattr(position, name).item()
+            for name in ('sigma_min', 'sigma_max')
+        },
+        'lattice': {
+            name: getattr(lattice, name).item()
+            for name in ('limit_density', 'beta_min', 'beta_max', 'limit_var_scaling_constant')
+        },
+        'loss': loss,
+        'graph': {
+            'cutoff': model.radial_basis.cutoff,
+            'max_neighbor': model.max_neighbor,
+            'max_cell_images_per_dim': model.max_cell_images_per_dim,
+            'max_offset_integer': model.max_offset_integer,
+        },
+        'output_parameterization': {
+            'coordinates': 'fractional score_times_std',
+            'lattice': 'score_times_std',
+        },
+    }
+    if isinstance(model, JointDiffusion):
+        loss.update({
+            name: getattr(loss_fn, name)
+            for name in ('atom_weight', 'd3pm_hybrid_lambda', 'timesteps', 'num_atom_types')
+        })
+        diffusion_config.update({
+            'timesteps': model.timesteps,
+            'input_mask_type': model.atom_corruption.mask_type,
+            'clean_mask_probability': 'learned in the first column of the joint diffusion output',
+        })
+        diffusion_config['output_parameterization']['atoms'] = 'clean-class logits; MASK followed by real elements'
+
     return {
+        'task': model.task,
         'epoch': epoch,
         'epoch_loss': float(epoch_loss),
         'val_loss': None if val_loss is None else float(val_loss),
@@ -64,44 +121,11 @@ def _build_checkpoint(epoch, epoch_loss, val_loss, model: JointDiffusion, optimi
             'hidden_dim': model.denoiser.hidden_dim,
             'num_radial': model.denoiser.num_radial,
             'num_layers': model.denoiser.num_layers,
-            'atom_types': model.atom_corruption.atom_types,
+            'atom_types': model.atom_types,
             'num_spherical': model.denoiser.num_spherical,
             'use_triplets': model.denoiser.use_triplets,
         },
-        'diffusion_config': {
-            'timesteps': model.timesteps,
-            'input_mask_type': model.atom_corruption.mask_type,
-            'atom_class_order': getattr(model.denoiser, 'atom_class_order', 'mask_first'),
-            'clean_mask_probability': 'learned in the first column of the joint diffusion output',
-            'time_sampling': f'uniform time in [{t_min:g}, 1)',
-            't_min': t_min,
-            'position': {
-                name: getattr(position, name).item()
-                for name in ('sigma_min', 'sigma_max')
-            },
-            'lattice': {
-                name: getattr(lattice, name).item()
-                for name in ('limit_density', 'beta_min', 'beta_max',
-                             'limit_var_scaling_constant')
-            },
-            'loss': {
-                name: getattr(loss_fn, name)
-                for name in ('coord_weight', 'lattice_weight', 'atom_weight',
-                             'd3pm_hybrid_lambda', 'reduce', 'timesteps',
-                             'num_atom_types')
-            },
-            'graph': {
-                'cutoff': model.radial_basis.cutoff,
-                'max_neighbor': model.max_neighbor,
-                'max_cell_images_per_dim': model.max_cell_images_per_dim,
-                'max_offset_integer': model.max_offset_integer,
-            },
-            'output_parameterization': {
-                'atoms': 'clean-class logits; MASK followed by real elements',
-                'coordinates': 'fractional score_times_std',
-                'lattice': 'score_times_std',
-            },
-        },
+        'diffusion_config': diffusion_config,
     }
 
 
@@ -122,7 +146,7 @@ def _write_checkpoint(checkpoint, output_dir, checkpoint_type):
 
 
 def save_training_checkpoint(
-    epoch, progress: EpochProgress, state: TrainingState, *, model: JointDiffusion,
+    epoch, progress: EpochProgress, state: TrainingState, *, model: CrystalDiffusion,
     optimizer, lr_scheduler, output_dir: Path, configs, loader_signature, device,
     t_min, partial_epoch, val_loss=None, epoch_loss=None, process: TrainingProcess | None = None,
 ) -> str | None:
@@ -198,6 +222,10 @@ def read_resume_checkpoint(resume, output_dir):
 
 
 def _restore_training_objects(checkpoint, cfg, model, optimizer, lr_scheduler):
+    task = checkpoint_task(checkpoint)
+    if task != model.task:
+        hint = " Use init_checkpoint to initialize a CSP model from joint weights." if model.task == 'csp' else ""
+        raise ValueError(f"Cannot resume a {model.task} run from a {task} checkpoint.{hint}")
     scheduler_state = checkpoint['lr_scheduler_state_dict']
     if (scheduler_state is None) != (lr_scheduler is None):
         raise ValueError("Resume with the learning-rate scheduler configuration used by the checkpoint")
@@ -211,6 +239,18 @@ def _restore_training_objects(checkpoint, cfg, model, optimizer, lr_scheduler):
 
     model.load_state_dict(checkpoint['model_state_dict'], strict=True)
     if lr_scheduler is not None:
+        previous_trainer = saved_config.get('trainer', {})
+        # Pre-Hydra checkpoints saved their training-loss settings under 'training'.
+        if isinstance(lr_scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau) and (
+            previous_trainer.get('lr_scheduler_monitor') == 'loss_train'
+            or ('trainer' not in saved_config and 'training' in saved_config)
+        ):
+            scheduler_state = {
+                **scheduler_state,
+                'best': scheduler_state['mode_worse'],
+                'num_bad_epochs': 0,
+                'cooldown_counter': 0,
+            }
         lr_scheduler.load_state_dict(scheduler_state)
     optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 
