@@ -1,4 +1,4 @@
-val_batch_size: ${data.batchsize}
+val_batch_size: ${data.batchsize}  # Global validation batch target.
 num_workers:
   train: 0
   val: ${dataloader.num_workers.train}

@@ -3,6 +3,7 @@
 from contextlib import ExitStack
 import csv
 from datetime import datetime, timezone
+from functools import partial
 import hashlib
 from importlib.metadata import version
 import json
@@ -15,12 +16,15 @@ import warnings
 
 import numpy as np
 
-from .standardize import DEFAULT_PRIMITIVE_TOLERANCE, standardize_cif_text
+from .standardize import (
+    DEFAULT_PRIMITIVE_TOLERANCE, standardize_cif_text, standardize_mattergen_cif_text,
+)
 
 
 FORMAT = "diffusion_mattergen.crystal_arrays"
 FORMAT_VERSION = 1
 SPLITS = ("train", "val", "test")
+PREPROCESS_MODES = ("strict", "mattergen")
 CORE_FILES = {
     "frac_coords": "pos.npy", "lattice": "cell.npy",
     "atomic_numbers": "atomic_numbers.npy", "num_atoms": "num_atoms.npy",
@@ -95,7 +99,7 @@ def _finish_array(raw: Path, output: Path, dtype, shape: tuple) -> None:
 def build_dataset(
     source: str | Path, output: str | Path, *,
     primitive_tolerance: float = DEFAULT_PRIMITIVE_TOLERANCE,
-    skip_invalid: bool = False, progress=None,
+    preprocess: str = "strict", skip_invalid: bool = False, progress=None,
 ) -> dict:
     """Standardize all input structures once and preserve input splits and row order.
 
@@ -105,10 +109,20 @@ def build_dataset(
     Existing output directories are never replaced. progress(split, rows_seen) is
     optional. Invalid crystal rows abort by default; explicitly skipped rows are
     recorded in errors.jsonl. Duplicate IDs and I/O/schema errors always abort.
+
+    The mattergen mode uses pymatgen's default primitive tolerances and saves
+    the reduced lattice for polar decomposition when the dataset loads it.
     """
+    if preprocess not in PREPROCESS_MODES:
+        raise ValueError(f"preprocess must be one of {PREPROCESS_MODES}")
     if (not isinstance(primitive_tolerance, Real) or isinstance(primitive_tolerance, bool)
             or not 0 < primitive_tolerance < np.inf):
         raise ValueError("primitive_tolerance must be a finite positive number in angstrom.")
+    mattergen = preprocess == "mattergen"
+    if mattergen and primitive_tolerance != DEFAULT_PRIMITIVE_TOLERANCE:
+        raise ValueError("A custom primitive_tolerance is only supported with preprocess='strict'.")
+    standardize = (standardize_mattergen_cif_text if mattergen else
+                   partial(standardize_cif_text, primitive_tolerance=primitive_tolerance))
     source, output = Path(source).resolve(), Path(output).resolve()
     if output.exists():
         raise FileExistsError(f"Output already exists; use a new cache directory: {output}")
@@ -121,9 +135,12 @@ def build_dataset(
     manifest = {
         "format": FORMAT, "format_version": FORMAT_VERSION,
         "created_utc": datetime.now(timezone.utc).isoformat(), "source_root": str(root),
-        "standardization": {"primitive_tolerance_angstrom": primitive_tolerance,
-                            "primitive": True, "niggli": True, "symmetric_lattice": True,
-                            "lattice_vectors": "rows", "length_unit": "angstrom"},
+        "standardization": {
+            "preprocess": preprocess,
+            "primitive_tolerance_angstrom": None if mattergen else primitive_tolerance,
+            "primitive": True, "niggli": True, "symmetric_lattice": not mattergen,
+            "lattice_vectors": "rows", "length_unit": "angstrom",
+        },
         "split_policy": "preserve source CSV splits and row order; CIF directories use train",
         "core_files": CORE_FILES, "skip_invalid": bool(skip_invalid),
         "num_structures": 0, "num_atoms": 0, "num_skipped": 0,
@@ -154,8 +171,7 @@ def build_dataset(
                             try:
                                 with warnings.catch_warnings(record=True) as captured:
                                     warnings.simplefilter("always")
-                                    cell = standardize_cif_text(cif, primitive_tolerance=primitive_tolerance,
-                                                                source_name=location)
+                                    cell = standardize(cif, source_name=location)
                             except ValueError as exc:
                                 if not skip_invalid:
                                     raise

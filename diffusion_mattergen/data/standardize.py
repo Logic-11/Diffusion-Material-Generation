@@ -154,3 +154,20 @@ def standardize_cif_text(
         return standardize_cell(structure, primitive_tolerance=primitive_tolerance)
     except (ValueError, KeyError, IndexError, TypeError, ArithmeticError, np.linalg.LinAlgError) as exc:
         raise ValueError(f"Cannot standardize {source_name}: {exc}") from exc
+
+
+def standardize_mattergen_cif_text(
+    text: str, *, source_name: str = "<CIF text>",
+) -> dict[str, np.ndarray]:
+    """Parse and reduce a CIF as MatterGen does before its dataset transform."""
+    try:
+        structures = CifParser.from_str(text).parse_structures(primitive=True, on_error="ignore")
+        reduced = structures[0].get_primitive_structure().get_reduced_structure("niggli")
+        return {
+            "atomic_numbers": np.asarray(reduced.atomic_numbers, dtype=np.int64),
+            "frac_coords": np.asarray(reduced.frac_coords, dtype=np.float64),
+            "lattice": np.asarray(reduced.lattice.matrix, dtype=np.float64),
+            "num_atoms": np.asarray(len(reduced), dtype=np.int64),
+        }
+    except (ValueError, KeyError, IndexError, TypeError, ArithmeticError, np.linalg.LinAlgError) as exc:
+        raise ValueError(f"Cannot standardize {source_name}: {exc}") from exc

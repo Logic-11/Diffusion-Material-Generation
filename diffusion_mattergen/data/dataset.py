@@ -8,6 +8,8 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
+from src.backbone.geometry import polar_decomposition
+
 from .cache import CORE_FILES, SPLITS, inspect_dataset
 
 
@@ -16,6 +18,7 @@ class CrystalDataset(Dataset):
 
     Float arrays are stored as float64 and returned as float32 by default. Samples
     own writable tensor copies, so noise/transforms cannot modify the cached data.
+    Reduced lattices saved in MatterGen mode are symmetrized after conversion.
     The original CSVs and pymatgen parsing are not needed during sample loading.
     """
 
@@ -30,6 +33,9 @@ class CrystalDataset(Dataset):
         if split not in self.metadata["splits"]:
             raise ValueError(f"Split {split!r} is absent; available: {list(self.metadata['splits'])}")
         self._length = self.metadata["splits"][split]["num_structures"]
+        self._cached_lattice_is_symmetric = self.metadata.get("standardization", {}).get(
+            "symmetric_lattice", True,
+        )
         self._arrays, self._offsets, self._pid = {}, None, None
         self._reader()
 
@@ -76,10 +82,13 @@ class CrystalDataset(Dataset):
         frac = torch.from_numpy(arrays["frac_coords"][start:stop].copy()).to(self.dtype)
         # A float64 coordinate just below one can round to one in float32.
         frac.remainder_(1.0)
+        lattice = torch.from_numpy(arrays["lattice"][index].copy()).to(self.dtype)
+        if not self._cached_lattice_is_symmetric:
+            lattice = polar_decomposition(lattice)
         return {
             "atomic_numbers": torch.from_numpy(arrays["atomic_numbers"][start:stop].copy()),
             "frac_coords": frac,
-            "lattice": torch.from_numpy(arrays["lattice"][index].copy()).to(self.dtype),
+            "lattice": lattice,
             "num_atoms": int(stop - start), "structure_id": str(arrays["structure_id"][index]),
             "split": self.split,
         }

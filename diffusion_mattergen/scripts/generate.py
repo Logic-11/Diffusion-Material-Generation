@@ -9,18 +9,23 @@ if __name__ == "__main__" and not __package__:
     # Allow direct script execution to import src from the project root.
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.corruption import AtomTypeCorruption, LatticeCorruption, PositionCorruption
-from src.denoiser import Denoiser
-from src.diffusion import JointDiffusion
-from src.loss import JointDiffusionLoss
-from src.sampling import (
-    AtomTypePredictor, LangevinCorrector, LatticePredictor, PositionPredictor,
-    Sampler, sample_n, sample_prior,
-)
-from src.scheduler import LatticeVPScheduler, MaskScheduler, PositionVEScheduler
+from src.backbone.denoiser import Denoiser
+from src.diffusion.corruption import AtomTypeCorruption, LatticeCorruption, PositionCorruption
+from src.diffusion.joint_diffusion import JointDiffusion
+from src.diffusion.loss import JointDiffusionLoss
+from src.diffusion.sampling.correctors import LangevinCorrector
+from src.diffusion.sampling.pc_sampler import Sampler
+from src.diffusion.sampling.predictors import AtomTypePredictor, LatticePredictor, PositionPredictor
+from src.diffusion.sampling.prior import sample_n, sample_prior
+from src.diffusion.scheduler import LatticeVPScheduler, MaskScheduler, PositionVEScheduler
 
 if TYPE_CHECKING:
     from pymatgen.core import Structure
+
+# MatterGen's SELECTED_ATOMIC_NUMBERS for unconditional generation.
+MATTERGEN_ALLOWED_ATOMIC_NUMBERS = tuple(
+    z for z in range(1, 84) if z not in {2, 10, 18, 36, 43, 54, 61}
+)
 
 
 def load_model(checkpoint_path: str | Path,
@@ -34,11 +39,20 @@ def load_model(checkpoint_path: str | Path,
     required = {"model_config", "diffusion_config", "model_state_dict"}
     if not isinstance(checkpoint, dict) or not required.issubset(checkpoint):
         raise ValueError(
-            "Expected a checkpoint from scripts.train.save_model containing "
+            "Expected a training checkpoint containing "
             "model_config, diffusion_config and model_state_dict."
         )
     model_config = checkpoint["model_config"]
     diffusion_config = checkpoint["diffusion_config"]
+    state_dict = checkpoint["model_state_dict"]
+    if "denoiser.output_head.2.weight" in state_dict:
+        raise ValueError(
+            "This checkpoint uses the previous denoiser architecture. "
+            "Generate with the training revision or train a checkpoint with the GemNet-T denoiser."
+        )
+    atom_class_order = diffusion_config.get("atom_class_order", Denoiser.atom_class_order)
+    if atom_class_order != Denoiser.atom_class_order:
+        raise ValueError(f"Expected MASK-last denoiser weights, got {atom_class_order!r}")
 
     denoiser = Denoiser(**model_config)
     atom_corruption = AtomTypeCorruption(
@@ -60,14 +74,6 @@ def load_model(checkpoint_path: str | Path,
         loss_fn=JointDiffusionLoss(**diffusion_config["loss"]),
         **diffusion_config["graph"],
     )
-    state_dict = checkpoint["model_state_dict"]
-    atom_class_order = diffusion_config.get("atom_class_order", "mask_last")
-    if atom_class_order == "mask_last":
-        for name in ("denoiser.output_head.2.weight", "denoiser.output_head.2.bias"):
-            value = state_dict[name]
-            state_dict[name] = torch.cat((value[-1:], value[:-1]), dim=0)
-    elif atom_class_order != "mask_first":
-        raise ValueError(f"Unknown atom_class_order: {atom_class_order}")
     model.load_state_dict(state_dict, strict=True)
     model.to(device)
     model.eval()
@@ -119,10 +125,10 @@ def main(argv: list[str] | None = None) -> None:
                         help="Path to statistic.json. Defaults to the file beside the checkpoint.")
     parser.add_argument("-o", "--output", type=Path, default=Path("generated"),
                         help="Directory for CIF files. Defaults to generated.")
-    parser.add_argument("-n", "--num-samples", "--num_samples", type=int, default=640,
-                        help="Total crystals to generate. Defaults to 1.")
+    parser.add_argument("-n", "--num-samples", "--num_samples", type=int, default=64,
+                        help="Total crystals to generate. Defaults to 64.")
     parser.add_argument("-b", "--batch-size", "--batch_size", type=int, default=64,
-                        help="Maximum crystals per batch. Defaults to 1.")
+                        help="Maximum crystals per batch. Defaults to 64.")
     parser.add_argument("--device", help="Torch device, e.g. cpu or cuda:0. Defaults to CUDA if available, else CPU.")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for sampling. Defaults to 42.")
     args = parser.parse_args(argv)
@@ -142,8 +148,11 @@ def main(argv: list[str] | None = None) -> None:
 
     device = args.device or ("cuda" if torch.cuda.is_available() else "cpu")
     model = load_model(args.checkpoint, device=device)
+    allowed_atomic_numbers = [
+        z for z in MATTERGEN_ALLOWED_ATOMIC_NUMBERS if z <= model.atom_corruption.atom_types
+    ]
     sampler = Sampler(
-        atom_pred=AtomTypePredictor(model.atom_corruption),
+        atom_pred=AtomTypePredictor(model.atom_corruption, allowed_atomic_numbers=allowed_atomic_numbers),
         pos_pred=PositionPredictor(model.position_corruption),
         lat_pred=LatticePredictor(model.lattice_corruption),
         corrector=LangevinCorrector(),

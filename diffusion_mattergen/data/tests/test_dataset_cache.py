@@ -17,7 +17,7 @@ from torch.utils.data import DataLoader
 
 from data import CrystalDataset, build_dataset, collate_crystals, inspect_dataset
 from data.__main__ import main
-from src.geometry import build_periodic_graph
+from src.backbone.geometry import build_periodic_graph
 
 
 class DatasetCacheTests(unittest.TestCase):

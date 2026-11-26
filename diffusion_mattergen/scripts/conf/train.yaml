@@ -1,19 +1,21 @@
 defaults:
   - dataloader: default
   - model: joint_diffusion
+  - resume: default
   - _self_
 
 # Relative paths start at the directory where training is launched.
 data:
-  input: data_cache/mp_20
+  input: data_cache/mp_20_mattergen
   output: output/${now:%Y-%m-%d}/${now:%H-%M-%S-%f}
-  batchsize: 2
+  batchsize: 64  # Global training batch target. Each GPU uses batchsize // trainer.devices.
 
 trainer:
   seed: 42
   device: cuda
-  max_epochs: 10000
-  max_steps: 1000000
+  devices: 1  # Number of GPUs on this machine. A single device also supports CPU.
+  max_epochs: 1000
+  max_steps: null
   check_val_every_n_epoch: 5
   lr_scheduler_monitor: loss_train  # loss_train each epoch, or loss_val after validation.
   check_gradients: true
