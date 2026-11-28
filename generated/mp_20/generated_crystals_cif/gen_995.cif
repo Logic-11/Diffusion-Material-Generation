@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       HfO3LiVO2
+_chemical_formula_sum              "Hf1 O5 Li1 V1"
+_cell_length_a       3.655477734010006
+_cell_length_b       3.9281167165671813
+_cell_length_c       6.373613357543945
+_cell_angle_alpha    89.84452690642334
+_cell_angle_beta     90.2665233088531
+_cell_angle_gamma    90.15725396103858
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Hf  Hf1       1.0  0.860282301902771  0.7649288177490234  0.7139017581939698  1.0000
+  O   O1        1.0  0.8608931303024292  0.7642707824707031  0.21121978759765625  1.0000
+  O   O2        1.0  0.35952502489089966  0.2637548446655274  0.2134789079427719  1.0000
+  O   O3        1.0  0.3604981005191803  0.7641471028327942  0.5194241404533386  1.0000
+  Li  Li1       1.0  0.8598400354385376  0.2646353244781494  0.21256878972053528  1.0000
+  V   V1        1.0  0.3608382046222687  0.7634975910186768  0.212986022233963  1.0000
+  O   O4        1.0  0.35972484946250916  0.7642560005187988  0.9062409400939941  1.0000
+  O   O5        1.0  0.8594555854797363  0.264630138874054  0.7143669724464417  1.0000

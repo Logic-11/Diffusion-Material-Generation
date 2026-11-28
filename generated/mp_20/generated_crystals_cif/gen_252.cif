@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       MnSi2CeMn
+_chemical_formula_sum              "Mn2 Si2 Ce1"
+_cell_length_a       3.952659087516921
+_cell_length_b       3.950700439327139
+_cell_length_c       5.381404399871826
+_cell_angle_alpha    89.80839520850836
+_cell_angle_beta     89.96109774791529
+_cell_angle_gamma    89.67254273791366
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mn  Mn1       1.0  0.543948769569397  0.8035194277763366  0.5031640529632568  1.0000
+  Si  Si1       1.0  0.5443772673606873  0.3045622408390045  0.23667752742767334  1.0000
+  Si  Si2       1.0  0.5449596643447876  0.3037712275981903  0.7706109285354614  1.0000
+  Ce  Ce1       1.0  0.044947750866413116  0.8034211993217468  0.002905686851590872  1.0000
+  Mn  Mn2       1.0  0.04432864114642143  0.3038465976715088  0.5033403635025024  1.0000

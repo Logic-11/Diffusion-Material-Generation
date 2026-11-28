@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       KTl3
+_chemical_formula_sum              "K1 Tl3"
+_cell_length_a       5.029278253044072
+_cell_length_b       5.021568544696923
+_cell_length_c       5.0269317626953125
+_cell_angle_alpha    90.2660315519396
+_cell_angle_beta     90.39915877617415
+_cell_angle_gamma    90.28678848969722
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  K   K1        1.0  0.43990078568458557  0.48518213629722595  0.2354014962911606  1.0000
+  Tl  Tl1       1.0  0.9392427802085876  0.4863548874855042  0.736057698726654  1.0000
+  Tl  Tl2       1.0  0.43851831555366516  0.9860414266586305  0.7350273132324219  1.0000
+  Tl  Tl3       1.0  0.9386551976203918  0.9851762056350709  0.23508566617965695  1.0000

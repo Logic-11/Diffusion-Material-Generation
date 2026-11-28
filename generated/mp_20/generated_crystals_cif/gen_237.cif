@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Rh2GaTi
+_chemical_formula_sum              "Rh2 Ga1 Ti1"
+_cell_length_a       4.3674397347276335
+_cell_length_b       4.358822878563544
+_cell_length_c       4.362306594848633
+_cell_angle_alpha    59.70296612338092
+_cell_angle_beta     59.739984649450385
+_cell_angle_gamma    59.57891969726555
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Rh  Rh1       1.0  0.18088425695896151  0.08142185956239699  0.8294572830200195  1.0000
+  Rh  Rh2       1.0  0.6820812821388245  0.5793631672859192  0.3306248188018799  1.0000
+  Ga  Ga1       1.0  0.9318352937698365  0.8301594257354735  0.5804706811904907  1.0000
+  Ti  Ti1       1.0  0.4318309128284455  0.32880017161369324  0.08080117404460901  1.0000

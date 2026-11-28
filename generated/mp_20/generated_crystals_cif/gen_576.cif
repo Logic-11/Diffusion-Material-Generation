@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       Sn3CoSn2
+_chemical_formula_sum              "Sn5 Co1"
+_cell_length_a       3.36472719759053
+_cell_length_b       5.727197724966987
+_cell_length_c       8.12442684173584
+_cell_angle_alpha    98.49085680236573
+_cell_angle_beta     89.34231676758316
+_cell_angle_gamma    105.59153967657582
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sn  Sn1       1.0  0.8148791790008545  0.11890307813882828  0.9826935529708862  1.0000
+  Sn  Sn2       1.0  0.8799623250961303  0.2566605508327484  0.3720366954803467  1.0000
+  Sn  Sn3       1.0  0.5053433775901794  0.5041347742080688  0.7497636675834656  1.0000
+  Co  Co1       1.0  0.5818852186203003  0.662007212638855  0.4155857563018799  1.0000
+  Sn  Sn4       1.0  0.1056869328022003  0.7021270990371704  0.16557425260543823  1.0000
+  Sn  Sn5       1.0  0.21369011700153343  0.9310479164123534  0.6153833270072937  1.0000

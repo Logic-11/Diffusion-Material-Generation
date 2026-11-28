@@ -11,12 +11,15 @@ init_checkpoint: null
 data:
   input: data_cache/mp_20_mattergen
   output: output/${now:%Y-%m-%d}/${now:%H-%M-%S-%f}
-  batchsize: 64  # Global training batch target. Each GPU uses batchsize // trainer.devices.
+  batchsize: 64  # Global training batch target, divided by the GPU count for multi-GPU runs.
 
 trainer:
   seed: 42
   device: cuda
-  devices: 1  # Number of GPUs on this machine. A single device also supports CPU.
+  devices: 1  # Number of consecutive GPUs when gpu_ids is null.
+  # CUDA-visible indices in rank order, e.g. [2] or [1, 3].
+  # The list overrides devices and any index in device.
+  gpu_ids: null
   max_epochs: 1000
   max_steps: null
   check_gradients: true

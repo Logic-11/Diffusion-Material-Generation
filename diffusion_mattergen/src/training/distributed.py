@@ -12,7 +12,7 @@ import torch.multiprocessing as mp
 from hydra.core.hydra_config import HydraConfig
 from hydra.core.utils import configure_log
 from hydra.utils import to_absolute_path
-from omegaconf import OmegaConf
+from omegaconf import DictConfig, OmegaConf
 from torch.nn.parallel import DistributedDataParallel
 
 
@@ -121,12 +121,34 @@ def training_loss(model, process: TrainingProcess):
     return model.compute_loss
 
 
-def _run_worker(rank, worker, cfg, output_dir, first_device, world_size,
-                backend, rendezvous_path, job_logging):
+def resolve_training_devices(trainer: DictConfig) -> tuple[torch.device, ...]:
+    device = torch.device(trainer.device)
+    gpu_ids = trainer.get('gpu_ids')
+    if gpu_ids is None:
+        num_devices = trainer.get('devices', 1)
+        if num_devices == 1:
+            if device.type == 'cuda' and not torch.cuda.is_available():
+                print('CUDA is unavailable. Using CPU.')
+                device = torch.device('cpu')
+            return (device,)
+        first_gpu_id = device.index if device.index is not None else 0
+        highest_gpu_id = first_gpu_id + num_devices - 1
+        gpu_ids = range(first_gpu_id, highest_gpu_id + 1)
+    else:
+        highest_gpu_id = max(gpu_ids)
+
+    available = torch.cuda.device_count() if torch.cuda.is_available() else 0
+    if highest_gpu_id >= available:
+        raise ValueError(f"Requested cuda:{highest_gpu_id}, but found {available} visible CUDA GPUs")
+    return tuple(torch.device('cuda', gpu_id) for gpu_id in gpu_ids)
+
+
+def _run_worker(rank, worker, cfg, output_dir, devices, backend, rendezvous_path, job_logging):
     if rank == 0 and job_logging is not None:
         configure_log(*job_logging)
 
-    device = torch.device("cuda", first_device + rank)
+    device = devices[rank]
+    world_size = len(devices)
     torch.cuda.set_device(device)
     store = dist.FileStore(rendezvous_path, world_size)
     dist.init_process_group(backend=backend, store=store, rank=rank, world_size=world_size)
@@ -137,14 +159,7 @@ def _run_worker(rank, worker, cfg, output_dir, first_device, world_size,
         dist.destroy_process_group()
 
 
-def launch_training(worker, cfg, output_dir, device, world_size):
-    first_device = 0 if device.index is None else device.index
-    available = torch.cuda.device_count() if torch.cuda.is_available() else 0
-    if first_device + world_size > available:
-        raise ValueError(
-            f"trainer.devices={world_size} from cuda:{first_device} requires "
-            f"{first_device + world_size} visible CUDA GPUs, but found {available}"
-        )
+def launch_training(worker, cfg, output_dir, devices):
     if not dist.is_available():
         raise RuntimeError("Multi-GPU training requires a PyTorch build with torch.distributed")
     if dist.is_nccl_available():
@@ -176,7 +191,6 @@ def launch_training(worker, cfg, output_dir, device, world_size):
         rendezvous_path = str(Path(directory) / "rendezvous")
         mp.spawn(
             _run_worker,
-            args=(worker, worker_cfg, output_dir, first_device, world_size, backend,
-                  rendezvous_path, job_logging),
-            nprocs=world_size,
+            args=(worker, worker_cfg, output_dir, devices, backend, rendezvous_path, job_logging),
+            nprocs=len(devices),
         )

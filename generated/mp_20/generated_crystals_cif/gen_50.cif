@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       LiTaO3
+_chemical_formula_sum              "Li1 Ta1 O3"
+_cell_length_a       3.0444445746852686
+_cell_length_b       3.951422163027297
+_cell_length_c       5.467011451721191
+_cell_angle_alpha    110.8389974748631
+_cell_angle_beta     106.1302661663785
+_cell_angle_gamma    89.97166413493797
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Li  Li1       1.0  0.8510875701904297  0.09902530908584595  0.8915143013000488  1.0000
+  Ta  Ta1       1.0  0.16840879619121554  0.4164170920848847  0.5164005160331726  1.0000
+  O   O1        1.0  0.1860422044992447  0.9374300837516786  0.5702999234199524  1.0000
+  O   O2        1.0  0.5243420004844666  0.2729534804821015  0.24309015274047852  1.0000
+  O   O3        1.0  0.7969135642051697  0.5429254174232483  0.7870462536811829  1.0000

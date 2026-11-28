@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Zn3TeSbCdTeSb
+_chemical_formula_sum              "Zn3 Te2 Sb2 Cd1"
+_cell_length_a       6.324085014082349
+_cell_length_b       4.469223198909745
+_cell_length_c       8.97049617767334
+_cell_angle_alpha    89.95141254041265
+_cell_angle_beta     89.60414524192356
+_cell_angle_gamma    89.50409662802214
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Zn  Zn1       1.0  0.4769021570682525  0.2441958487033844  0.3655585050582886  1.0000
+  Zn  Zn2       1.0  0.9831061959266661  0.745480477809906  0.6115500926971436  1.0000
+  Zn  Zn3       1.0  0.9750478863716124  0.742028534412384  0.11042445152997972  1.0000
+  Te  Te1       1.0  0.727918803691864  0.7444543838500977  0.3592403531074524  1.0000
+  Sb  Sb1       1.0  0.21819223463535306  0.24603596329689026  0.5995051264762878  1.0000
+  Cd  Cd1       1.0  0.48149669170379633  0.24464590847492218  0.8549010157585144  1.0000
+  Te  Te2       1.0  0.21993073821067807  0.24510376155376437  0.12296558171510696  1.0000
+  Sb  Sb2       1.0  0.7525354623794555  0.7447068691253662  0.8630693554878235  1.0000

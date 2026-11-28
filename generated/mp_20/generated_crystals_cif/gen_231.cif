@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       SbBa2ZnBaSbMnSb
+_chemical_formula_sum              "Sb3 Ba3 Zn1 Mn1"
+_cell_length_a       4.687833264060392
+_cell_length_b       4.9062591512993
+_cell_length_c       12.907333374023438
+_cell_angle_alpha    100.8777823413092
+_cell_angle_beta     89.82113351705866
+_cell_angle_gamma    89.89060335944197
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sb  Sb1       1.0  0.31553488969802856  0.253689706325531  0.919972538948059  1.0000
+  Ba  Ba1       1.0  0.8163632154464722  0.02091877162456512  0.44865298271179194  1.0000
+  Ba  Ba2       1.0  0.3162984251976013  0.6482545137405396  0.7071290016174316  1.0000
+  Zn  Zn1       1.0  0.3176037669181824  0.4807471334934234  0.3681851625442505  1.0000
+  Ba  Ba3       1.0  0.31602320075035095  0.8642048835754393  0.13733431696891785  1.0000
+  Sb  Sb2       1.0  0.8164004683494568  0.4209830164909363  0.24869450926780698  1.0000
+  Mn  Mn1       1.0  0.814705491065979  0.2095717340707779  0.8309146761894225  1.0000
+  Sb  Sb3       1.0  0.816257655620575  0.7527123093605042  0.919592261314392  1.0000

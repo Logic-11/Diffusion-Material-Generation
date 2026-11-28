@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       SrCd2Yb
+_chemical_formula_sum              "Sr1 Cd2 Yb1"
+_cell_length_a       5.57363036048099
+_cell_length_b       5.5745185936566335
+_cell_length_c       5.577181339263916
+_cell_angle_alpha    60.11037172363885
+_cell_angle_beta     60.164171569972204
+_cell_angle_gamma    60.078576759798935
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.5294442176818848  0.5614784955978394  0.7114463448524475  1.0000
+  Cd  Cd1       1.0  0.7796244025230408  0.811128556728363  0.9609560370445251  1.0000
+  Cd  Cd2       1.0  0.279721200466156  0.31154632568359375  0.46139591932296753  1.0000
+  Yb  Yb1       1.0  0.029740763828158375  0.06130539625883103  0.21107861399650574  1.0000

@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       ErPdSn2
+_chemical_formula_sum              "Er1 Pd1 Sn2"
+_cell_length_a       4.4313016090547315
+_cell_length_b       4.44841313354874
+_cell_length_c       4.399558067321777
+_cell_angle_alpha    90.06763503893207
+_cell_angle_beta     89.94037495054678
+_cell_angle_gamma    89.99992054222761
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Er  Er1       1.0  0.8260911703109741  0.10320206731557846  0.5375217795372009  1.0000
+  Pd  Pd1       1.0  0.3260326683521271  0.6036306619644165  0.5371705889701843  1.0000
+  Sn  Sn1       1.0  0.32608485221862793  0.10357028245925903  0.037530962377786636  1.0000
+  Sn  Sn2       1.0  0.8259613513946533  0.6034620404243469  0.03709540516138077  1.0000

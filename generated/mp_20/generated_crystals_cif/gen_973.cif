@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       Sb5La
+_chemical_formula_sum              "Sb5 La1"
+_cell_length_a       4.500063487621562
+_cell_length_b       4.533002428200905
+_cell_length_c       9.383872985839844
+_cell_angle_alpha    103.08569577607506
+_cell_angle_beta     89.06963511486887
+_cell_angle_gamma    89.52535215065105
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sb  Sb1       1.0  0.06549525260925293  0.15366090834140778  0.4735579192638398  1.0000
+  Sb  Sb2       1.0  0.06588553637266159  0.4601822495460511  0.08789638429880142  1.0000
+  Sb  Sb3       1.0  0.5664247870445251  0.30589422583580017  0.782061517238617  1.0000
+  Sb  Sb4       1.0  0.5646730065345764  0.6516804099082947  0.46776303648948675  1.0000
+  Sb  Sb5       1.0  0.5656018853187561  0.9618735313415528  0.0932644158601761  1.0000
+  La  La1       1.0  0.06601115316152573  0.8067355155944824  0.7798576354980469  1.0000

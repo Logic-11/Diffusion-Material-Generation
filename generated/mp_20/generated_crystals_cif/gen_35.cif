@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Tl4MgTlMgTl
+_chemical_formula_sum              "Tl6 Mg2"
+_cell_length_a       5.701575952075163
+_cell_length_b       6.854912575399147
+_cell_length_c       6.862020015716553
+_cell_angle_alpha    119.67949194031179
+_cell_angle_beta     89.6139533395296
+_cell_angle_gamma    89.97360385439234
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Tl  Tl1       1.0  0.47671332955360407  0.5722309350967407  0.3685739934444428  1.0000
+  Tl  Tl2       1.0  0.9777052402496337  0.40324774384498596  0.02931785769760612  1.0000
+  Tl  Tl3       1.0  0.9787896871566771  0.9113172292709351  0.02837719209492207  1.0000
+  Tl  Tl4       1.0  0.4779562652111053  0.08141428977251051  0.368319720029831  1.0000
+  Mg  Mg1       1.0  0.9768725037574767  0.40814515948295593  0.5336681008338928  1.0000
+  Tl  Tl5       1.0  0.47795858979225153  0.5725539326667786  0.8599689006805421  1.0000
+  Mg  Mg2       1.0  0.4773558676242828  0.07665860652923584  0.8656692504882814  1.0000
+  Tl  Tl6       1.0  0.9775779247283934  0.9100223779678344  0.5363851189613342  1.0000

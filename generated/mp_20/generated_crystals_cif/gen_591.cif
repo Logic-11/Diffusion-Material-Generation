@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       DyLaCLa
+_chemical_formula_sum              "Dy1 La2 C1"
+_cell_length_a       3.6785412893358185
+_cell_length_b       3.7022760991982806
+_cell_length_c       9.450161933898926
+_cell_angle_alpha    90.32017447163759
+_cell_angle_beta     90.31382923003827
+_cell_angle_gamma    59.94502825666123
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Dy  Dy1       1.0  0.8177348375320435  0.5230514407157898  0.1699467301368713  1.0000
+  La  La1       1.0  0.15008370578289032  0.8573451638221741  0.5147454738616943  1.0000
+  C   C1        1.0  0.816393256187439  0.5247154831886292  0.6687076091766357  1.0000
+  La  La2       1.0  0.48442870378494257  0.18905144929885861  0.8210710883140564  1.0000

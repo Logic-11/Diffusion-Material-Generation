@@ -1,0 +1,8 @@
+{
+  "run_id": "d01eb735e76d3a59dc3a93bb414140ea553f107603b332a2c1d86cc57d76e201",
+  "collected_at": "2026-11-27T13:38:32.617572+00:00",
+  "total": 1024,
+  "counts": {
+    "converged": 1024
+  }
+}

@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       Zn2La2Ge2ZnLaZnLa
+_chemical_formula_sum              "Zn4 La4 Ge2"
+_cell_length_a       4.4633409369458645
+_cell_length_b       7.621290395406378
+_cell_length_c       7.959129810333252
+_cell_angle_alpha    89.9448828758412
+_cell_angle_beta     73.59857372467248
+_cell_angle_gamma    89.49279265336034
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Zn  Zn1       1.0  0.5551447868347168  0.8732268214225769  0.921330511569977  1.0000
+  Zn  Zn2       1.0  0.13048027455806732  0.4298161268234253  0.7747907638549805  1.0000
+  La  La1       1.0  0.952904999256134  0.6561666131019592  0.12926541268825534  1.0000
+  La  La2       1.0  0.7187696695327759  0.15142305195331573  0.59596186876297  1.0000
+  Ge  Ge1       1.0  0.3395943343639374  0.9239576458930969  0.3544239699840546  1.0000
+  Ge  Ge2       1.0  0.34205567836761475  0.3815604448318482  0.347151517868042  1.0000
+  Zn  Zn3       1.0  0.13010548055171967  0.8725012540817261  0.7716112732887268  1.0000
+  La  La3       1.0  0.9641858339309692  0.15240547060966492  0.10419508814811707  1.0000
+  Zn  Zn4       1.0  0.5533463954925537  0.43441691994667053  0.9300210475921631  1.0000
+  La  La4       1.0  0.7296759486198425  0.649930477142334  0.5717273354530334  1.0000

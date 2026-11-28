@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       BaCuOFeO4Fe
+_chemical_formula_sum              "Ba1 Cu1 O5 Fe2"
+_cell_length_a       3.802123104452831
+_cell_length_b       3.8059564406161033
+_cell_length_c       7.748658657073975
+_cell_angle_alpha    90.88826173470932
+_cell_angle_beta     90.54223751747654
+_cell_angle_gamma    91.29311438155949
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ba  Ba1       1.0  0.6689307093620299  0.6842977404594421  0.18743610382080075  1.0000
+  Cu  Cu1       1.0  0.1692012846469879  0.1864028871059418  0.4521066844463348  1.0000
+  O   O1        1.0  0.6689207553863524  0.18516521155834198  0.46646988391876215  1.0000
+  Fe  Fe1       1.0  0.16951890289783475  0.18349292874336243  0.8840394616127013  1.0000
+  O   O2        1.0  0.17028303444385526  0.6835915446281433  0.8165525794029235  1.0000
+  O   O3        1.0  0.16935789585113523  0.18466271460056305  0.12102235853672026  1.0000
+  O   O4        1.0  0.6700103878974913  0.18404765427112582  0.8147448301315307  1.0000
+  O   O5        1.0  0.1675542443990707  0.6859746575355531  0.4627653062343597  1.0000
+  Fe  Fe2       1.0  0.6702335476875304  0.6858517527580261  0.649125039577484  1.0000

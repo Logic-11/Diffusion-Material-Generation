@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       OCs3RbO3
+_chemical_formula_sum              "O4 Cs3 Rb1"
+_cell_length_a       5.417450226304762
+_cell_length_b       5.460105983795906
+_cell_length_c       8.409876823425293
+_cell_angle_alpha    101.22958448769266
+_cell_angle_beta     114.76411731777024
+_cell_angle_gamma    91.3098141080507
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  O   O1        1.0  0.6166321039199829  0.8565299510955812  0.3483029007911682  1.0000
+  Cs  Cs1       1.0  0.25586485862731934  0.9243433475494385  0.5428563952445984  1.0000
+  Cs  Cs2       1.0  0.2502731382846832  0.4242151379585266  0.04154965281486511  1.0000
+  Cs  Cs3       1.0  0.7386824488639832  0.40678319334983826  0.5429880023002625  1.0000
+  Rb  Rb1       1.0  0.7363044023513794  0.9075255990028382  0.045114293694496155  1.0000
+  O   O2        1.0  0.6179021596908569  0.3593749403953553  0.8564981818199158  1.0000
+  O   O3        1.0  0.37798190116882324  0.48006433248519903  0.7350926995277405  1.0000
+  O   O4        1.0  0.3686084747314453  0.9748179912567139  0.22766032814979553  1.0000

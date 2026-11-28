@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       Al2TmAlNiAl
+_chemical_formula_sum              "Al4 Tm1 Ni1"
+_cell_length_a       4.16580699601678
+_cell_length_b       5.147476193968631
+_cell_length_c       5.1808552742004395
+_cell_angle_alpha    117.91813527283345
+_cell_angle_beta     90.11126629188702
+_cell_angle_gamma    90.21214136687792
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Al  Al1       1.0  0.02775478921830654  0.9553548693656921  0.2715848088264464  1.0000
+  Al  Al2       1.0  0.5277726054191589  0.11171580106019974  0.6214724779129028  1.0000
+  Tm  Tm1       1.0  0.5279425382614136  0.4541061520576477  0.27191764116287226  1.0000
+  Al  Al3       1.0  0.5274780988693237  0.7967236042022705  0.9228816032409668  1.0000
+  Ni  Ni1       1.0  0.028109265491366386  0.9542133808135986  0.7724457383155823  1.0000
+  Al  Al4       1.0  0.02795202843844891  0.4544943571090699  0.773504376411438  1.0000

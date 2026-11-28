@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       SrSmSrSbO2CuSb
+_chemical_formula_sum              "Sr2 Sm1 Sb2 O2 Cu1"
+_cell_length_a       4.054709030565826
+_cell_length_b       4.0464472094778134
+_cell_length_c       10.926132202148438
+_cell_angle_alpha    89.8531875868526
+_cell_angle_beta     89.98913567364639
+_cell_angle_gamma    89.56910635501194
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.5978673100471497  0.3694717586040497  0.9171869158744812  1.0000
+  Sm  Sm1       1.0  0.5990105867385864  0.3668966591358185  0.5642234683036804  1.0000
+  Sr  Sr2       1.0  0.5971401929855347  0.37101826071739197  0.2120358943939209  1.0000
+  Sb  Sb1       1.0  0.09917806833982468  0.8671454787254333  0.41934987902641296  1.0000
+  O   O1        1.0  0.5975006818771362  0.869759202003479  0.06381505727767944  1.0000
+  O   O2        1.0  0.09704066812992096  0.37027403712272644  0.06306575983762741  1.0000
+  Cu  Cu1       1.0  0.09653770923614502  0.8710079193115234  0.06599093228578568  1.0000
+  Sb  Sb2       1.0  0.09736306220293045  0.868577241897583  0.7093756198883057  1.0000

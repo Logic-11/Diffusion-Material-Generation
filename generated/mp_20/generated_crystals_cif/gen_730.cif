@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       DyCd3GaCdDyCd
+_chemical_formula_sum              "Dy2 Cd5 Ga1"
+_cell_length_a       4.919069252675347
+_cell_length_b       6.594040898449799
+_cell_length_c       6.670886993408203
+_cell_angle_alpha    118.51766115185156
+_cell_angle_beta     89.65693577901567
+_cell_angle_gamma    89.26547710241262
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Dy  Dy1       1.0  0.0834890753030777  0.3750031888484955  0.7993167638778687  1.0000
+  Cd  Cd1       1.0  0.08356504887342453  0.3858817517757416  0.29609230160713196  1.0000
+  Cd  Cd2       1.0  0.08424067497253418  0.863496422767639  0.7771584391593933  1.0000
+  Cd  Cd3       1.0  0.08544621616601944  0.8626866340637207  0.2958800792694092  1.0000
+  Ga  Ga1       1.0  0.5838626027107239  0.5423444509506226  0.13282226026058197  1.0000
+  Cd  Cd4       1.0  0.5836426615715027  0.02231680043041706  0.6145180463790894  1.0000
+  Dy  Dy2       1.0  0.5832379460334778  0.03599105402827262  0.12083090841770171  1.0000
+  Cd  Cd5       1.0  0.5849463939666748  0.5439282655715942  0.6152622103691101  1.0000

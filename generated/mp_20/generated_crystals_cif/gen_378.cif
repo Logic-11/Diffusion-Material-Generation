@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       GaCs2AsGaCsAs2CsAs
+_chemical_formula_sum              "Ga2 Cs4 As4"
+_cell_length_a       8.903540519901238
+_cell_length_b       7.066407689537522
+_cell_length_c       7.3789520263671875
+_cell_angle_alpha    102.53442385165752
+_cell_angle_beta     119.10027720823125
+_cell_angle_gamma    92.91078373491966
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ga  Ga1       1.0  0.5454678535461427  0.2648014724254608  0.25979423522949224  1.0000
+  Cs  Cs1       1.0  0.9292887449264527  0.9378456473350526  0.3289867043495178  1.0000
+  Cs  Cs2       1.0  0.4726714193820954  0.7883164882659912  0.44184604287147533  1.0000
+  As  As1       1.0  0.8187502622604371  0.4852413535118103  0.4518688321113587  1.0000
+  Ga  Ga2       1.0  0.20358085632324222  0.9794656038284302  0.9713984727859498  1.0000
+  Cs  Cs3       1.0  0.2791301906108857  0.4549529254436493  0.7832356691360475  1.0000
+  As  As2       1.0  0.4741525948047639  0.9925384521484376  0.9527950882911683  1.0000
+  As  As3       1.0  0.27639895677566534  0.25281721353530884  0.2757984697818756  1.0000
+  Cs  Cs4       1.0  0.820394277572632  0.3069722652435303  0.905908763408661  1.0000
+  As  As4       1.0  0.9289791584014894  0.7613651752471924  0.7859454154968263  1.0000

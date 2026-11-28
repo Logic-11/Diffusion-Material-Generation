@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       CdAs2CdSr2CdAs
+_chemical_formula_sum              "Cd3 As3 Sr2"
+_cell_length_a       4.570208635705993
+_cell_length_b       4.569608299577927
+_cell_length_c       12.097342491149902
+_cell_angle_alpha    90.29518960749502
+_cell_angle_beta     90.11757738575491
+_cell_angle_gamma    120.2484456468786
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cd  Cd1       1.0  0.062015864998102244  0.9973299503326417  0.5364062190055847  1.0000
+  As  As1       1.0  0.39467856287956243  0.6628922224044801  0.5437618494033813  1.0000
+  As  As2       1.0  0.3957132697105408  0.6647565364837648  0.19136685132980347  1.0000
+  Cd  Cd2       1.0  0.06199010461568831  0.9971462488174438  0.12248870730400085  1.0000
+  Sr  Sr1       1.0  0.7289528846740724  0.3316404819488526  0.7294274568557739  1.0000
+  Sr  Sr2       1.0  0.7279017567634584  0.3315503895282746  0.3465721905231476  1.0000
+  Cd  Cd3       1.0  0.3950611054897309  0.663736402988434  0.9532110095024109  1.0000
+  As  As3       1.0  0.062242373824119616  0.9973897933959961  0.8791643977165222  1.0000

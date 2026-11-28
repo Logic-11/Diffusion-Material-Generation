@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Mg3Ce
+_chemical_formula_sum              "Mg3 Ce1"
+_cell_length_a       3.052802875195267
+_cell_length_b       3.063354787931886
+_cell_length_c       9.559147834777832
+_cell_angle_alpha    89.83351665585378
+_cell_angle_beta     90.3681428495684
+_cell_angle_gamma    93.28745445313243
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.012019930407404891  0.9782262444496154  0.3343631327152252  1.0000
+  Mg  Mg2       1.0  0.51158607006073  0.4785617291927337  0.110817551612854  1.0000
+  Mg  Mg3       1.0  0.012786781415343281  0.9765546917915344  0.8862842321395874  1.0000
+  Ce  Ce1       1.0  0.5144277811050415  0.4761070013046264  0.6120548844337463  1.0000

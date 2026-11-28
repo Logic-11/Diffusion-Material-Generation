@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       OTiZnLiTiO4
+_chemical_formula_sum              "O5 Ti2 Zn1 Li1"
+_cell_length_a       2.979971542929321
+_cell_length_b       5.1675903700260415
+_cell_length_c       7.49755334854126
+_cell_angle_alpha    118.74926250041386
+_cell_angle_beta     90.8656675459369
+_cell_angle_gamma    106.54004423218261
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  O   O1        1.0  0.7608983516693115  0.4787960350513458  0.22275893390178683  1.0000
+  Ti  Ti1       1.0  0.5477592349052429  0.05261901766061783  0.9676334857940675  1.0000
+  Zn  Zn1       1.0  0.9209582805633545  0.7974684834480286  0.5515751242637634  1.0000
+  Li  Li1       1.0  0.7282491326332092  0.4088256359100342  0.7212932109832765  1.0000
+  Ti  Ti2       1.0  0.3747678399085998  0.7042759060859679  0.1723650097846985  1.0000
+  O   O2        1.0  0.5149510502815245  0.9835035204887389  0.4586214721202851  1.0000
+  O   O3        1.0  0.1508958339691162  0.2588931918144226  0.8902887701988221  1.0000
+  O   O4        1.0  0.3663214445114136  0.6917958855628967  0.6970304846763612  1.0000
+  O   O5        1.0  0.9569193720817564  0.8724395632743834  0.06860888004302979  1.0000

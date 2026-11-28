@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Ti4ZrTi3
+_chemical_formula_sum              "Ti7 Zr1"
+_cell_length_a       5.8490046937116755
+_cell_length_b       5.860710822558723
+_cell_length_c       5.858797073364258
+_cell_angle_alpha    60.5111062219933
+_cell_angle_beta     59.921510390494895
+_cell_angle_gamma    59.82273190311098
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ti  Ti1       1.0  0.020074728876352303  0.41689208149909973  0.804934024810791  1.0000
+  Ti  Ti2       1.0  0.02238183096051216  0.914222002029419  0.8055838942527771  1.0000
+  Ti  Ti3       1.0  0.520890474319458  0.4170969724655152  0.8052883148193359  1.0000
+  Ti  Ti4       1.0  0.020640585571527453  0.41642254590988165  0.30352991819381714  1.0000
+  Zr  Zr1       1.0  0.5202804803848267  0.9171062111854554  0.3048068583011627  1.0000
+  Ti  Ti5       1.0  0.020433505997061747  0.9155939817428589  0.303885579109192  1.0000
+  Ti  Ti6       1.0  0.5195423364639282  0.41732868552207947  0.3041245937347412  1.0000
+  Ti  Ti7       1.0  0.5197704434394836  0.9183553457260132  0.8040047883987427  1.0000

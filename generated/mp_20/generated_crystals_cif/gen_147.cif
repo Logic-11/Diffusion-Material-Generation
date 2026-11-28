@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       GeVGe3GaGe
+_chemical_formula_sum              "Ge5 V1 Ga1"
+_cell_length_a       3.7705445193685625
+_cell_length_b       3.7897225139332487
+_cell_length_c       8.578375816345215
+_cell_angle_alpha    90.3050592473597
+_cell_angle_beta     90.16422074379506
+_cell_angle_gamma    90.16670010893897
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ge  Ge1       1.0  0.6587694883346558  0.700304388999939  0.461402952671051  1.0000
+  V   V1        1.0  0.6596869230270386  0.20070630311965942  0.6581631302833557  1.0000
+  Ge  Ge2       1.0  0.6606720685958862  0.7000008225440979  0.8529457449913025  1.0000
+  Ge  Ge3       1.0  0.6598556637763977  0.7006888389587402  0.15780219435691833  1.0000
+  Ge  Ge4       1.0  0.1596476137638092  0.19979520142078397  0.45958155393600464  1.0000
+  Ga  Ga1       1.0  0.1594311147928238  0.20111252367496488  0.160709947347641  1.0000
+  Ge  Ge5       1.0  0.1604202836751938  0.1986168175935745  0.8577883839607239  1.0000

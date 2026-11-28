@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       SbGe2Sn2Mn
+_chemical_formula_sum              "Sb1 Ge2 Sn2 Mn1"
+_cell_length_a       3.933520033991319
+_cell_length_b       3.935705468932039
+_cell_length_c       10.984353065490723
+_cell_angle_alpha    89.9912803530681
+_cell_angle_beta     90.14359357584313
+_cell_angle_gamma    119.96041599683383
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sb  Sb1       1.0  0.6489992737770081  0.8947870135307312  0.17810004949569702  1.0000
+  Ge  Ge1       1.0  0.6507858037948608  0.896094799041748  0.7046712040901184  1.0000
+  Ge  Ge2       1.0  0.9834398031234741  0.5623354315757753  0.566941499710083  1.0000
+  Sn  Sn1       1.0  0.3157406747341156  0.22811344265937808  0.8870733380317688  1.0000
+  Sn  Sn2       1.0  0.3159728944301605  0.2270917296409607  0.38820621371269226  1.0000
+  Mn  Mn1       1.0  0.9829842448234558  0.5623980164527893  0.039669059216976166  1.0000

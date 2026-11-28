@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       K6Sn3
+_chemical_formula_sum              "K6 Sn3"
+_cell_length_a       7.575982603685084
+_cell_length_b       7.24148067724396
+_cell_length_c       8.35133171081543
+_cell_angle_alpha    85.51547101337079
+_cell_angle_beta     89.97897918246886
+_cell_angle_gamma    58.88519015132843
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  K   K1        1.0  0.5513995885848999  0.5003377795219421  0.4677681922912598  1.0000
+  K   K2        1.0  0.8770422339439393  0.8505123257637024  0.287214994430542  1.0000
+  K   K3        1.0  0.8712603449821471  0.40137320756912237  0.021359648555517197  1.0000
+  K   K4        1.0  0.08917812258005138  0.9550016522407533  0.7341182827949524  1.0000
+  K   K5        1.0  0.34259700775146484  0.400097131729126  0.01798398792743683  1.0000
+  K   K6        1.0  0.5643138289451598  0.9508033990859986  0.7361018657684326  1.0000
+  Sn  Sn1       1.0  0.3627254664897919  0.8811230659484863  0.12151801586151123  1.0000
+  Sn  Sn2       1.0  0.21671961247920993  0.17707769572734833  0.37644046545028687  1.0000
+  Sn  Sn3       1.0  0.07047212868928904  0.4731865525245667  0.6328684091567993  1.0000

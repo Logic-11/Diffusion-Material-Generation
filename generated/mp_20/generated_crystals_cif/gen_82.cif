@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       GeZnNd2ZnGe
+_chemical_formula_sum              "Ge2 Zn2 Nd2"
+_cell_length_a       4.379981837024631
+_cell_length_b       4.373133224557261
+_cell_length_c       8.148653984069824
+_cell_angle_alpha    90.02791065653673
+_cell_angle_beta     89.9048374734494
+_cell_angle_gamma    119.98377621663965
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ge  Ge1       1.0  0.15525345504283905  0.06247811019420624  0.6131596565246582  1.0000
+  Zn  Zn1       1.0  0.1558779776096344  0.06229204311966897  0.10915295779705048  1.0000
+  Nd  Nd1       1.0  0.48873072862625117  0.7289250493049622  0.8600311875343323  1.0000
+  Nd  Nd2       1.0  0.48840257525444025  0.7290245294570923  0.3604636788368225  1.0000
+  Zn  Zn2       1.0  0.821891188621521  0.39580315351486206  0.6105013489723206  1.0000
+  Ge  Ge2       1.0  0.8222371935844421  0.39567232131958013  0.11106391996145248  1.0000

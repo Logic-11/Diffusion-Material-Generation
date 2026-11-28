@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       SnAg2LuSnAgYbLu
+_chemical_formula_sum              "Sn2 Ag3 Lu2 Yb1"
+_cell_length_a       3.7323464323214446
+_cell_length_b       4.679662771319983
+_cell_length_c       11.125593185424805
+_cell_angle_alpha    90.05262911087762
+_cell_angle_beta     90.08081046819123
+_cell_angle_gamma    90.07903462298812
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sn  Sn1       1.0  0.1979651600122452  0.6649162769317627  0.44307923316955566  1.0000
+  Ag  Ag1       1.0  0.6898884773254396  0.6651772856712341  0.21307094395160675  1.0000
+  Ag  Ag2       1.0  0.6960037350654603  0.16380399465560916  0.8176612257957458  1.0000
+  Lu  Lu1       1.0  0.19783353805541995  0.16433528065681458  0.6171970367431641  1.0000
+  Sn  Sn2       1.0  0.6926600337028505  0.16412416100502014  0.061301346868276596  1.0000
+  Ag  Ag3       1.0  0.6982664465904237  0.6635762453079224  0.6657946109771729  1.0000
+  Yb  Yb1       1.0  0.19486030936241153  0.6639134287834169  0.9364462494850159  1.0000
+  Lu  Lu2       1.0  0.19253285229206088  0.16542603075504303  0.2725532352924347  1.0000

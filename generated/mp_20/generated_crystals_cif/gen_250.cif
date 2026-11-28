@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       CdMgCdZn
+_chemical_formula_sum              "Cd2 Mg1 Zn1"
+_cell_length_a       4.348833040305298
+_cell_length_b       4.357484355848005
+_cell_length_c       4.244101047515869
+_cell_angle_alpha    90.02722763775093
+_cell_angle_beta     90.06521714857692
+_cell_angle_gamma    89.83652193678164
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cd  Cd1       1.0  0.4604223370552063  0.08891063928604126  0.5939056873321533  1.0000
+  Mg  Mg1       1.0  0.46007058024406433  0.5885395407676697  0.0935622900724411  1.0000
+  Cd  Cd2       1.0  0.9613448977470398  0.5886566638946533  0.593610942363739  1.0000
+  Zn  Zn1       1.0  0.9609931111335754  0.08751173317432404  0.09392320364713669  1.0000

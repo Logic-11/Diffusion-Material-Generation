@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       LuPd7
+_chemical_formula_sum              "Lu1 Pd7"
+_cell_length_a       5.6185707756269645
+_cell_length_b       5.629359703777947
+_cell_length_c       5.629791736602783
+_cell_angle_alpha    59.99416308772267
+_cell_angle_beta     60.04956075130103
+_cell_angle_gamma    60.08636404262111
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Lu  Lu1       1.0  0.8559375405311584  0.4330123662948609  0.5723358988761901  1.0000
+  Pd  Pd1       1.0  0.35651096701622015  0.9322516918182373  0.07247084379196167  1.0000
+  Pd  Pd2       1.0  0.8559311628341673  0.9315396547317506  0.5719736218452454  1.0000
+  Pd  Pd3       1.0  0.856682300567627  0.4326013028621674  0.07102799415588379  1.0000
+  Pd  Pd4       1.0  0.35639896988868713  0.9322115778923035  0.5720313191413879  1.0000
+  Pd  Pd5       1.0  0.35576623678207403  0.43266957998275757  0.07231715321540824  1.0000
+  Pd  Pd6       1.0  0.8564285039901733  0.9330285787582399  0.07094246149063094  1.0000
+  Pd  Pd7       1.0  0.35555228590965265  0.43190500140190125  0.5724029541015625  1.0000

@@ -3,6 +3,7 @@
 from collections.abc import Mapping
 
 import torch
+from tqdm.auto import tqdm
 
 
 class Sampler:
@@ -62,12 +63,14 @@ class Sampler:
         return sample_state, mean_state
 
     @torch.no_grad()
-    def sample(self, model, initial_state):
+    def sample(self, model, initial_state, *, show_progress=False,
+               progress_desc="Sampling", progress_position=0):
         """Denoise a batch of prior crystals from t=1 to 0 and return (sample, mean).
 
         Each step continues from the sampled state. The final mean contains the
         continuous predictor means and either fixed elements or posterior modes.
         Use ``to_structures(mean_state)`` to build the final crystals.
+        Set ``show_progress=True`` to display completed reverse diffusion steps.
         """
         if self.atom_pred is None:
             steps = self.num_steps
@@ -84,10 +87,12 @@ class Sampler:
         if was_training:
             model.eval()
         try:
-            for index in range(steps):
-                t = times[index].expand(batch_shape)
-                s = times[index + 1].expand(batch_shape)
-                state, mean_state = self.sample_t(model, state, t, s)
+            with tqdm(range(steps), desc=progress_desc, unit="step", dynamic_ncols=True,
+                      position=progress_position, leave=False, disable=not show_progress) as pbar:
+                for index in pbar:
+                    t = times[index].expand(batch_shape)
+                    s = times[index + 1].expand(batch_shape)
+                    state, mean_state = self.sample_t(model, state, t, s)
         finally:
             if was_training:
                 model.train()

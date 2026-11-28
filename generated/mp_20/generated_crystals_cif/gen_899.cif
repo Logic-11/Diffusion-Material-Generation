@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       InSrHgSr
+_chemical_formula_sum              "In1 Sr2 Hg1"
+_cell_length_a       5.784789978341758
+_cell_length_b       5.780871076715383
+_cell_length_c       5.780133247375488
+_cell_angle_alpha    59.94354936811423
+_cell_angle_beta     59.85048304635872
+_cell_angle_gamma    59.935233486040424
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  In  In1       1.0  0.8918462991714478  0.556419312953949  0.22974717617034912  1.0000
+  Sr  Sr1       1.0  0.6411188244819641  0.30682286620140076  0.9806993007659912  1.0000
+  Hg  Hg1       1.0  0.3902296423912048  0.057085782289505005  0.7308027744293213  1.0000
+  Sr  Sr2       1.0  0.1411999464035034  0.8073194622993469  0.48024702072143555  1.0000

@@ -1,0 +1,28 @@
+data_image0
+_chemical_formula_structural       Mg2Si
+_chemical_formula_sum              "Mg2 Si1"
+_cell_length_a       4.472815496033184
+_cell_length_b       4.470321282311885
+_cell_length_c       4.477394104003906
+_cell_angle_alpha    60.05047762043333
+_cell_angle_beta     60.044241270991
+_cell_angle_gamma    59.996274289133964
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.4221576452255248  0.4182998239994049  0.048177115619182635  1.0000
+  Mg  Mg2       1.0  0.9216876029968262  0.9188060164451598  0.5466457605361938  1.0000
+  Si  Si1       1.0  0.1716452986001968  0.16797482967376706  0.7973418831825256  1.0000

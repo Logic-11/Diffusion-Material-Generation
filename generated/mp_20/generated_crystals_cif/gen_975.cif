@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       HTbOTbO2
+_chemical_formula_sum              "H1 Tb2 O3"
+_cell_length_a       3.711968900791576
+_cell_length_b       3.7364761574621848
+_cell_length_c       5.9369659423828125
+_cell_angle_alpha    89.81477459927814
+_cell_angle_beta     89.99811054192892
+_cell_angle_gamma    120.25538550468423
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  H   H1        1.0  0.8983380794525146  0.25282746553421015  0.8488893508911133  1.0000
+  Tb  Tb1       1.0  0.2328050881624221  0.9214990139007567  0.5994671583175659  1.0000
+  O   O1        1.0  0.5649672746658325  0.5870806574821471  0.6915817260742188  1.0000
+  Tb  Tb2       1.0  0.564240038394928  0.5855250358581543  0.09084098041057587  1.0000
+  O   O2        1.0  0.2322509735822677  0.9201586246490477  0.9978319406509399  1.0000
+  O   O3        1.0  0.8983070850372314  0.25339880585670466  0.3448086678981781  1.0000

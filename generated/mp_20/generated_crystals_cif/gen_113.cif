@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       H2IrH2IrHCs
+_chemical_formula_sum              "H5 Ir2 Cs1"
+_cell_length_a       5.168716538443626
+_cell_length_b       5.287634720268447
+_cell_length_c       5.960572242736816
+_cell_angle_alpha    90.04698737603384
+_cell_angle_beta     90.21345957531942
+_cell_angle_gamma    120.20595899425402
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  H   H1        1.0  0.6791689991950989  0.32283568382263184  0.5451033115386963  1.0000
+  H   H2        1.0  0.6799415349960327  0.32432466745376587  0.9334143996238708  1.0000
+  Ir  Ir1       1.0  0.9878416061401367  0.4343249797821045  0.738262951374054  1.0000
+  H   H3        1.0  0.17719021439552304  0.8221352696418762  0.7392432689666748  1.0000
+  H   H4        1.0  0.17849227786064148  0.3224627375602722  0.5424175262451172  1.0000
+  Ir  Ir2       1.0  0.37270599603652954  0.21333466470241547  0.7394626140594482  1.0000
+  H   H5        1.0  0.18035362660884857  0.32441264390945435  0.935477614402771  1.0000
+  Cs  Cs1       1.0  0.68210768699646  0.8238674998283386  0.23888137936592102  1.0000

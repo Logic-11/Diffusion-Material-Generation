@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       NiScNi2Tm
+_chemical_formula_sum              "Ni3 Sc1 Tm1"
+_cell_length_a       4.230018420496097
+_cell_length_b       4.209108350072228
+_cell_length_c       5.240824222564697
+_cell_angle_alpha    90.14936507836286
+_cell_angle_beta     90.0926198732913
+_cell_angle_gamma    120.45750652414243
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ni  Ni1       1.0  0.011738084256649038  0.4587084650993348  0.32173606753349304  1.0000
+  Sc  Sc1       1.0  0.6779763102531434  0.7916924357414247  0.32177573442459106  1.0000
+  Ni  Ni2       1.0  0.3463180959224701  0.12572890520095828  0.5586264729499817  1.0000
+  Ni  Ni3       1.0  0.3463420569896698  0.1246694028377533  0.08480539917945862  1.0000
+  Tm  Tm1       1.0  0.01314417459070684  0.4586946368217469  0.8213053941726685  1.0000

@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       Dy2Zn4
+_chemical_formula_sum              "Dy2 Zn4"
+_cell_length_a       4.5551268437905
+_cell_length_b       5.705025182063674
+_cell_length_c       5.706818580627441
+_cell_angle_alpha    78.44146482738759
+_cell_angle_beta     66.04352368361766
+_cell_angle_gamma    65.67368360930634
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Dy  Dy1       1.0  0.6645406484603881  0.9572000503540039  0.29019978642463684  1.0000
+  Dy  Dy2       1.0  0.596256673336029  0.5260282158851625  0.8584724664688111  1.0000
+  Zn  Zn1       1.0  0.9634986519813538  0.35719534754753113  0.28928431868553156  1.0000
+  Zn  Zn2       1.0  0.29726317524909973  0.1260034143924713  0.8593399524688722  1.0000
+  Zn  Zn3       1.0  0.2960054278373718  0.528660237789154  0.45714750885963445  1.0000
+  Zn  Zn4       1.0  0.9649418592453001  0.9551939964294435  0.6914536952972412  1.0000

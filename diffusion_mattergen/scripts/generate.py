@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 
 import torch
 import torch.multiprocessing as mp
+from tqdm.auto import tqdm
 
 if __name__ == "__main__" and not __package__:
     # Allow direct script execution to import src from the project root.
@@ -87,6 +88,9 @@ def generate_batch(
     batch_size: int = 1,
     *,
     composition: Mapping[str, int] | None = None,
+    show_progress: bool = False,
+    progress_desc: str = "Sampling",
+    progress_position: int = 0,
 ) -> list["Structure"]:
     """Generate a batch from a fixed composition or the joint atom-count prior."""
     if composition is not None:
@@ -111,7 +115,10 @@ def generate_batch(
             "num_atoms": num_atoms,
             "batch": torch.repeat_interleave(num_atoms, output_size=atomic_numbers.numel()),
         }
-    _, mean_state = sampler.sample(model, initial_state)
+    _, mean_state = sampler.sample(
+        model, initial_state, show_progress=show_progress,
+        progress_desc=progress_desc, progress_position=progress_position,
+    )
     return sampler.to_structures(mean_state)
 
 
@@ -148,7 +155,8 @@ def _generation_log(output_dir: Path):
         handler.close()
 
 
-def _generate_cifs(args, statistic_path: Path | None, device: torch.device, sample_indices: range, seed: int):
+def _generate_cifs(args, statistic_path: Path | None, device: torch.device,
+                   sample_indices: range, seed: int, *, progress_position: int = 1):
     expected_task = "joint" if args.zero_shot else args.mode
     model = load_model(args.checkpoint, device=device, expected_task=expected_task)
     if args.mode == "csp":
@@ -164,10 +172,15 @@ def _generate_cifs(args, statistic_path: Path | None, device: torch.device, samp
             corrector=LangevinCorrector(),
         )
     torch.manual_seed(seed)
+    num_batches = (len(sample_indices) + args.batch_size - 1) // args.batch_size
     for start in range(0, len(sample_indices), args.batch_size):
         batch_indices = sample_indices[start:start + args.batch_size]
+        batch_number = start // args.batch_size + 1
         structures = generate_batch(
             model, sampler, statistic_path, batch_size=len(batch_indices), composition=args.composition,
+            show_progress=args.show_progress,
+            progress_desc=f"Sampling ({device}, batch {batch_number}/{num_batches})",
+            progress_position=progress_position,
         )
         for index, structure in zip(batch_indices, structures, strict=True):
             path = _cif_path(args.output, index)
@@ -187,10 +200,13 @@ def _report_progress(logger, args, saved: int, *, device: torch.device | None = 
     if device is not None:
         message += f" | device={device}"
     logger.info("%s", message)
-    print(message, flush=True)
+    if not args.show_progress:
+        print(message, flush=True)
 
 
 def _generate_worker(rank, args, statistic_path: Path | None, devices: tuple[torch.device, ...], progress) -> None:
+    # Share the console lock and give each GPU its own sampling progress row.
+    tqdm.set_lock(progress.get_lock())
     device = devices[rank]
     if device.type == "cuda":
         torch.cuda.set_device(device)
@@ -202,7 +218,9 @@ def _generate_worker(rank, args, statistic_path: Path | None, devices: tuple[tor
             logger.info(
                 "Starting worker | device=%s | num_samples=%d | seed=%d", device, len(sample_indices), seed,
             )
-        for batch_count in _generate_cifs(args, statistic_path, device, sample_indices, seed):
+        for batch_count in _generate_cifs(
+            args, statistic_path, device, sample_indices, seed, progress_position=rank + 1,
+        ):
             with progress.get_lock():
                 progress.value += batch_count
                 _report_progress(logger, args, progress.value, device=device)
@@ -243,6 +261,8 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--devices", type=int, default=1,
                         help="Maximum CUDA GPUs to use, starting at --device. Defaults to 1.")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for sampling. Defaults to 42.")
+    parser.add_argument("--no-progress", action="store_false", dest="show_progress",
+                        help="Disable generation and sampling progress bars.")
     args = parser.parse_args(argv)
 
     if args.num_samples < 1 or args.batch_size < 1:
@@ -287,17 +307,33 @@ def main(argv: list[str] | None = None) -> None:
                 statistic_path.resolve() if statistic_path is not None else None, args.output.resolve(),
                 args.num_samples, args.batch_size, ",".join(map(str, devices)), len(devices), args.seed,
             )
-            if len(devices) > 1:
-                progress = mp.get_context("spawn").Value("q", 0)
-                mp.spawn(_generate_worker, args=(args, statistic_path, devices, progress), nprocs=len(devices))
-                saved = progress.value
-                if saved != args.num_samples:
-                    raise RuntimeError(f"Generation stopped after saving {saved}/{args.num_samples} crystals")
-            else:
-                saved = 0
-                for batch_count in _generate_cifs(args, statistic_path, devices[0], sample_indices, args.seed):
-                    saved += batch_count
-                    _report_progress(logger, args, saved)
+            with tqdm(total=args.num_samples, desc="Generating", unit="crystal", dynamic_ncols=True,
+                      position=0, disable=not args.show_progress) as pbar:
+                if len(devices) > 1:
+                    progress = mp.get_context("spawn").Value("q", 0)
+                    previous_lock = tqdm.get_lock()
+                    tqdm.set_lock(progress.get_lock())
+                    try:
+                        workers = mp.spawn(
+                            _generate_worker, args=(args, statistic_path, devices, progress),
+                            nprocs=len(devices), join=False,
+                        )
+                        while True:
+                            finished = workers.join(timeout=0.1)
+                            pbar.update(progress.value - pbar.n)
+                            if finished:
+                                break
+                    finally:
+                        tqdm.set_lock(previous_lock)
+                    saved = progress.value
+                    if saved != args.num_samples:
+                        raise RuntimeError(f"Generation stopped after saving {saved}/{args.num_samples} crystals")
+                else:
+                    saved = 0
+                    for batch_count in _generate_cifs(args, statistic_path, devices[0], sample_indices, args.seed):
+                        saved += batch_count
+                        _report_progress(logger, args, saved)
+                        pbar.update(batch_count)
             logger.info("Generation completed in %.2f s", perf_counter() - started)
         except (Exception, KeyboardInterrupt):
             logger.exception("Generation failed")

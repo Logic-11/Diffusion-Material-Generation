@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       BePtGePt
+_chemical_formula_sum              "Be1 Pt2 Ge1"
+_cell_length_a       3.882008423964769
+_cell_length_b       3.8919579736057606
+_cell_length_c       3.5923335552215576
+_cell_angle_alpha    90.15521173681773
+_cell_angle_beta     89.94159072499518
+_cell_angle_gamma    90.00358835423805
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Be  Be1       1.0  0.8430908322334288  0.8275327086448668  0.19991889595985413  1.0000
+  Pt  Pt1       1.0  0.3417279720306396  0.8276271224021912  0.6974248290061951  1.0000
+  Ge  Ge1       1.0  0.3430607318878173  0.32755884528160095  0.1995188444852829  1.0000
+  Pt  Pt2       1.0  0.8435598015785216  0.3273924589157104  0.6971094608306885  1.0000

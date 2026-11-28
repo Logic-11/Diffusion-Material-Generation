@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       CaIPbI2
+_chemical_formula_sum              "Ca1 I3 Pb1"
+_cell_length_a       4.59186107478213
+_cell_length_b       4.591055945884849
+_cell_length_c       11.369216918945312
+_cell_angle_alpha    89.9895864661177
+_cell_angle_beta     89.95760068910955
+_cell_angle_gamma    60.02645746353084
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ca  Ca1       1.0  0.2893477976322174  0.633901834487915  0.5092374682426453  1.0000
+  I   I1        1.0  0.9547634124755859  0.30000799894332886  0.6831881403923035  1.0000
+  Pb  Pb1       1.0  0.6222811937332154  0.9680619835853577  0.8748201131820679  1.0000
+  I   I2        1.0  0.6208289265632629  0.9665459394454956  0.3640087842941284  1.0000
+  I   I3        1.0  0.288709819316864  0.6339216828346251  0.034112416207790375  1.0000

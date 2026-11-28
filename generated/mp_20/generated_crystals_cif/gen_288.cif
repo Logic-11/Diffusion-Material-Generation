@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       SrOFSrClFO
+_chemical_formula_sum              "Sr2 O2 F2 Cl1"
+_cell_length_a       4.074842400981909
+_cell_length_b       4.126664500226943
+_cell_length_c       7.150477886199951
+_cell_angle_alpha    95.38583224238532
+_cell_angle_beta     90.41935565521328
+_cell_angle_gamma    90.33957900777425
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.7503470778465271  0.502309560775757  0.8831586241722106  1.0000
+  O   O1        1.0  0.2508460581302643  0.17614954710006717  0.6899866461753845  1.0000
+  F   F1        1.0  0.25157010555267334  0.5268778800964355  0.09346486628055571  1.0000
+  Sr  Sr2       1.0  0.2525719404220581  0.06256868690252304  0.2940397262573242  1.0000
+  Cl  Cl1       1.0  0.7528245449066162  0.591490924358368  0.4575498700141906  1.0000
+  F   F2        1.0  0.7515840530395508  0.03315360099077225  0.08801086246967316  1.0000
+  O   O2        1.0  0.24974161386489868  0.9340023398399353  0.8037213683128356  1.0000

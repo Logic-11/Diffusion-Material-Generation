@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       SbAlSbAlLaSb4Al
+_chemical_formula_sum              "Sb6 Al3 La1"
+_cell_length_a       4.250217638448803
+_cell_length_b       4.280803580729748
+_cell_length_c       17.14945411682129
+_cell_angle_alpha    89.80726822023965
+_cell_angle_beta     89.95777144115993
+_cell_angle_gamma    90.00515246749485
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sb  Sb1       1.0  0.4271240234375  0.2978191077709198  0.7873902916908264  1.0000
+  Al  Al1       1.0  0.42381852865219116  0.29449328780174255  0.10691909492015839  1.0000
+  Sb  Sb2       1.0  0.4244832396507263  0.7938392162322999  0.002811431884765625  1.0000
+  Al  Al2       1.0  0.9228408336639404  0.7937203049659729  0.10828537493944168  1.0000
+  La  La1       1.0  0.4252598285675049  0.7982881665229797  0.637419581413269  1.0000
+  Sb  Sb3       1.0  0.9248541593551636  0.7968887090682983  0.785313069820404  1.0000
+  Sb  Sb4       1.0  0.9259095191955566  0.2982094883918762  0.547813892364502  1.0000
+  Sb  Sb5       1.0  0.42877617478370667  0.7970719337463379  0.351851224899292  1.0000
+  Sb  Sb6       1.0  0.9215776920318604  0.2956787347793579  0.21354714035987854  1.0000
+  Al  Al3       1.0  0.9286197423934937  0.7977167367935181  0.44326454401016235  1.0000

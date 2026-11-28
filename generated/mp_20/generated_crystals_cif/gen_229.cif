@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       CoF2LiF4
+_chemical_formula_sum              "Co1 F6 Li1"
+_cell_length_a       5.203733385908427
+_cell_length_b       5.1839781232015465
+_cell_length_c       5.134342193603516
+_cell_angle_alpha    99.31742557747486
+_cell_angle_beta     99.36398022561038
+_cell_angle_gamma    119.44677222883965
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Co  Co1       1.0  0.9547626376152037  0.5213413238525391  0.04240787774324413  1.0000
+  F   F1        1.0  0.9020212292671203  0.17403100430965424  0.8322436213493347  1.0000
+  F   F2        1.0  0.300412654876709  0.5699513554573059  0.25091445446014404  1.0000
+  Li  Li1       1.0  0.28967222571372986  0.18784283101558685  0.04204095155000686  1.0000
+  F   F3        1.0  0.5962331891059875  0.4411037862300873  0.8286815881729126  1.0000
+  F   F4        1.0  0.16816087067127228  0.7501294612884521  0.8415343165397644  1.0000
+  F   F5        1.0  0.7272189855575562  0.30717939138412476  0.24405361711978912  1.0000
+  F   F6        1.0  0.03864689916372303  0.8819140195846558  0.2575753331184387  1.0000

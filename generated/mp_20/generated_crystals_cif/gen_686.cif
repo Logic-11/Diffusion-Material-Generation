@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       SeTeSeAsSb2TeSe
+_chemical_formula_sum              "Se3 Te2 As1 Sb2"
+_cell_length_a       4.1072421467296465
+_cell_length_b       4.099797988265226
+_cell_length_c       16.918193817138672
+_cell_angle_alpha    89.55308958088445
+_cell_angle_beta     82.73296173559042
+_cell_angle_gamma    59.860791939676076
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Se  Se1       1.0  0.32760709524154663  0.7377952933311462  0.8006581664085388  1.0000
+  Te  Te1       1.0  0.595308244228363  0.6024295091629028  0.40135523676872253  1.0000
+  Se  Se2       1.0  0.5293156504631042  0.1373867243528366  0.9977657198905945  1.0000
+  As  As1       1.0  0.8062964081764222  0.49878948926925665  0.07717545330524445  1.0000
+  Sb  Sb1       1.0  0.05716212093830111  0.3714107871055603  0.7064968347549438  1.0000
+  Sb  Sb2       1.0  0.32916733622550964  0.23574240505695343  0.2935877740383149  1.0000
+  Te  Te2       1.0  0.7968829274177551  0.002351136179640889  0.5960162281990051  1.0000
+  Se  Se3       1.0  0.06656670570373531  0.8672980666160583  0.18631933629512787  1.0000

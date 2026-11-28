@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       B3FeB3Pr
+_chemical_formula_sum              "B6 Fe1 Pr1"
+_cell_length_a       4.6849195298088
+_cell_length_b       4.750966229275316
+_cell_length_c       4.819303512573242
+_cell_angle_alpha    75.95270757820924
+_cell_angle_beta     65.30549535011227
+_cell_angle_gamma    70.75747402820153
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  B   B1        1.0  0.1357494592666626  0.06821850687265396  0.4084474742412567  1.0000
+  B   B2        1.0  0.4587841928005219  0.9428500533103942  0.5396671295166016  1.0000
+  B   B3        1.0  0.7040102481842041  0.6402785181999207  0.3524438440799713  1.0000
+  Fe  Fe1       1.0  0.23072728514671326  0.6600526571273804  0.574083685874939  1.0000
+  B   B4        1.0  0.06067126244306563  0.46550416946411133  0.34589409828186035  1.0000
+  B   B5        1.0  0.040194347500801086  0.5705523490905762  0.005004615988582373  1.0000
+  B   B6        1.0  0.8637437224388124  0.8620814085006714  0.45565858483314514  1.0000
+  Pr  Pr1       1.0  0.6967952847480774  0.2236413061618805  0.944122314453125  1.0000

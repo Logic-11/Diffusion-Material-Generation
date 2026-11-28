@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Ba5SiNiSi
+_chemical_formula_sum              "Ba5 Si2 Ni1"
+_cell_length_a       5.316134336276549
+_cell_length_b       7.078560045148261
+_cell_length_c       9.294340133666992
+_cell_angle_alpha    108.40688460760657
+_cell_angle_beta     90.29796270314674
+_cell_angle_gamma    112.06559793360468
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ba  Ba1       1.0  0.6023914217948914  0.8100706338882446  0.7489680647850037  1.0000
+  Ba  Ba2       1.0  0.08011566847562795  0.7649296522140504  0.34939396381378174  1.0000
+  Ba  Ba3       1.0  0.7447797656059265  0.09632696956396104  0.1764318346977234  1.0000
+  Ba  Ba4       1.0  0.8739926815032959  0.35226598381996155  0.6193980574607849  1.0000
+  Ba  Ba5       1.0  0.37855711579322815  0.3657503426074982  0.005031179171055555  1.0000
+  Si  Si1       1.0  0.40413504838943487  0.4122237861156464  0.408886194229126  1.0000
+  Ni  Ni1       1.0  0.9146238565444946  0.4450616240501404  0.9626085758209229  1.0000
+  Si  Si2       1.0  0.08411785215139389  0.7708583474159241  0.9672505855560303  1.0000

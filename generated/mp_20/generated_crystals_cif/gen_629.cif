@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Tm2AlRh
+_chemical_formula_sum              "Tm2 Al1 Rh1"
+_cell_length_a       4.896568556468308
+_cell_length_b       4.8948059431891044
+_cell_length_c       4.893648624420166
+_cell_angle_alpha    59.905944831671746
+_cell_angle_beta     59.850762602295845
+_cell_angle_gamma    59.870120212177014
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Tm  Tm1       1.0  0.2888842821121216  0.2474949210882187  0.40098467469215393  1.0000
+  Tm  Tm2       1.0  0.7888417243957521  0.7473626732826233  0.9002095460891724  1.0000
+  Al  Al1       1.0  0.5389253497123718  0.49691835045814514  0.6505411267280579  1.0000
+  Rh  Rh1       1.0  0.03899090364575385  0.9974662661552429  0.15062762796878815  1.0000

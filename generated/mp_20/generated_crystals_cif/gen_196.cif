@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       BiHoBi2HoBi
+_chemical_formula_sum              "Bi4 Ho2"
+_cell_length_a       3.662168499864597
+_cell_length_b       7.675891488609691
+_cell_length_c       7.323548316955566
+_cell_angle_alpha    104.04706610424071
+_cell_angle_beta     90.28497164975352
+_cell_angle_gamma    76.3808440460845
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Bi  Bi1       1.0  0.9649603366851808  0.7638314962387085  0.18035440146923065  1.0000
+  Ho  Ho1       1.0  0.6002454161643982  0.4913441836833954  0.8618600964546204  1.0000
+  Bi  Bi2       1.0  0.23842138051986697  0.2160331159830093  0.5418764352798462  1.0000
+  Bi  Bi3       1.0  0.9688493013381958  0.7568025588989258  0.6776542067527771  1.0000
+  Ho  Ho2       1.0  0.6042437553405762  0.483378380537033  0.36027538776397705  1.0000
+  Bi  Bi4       1.0  0.23797865211963654  0.21799106895923615  0.04249368980526924  1.0000

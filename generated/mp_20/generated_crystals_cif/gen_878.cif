@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       EuAl2SiEuSi
+_chemical_formula_sum              "Eu2 Al2 Si2"
+_cell_length_a       4.138047842270378
+_cell_length_b       4.155882725753031
+_cell_length_c       7.703507423400879
+_cell_angle_alpha    90.07650745705402
+_cell_angle_beta     89.85626118429306
+_cell_angle_gamma    89.94311385293993
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Eu  Eu1       1.0  0.40451622009277344  0.3037896454334259  0.24269978702068332  1.0000
+  Al  Al1       1.0  0.903286337852478  0.30372893810272217  0.9003553986549379  1.0000
+  Al  Al2       1.0  0.40497100353240967  0.8035266995429993  0.8995078802108766  1.0000
+  Si  Si1       1.0  0.9039048552513123  0.803805947303772  0.102960966527462  1.0000
+  Eu  Eu2       1.0  0.9047976136207581  0.8047924637794495  0.5599323511123657  1.0000
+  Si  Si2       1.0  0.4041929543018341  0.3042886555194855  0.7004200816154481  1.0000

@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       AlMoAl2HfReMoAlZnRe
+_chemical_formula_sum              "Al4 Mo2 Hf1 Re2 Zn1"
+_cell_length_a       3.192851487355967
+_cell_length_b       6.069204238574845
+_cell_length_c       9.248594284057617
+_cell_angle_alpha    120.14087093835464
+_cell_angle_beta     80.52670031384282
+_cell_angle_gamma    90.0126180093176
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Al  Al1       1.0  0.03681329637765885  0.6308833360671997  0.24138742685317993  1.0000
+  Mo  Mo1       1.0  0.44482591748237615  0.5150746703147888  0.42586812376976013  1.0000
+  Al  Al2       1.0  0.043576754629611976  0.11931110918521881  0.227071613073349  1.0000
+  Al  Al3       1.0  0.8509159088134767  0.3943812847137451  0.6143231391906738  1.0000
+  Hf  Hf1       1.0  0.24492336809635165  0.8183110356330872  0.8283503651618958  1.0000
+  Re  Re1       1.0  0.24411675333976748  0.3204657733440399  0.8287850022315979  1.0000
+  Mo  Mo2       1.0  0.6387754082679749  0.2410137951374054  0.03538261726498603  1.0000
+  Al  Al4       1.0  0.64261794090271  0.7018648386001587  0.032053202390670776  1.0000
+  Zn  Zn1       1.0  0.4425967931747437  0.02255181595683098  0.42845165729522705  1.0000
+  Re  Re2       1.0  0.8459367752075196  0.9193671941757202  0.6248354911804199  1.0000

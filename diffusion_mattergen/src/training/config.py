@@ -23,18 +23,31 @@ def default_trainer() -> DictConfig:
 
 def validate_config(cfg: DictConfig) -> None:
     trainer = cfg.trainer
-    devices = trainer.get('devices', 1)
-    if type(devices) is not int or devices < 1:
-        raise ValueError("trainer.devices must be a positive integer")
-    if devices > 1:
-        if torch.device(trainer.device).type != 'cuda':
+    gpu_ids = trainer.get('gpu_ids')
+    if gpu_ids is None:
+        num_devices = trainer.get('devices', 1)
+        if type(num_devices) is not int or num_devices < 1:
+            raise ValueError("trainer.devices must be a positive integer")
+        if num_devices > 1 and torch.device(trainer.device).type != 'cuda':
             raise ValueError("trainer.devices greater than one requires a CUDA device")
+    else:
+        if not OmegaConf.is_list(gpu_ids) or not gpu_ids or any(
+            type(gpu_id) is not int or gpu_id < 0 for gpu_id in gpu_ids
+        ):
+            raise ValueError("trainer.gpu_ids must be null or a nonempty list of nonnegative integers")
+        if len(set(gpu_ids)) != len(gpu_ids):
+            raise ValueError("trainer.gpu_ids must not contain duplicate GPU indices")
+        if torch.device(trainer.device).type != 'cuda':
+            raise ValueError("trainer.gpu_ids requires a CUDA device")
+        num_devices = len(gpu_ids)
+
+    if num_devices > 1:
         for name, batch_size in (
             ('data.batchsize', cfg.data.batchsize),
             ('dataloader.val_batch_size', cfg.dataloader.val_batch_size),
         ):
-            if type(batch_size) is not int or batch_size < devices:
-                raise ValueError(f"{name} must be an integer at least as large as trainer.devices")
+            if type(batch_size) is not int or batch_size < num_devices:
+                raise ValueError(f"{name} must be an integer at least as large as the GPU count ({num_devices})")
     if type(trainer.max_epochs) is not int or trainer.max_epochs < 0:
         raise ValueError("trainer.max_epochs must be a nonnegative integer")
     max_steps = trainer.max_steps

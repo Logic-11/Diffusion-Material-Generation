@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       SbAsFe2
+_chemical_formula_sum              "Sb1 As1 Fe2"
+_cell_length_a       3.8520415362775924
+_cell_length_b       3.8469426706228123
+_cell_length_c       5.005589485168457
+_cell_angle_alpha    90.00356103326375
+_cell_angle_beta     90.08605605108083
+_cell_angle_gamma    119.50232945396628
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sb  Sb1       1.0  0.5271719098091125  0.0462370552122593  0.3334301710128784  1.0000
+  As  As1       1.0  0.8624448180198669  0.7139350175857545  0.8317562341690063  1.0000
+  Fe  Fe1       1.0  0.1946330964565277  0.38088211417198187  0.06973650306463242  1.0000
+  Fe  Fe2       1.0  0.1936686187982559  0.37923261523246765  0.5974336862564087  1.0000

@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       DySnZn2DySn4
+_chemical_formula_sum              "Dy2 Sn5 Zn2"
+_cell_length_a       4.756656624817275
+_cell_length_b       4.75476827829662
+_cell_length_c       11.305113792419434
+_cell_angle_alpha    89.91183841706132
+_cell_angle_beta     89.9112988336457
+_cell_angle_gamma    119.67036674744212
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Dy  Dy1       1.0  0.4644171893596649  0.14630118012428286  0.08114682883024216  1.0000
+  Sn  Sn1       1.0  0.7977520227432251  0.8125683069229127  0.21613822877407074  1.0000
+  Zn  Zn1       1.0  0.12863123416900638  0.47936725616455084  0.5189289450645447  1.0000
+  Zn  Zn2       1.0  0.13063256442546844  0.4799908995628357  0.2722218930721283  1.0000
+  Dy  Dy2       1.0  0.4638526439666748  0.14615365862846375  0.7223299145698547  1.0000
+  Sn  Sn2       1.0  0.13227468729019165  0.480496346950531  0.8752837777137756  1.0000
+  Sn  Sn3       1.0  0.7979723811149597  0.8118703961372375  0.9379520416259766  1.0000
+  Sn  Sn4       1.0  0.7965044975280762  0.8132364749908447  0.5802239179611206  1.0000
+  Sn  Sn5       1.0  0.4639911949634552  0.14616258442401886  0.4025026857852936  1.0000

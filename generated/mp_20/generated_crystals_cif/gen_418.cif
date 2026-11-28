@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Eu2MgIn
+_chemical_formula_sum              "Eu2 Mg1 In1"
+_cell_length_a       5.603989106632194
+_cell_length_b       5.6036621213492515
+_cell_length_c       5.602792263031006
+_cell_angle_alpha    59.79281691751032
+_cell_angle_beta     59.95582432675389
+_cell_angle_gamma    59.70255462079004
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Eu  Eu1       1.0  0.7704985141754149  0.753818154335022  0.7105636000633242  1.0000
+  Eu  Eu2       1.0  0.26993894577026367  0.25332662463188177  0.21022500097751617  1.0000
+  Mg  Mg1       1.0  0.020023357123136517  0.005502192303538323  0.9603868126869204  1.0000
+  In  In1       1.0  0.5201395153999329  0.5041615962982178  0.46049153804779064  1.0000

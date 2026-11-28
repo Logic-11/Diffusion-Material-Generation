@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       TeSbCeSbCs
+_chemical_formula_sum              "Te1 Sb2 Ce1 Cs1"
+_cell_length_a       4.329280062342447
+_cell_length_b       4.339533932040313
+_cell_length_c       9.951147079467773
+_cell_angle_alpha    90.04853099616834
+_cell_angle_beta     90.05603054296004
+_cell_angle_gamma    90.04252726253611
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Te  Te1       1.0  0.9838607907295227  0.5704616904258728  0.251403272151947  1.0000
+  Sb  Sb1       1.0  0.47890010476112366  0.5677879452705383  0.6380436420440674  1.0000
+  Ce  Ce1       1.0  0.48436978459358215  0.0703776404261589  0.38902825117111206  1.0000
+  Sb  Sb2       1.0  0.9845088720321655  0.06862838566303253  0.6404081583023071  1.0000
+  Cs  Cs1       1.0  0.4831773638725281  0.0695805773139  0.9812210202217102  1.0000

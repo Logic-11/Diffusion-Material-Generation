@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Al3Ru
+_chemical_formula_sum              "Al3 Ru1"
+_cell_length_a       4.326230155357469
+_cell_length_b       4.316887940474131
+_cell_length_c       4.327219486236572
+_cell_angle_alpha    60.12932440765062
+_cell_angle_beta     59.77332901537394
+_cell_angle_gamma    59.801345508769586
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Al  Al1       1.0  0.9708688259124756  0.8010509610176086  0.9468849897384644  1.0000
+  Al  Al2       1.0  0.47131842374801636  0.3014959692955017  0.4480220973491668  1.0000
+  Al  Al3       1.0  0.22108568251132965  0.05026785284280777  0.1975601017475128  1.0000
+  Ru  Ru1       1.0  0.724091649055481  0.5528262853622437  0.6964924335479736  1.0000

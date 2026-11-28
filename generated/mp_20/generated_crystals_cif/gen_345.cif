@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Rb2Cu2Se3Cu
+_chemical_formula_sum              "Rb2 Cu3 Se3"
+_cell_length_a       3.884501747636678
+_cell_length_b       6.367471446479601
+_cell_length_c       8.356813430786133
+_cell_angle_alpha    113.29689425146844
+_cell_angle_beta     89.99062465463072
+_cell_angle_gamma    89.97110397457259
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Rb  Rb1       1.0  0.20697492361068726  0.5014774203300476  0.8475995659828186  1.0000
+  Rb  Rb2       1.0  0.7066543102264404  0.11359526216983794  0.06622467190027237  1.0000
+  Cu  Cu1       1.0  0.7069636583328247  0.05157692357897758  0.4979439675807953  1.0000
+  Cu  Cu2       1.0  0.20634086430072784  0.6838089823722839  0.3677244186401367  1.0000
+  Se  Se1       1.0  0.20837567746639252  0.9217485785484313  0.6736403703689575  1.0000
+  Se  Se2       1.0  0.2056230753660202  0.29057648777961725  0.4261351525783539  1.0000
+  Se  Se3       1.0  0.7064905762672424  0.6831076145172119  0.21025410294532773  1.0000
+  Cu  Cu3       1.0  0.7070258259773254  0.5929068326950073  0.5333606004714966  1.0000

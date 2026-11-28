@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       CaAgCaPb2Ca
+_chemical_formula_sum              "Ca3 Ag1 Pb2"
+_cell_length_a       4.550887467756229
+_cell_length_b       4.723048439886384
+_cell_length_c       8.524336814880371
+_cell_angle_alpha    90.11651870793084
+_cell_angle_beta     90.27478104147977
+_cell_angle_gamma    90.17873490952364
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ca  Ca1       1.0  0.608139157295227  0.029525823891162872  0.6982800960540771  1.0000
+  Ag  Ag1       1.0  0.10846251249313354  0.5291196703910828  0.6227986216545105  1.0000
+  Ca  Ca2       1.0  0.609959065914154  0.5289604067802429  0.36401715874671936  1.0000
+  Pb  Pb1       1.0  0.10958778113126755  0.028908772394061085  0.37139612436294556  1.0000
+  Pb  Pb2       1.0  0.6090644598007202  0.028218474239110947  0.08619402348995209  1.0000
+  Ca  Ca3       1.0  0.10657341778278351  0.5289492607116699  0.9989681839942932  1.0000

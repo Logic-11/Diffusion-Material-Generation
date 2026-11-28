@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       GaZrScGaZrGaZrGa3
+_chemical_formula_sum              "Ga6 Zr3 Sc1"
+_cell_length_a       5.334629006117469
+_cell_length_b       5.345662710994961
+_cell_length_c       7.722275733947754
+_cell_angle_alpha    102.84816881246503
+_cell_angle_beta     108.8817669978458
+_cell_angle_gamma    101.70708956208448
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ga  Ga1       1.0  0.37508636713027954  0.9542884826660156  0.7257837653160095  1.0000
+  Zr  Zr1       1.0  0.6064888834953308  0.5541806221008301  0.8453338146209717  1.0000
+  Sc  Sc1       1.0  0.8566531538963318  0.06761402636766435  0.6065114140510559  1.0000
+  Ga  Ga2       1.0  0.14581416547298434  0.5205156207084657  0.9519946575164795  1.0000
+  Zr  Zr2       1.0  0.1384439915418625  0.5871677398681641  0.34510964155197144  1.0000
+  Ga  Ga3       1.0  0.8492863774299622  0.13141320645809174  0.9995349645614624  1.0000
+  Zr  Zr3       1.0  0.390764981508255  0.09726961702108385  0.10774192959070206  1.0000
+  Ga  Ga4       1.0  0.7131891250610352  0.5009093284606934  0.498809814453125  1.0000
+  Ga  Ga5       1.0  0.2817264795303345  0.15530812740325928  0.4549542963504791  1.0000
+  Ga  Ga6       1.0  0.6162205338478088  0.6960369348526002  0.22644931077957156  1.0000

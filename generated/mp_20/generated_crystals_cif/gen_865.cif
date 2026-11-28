@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       SnCsSn2Rh
+_chemical_formula_sum              "Sn3 Cs1 Rh1"
+_cell_length_a       5.040153172623867
+_cell_length_b       5.020854128552812
+_cell_length_c       6.753385543823242
+_cell_angle_alpha    111.63785633010026
+_cell_angle_beta     111.81822119962216
+_cell_angle_gamma    89.87156051762993
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sn  Sn1       1.0  0.923335373401642  0.31069907546043396  0.2636616826057434  1.0000
+  Cs  Cs1       1.0  0.3323839604854584  0.7184345126152039  0.07750595360994342  1.0000
+  Sn  Sn2       1.0  0.08197136223316193  0.9694918990135193  0.581695020198822  1.0000
+  Sn  Sn3       1.0  0.5805620551109314  0.4702056348323822  0.5805239081382751  1.0000
+  Rh  Rh1       1.0  0.6802947521209717  0.06833349168300627  0.7785547375679015  1.0000

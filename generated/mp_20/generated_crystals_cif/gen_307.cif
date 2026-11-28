@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       WMo2Nb
+_chemical_formula_sum              "W1 Mo2 Nb1"
+_cell_length_a       2.7305261895720583
+_cell_length_b       2.735859380736708
+_cell_length_c       9.018889427185059
+_cell_angle_alpha    90.94959006393823
+_cell_angle_beta     90.81966616995778
+_cell_angle_gamma    111.96957826094665
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  W   W1        1.0  0.9000399708747864  0.10650660842657088  0.9917675852775574  1.0000
+  Mo  Mo1       1.0  0.3977501690387726  0.6054651737213135  0.23030085861682892  1.0000
+  Mo  Mo2       1.0  0.8989900350570679  0.10555390268564224  0.47483500838279724  1.0000
+  Nb  Nb1       1.0  0.3976591229438782  0.6044837832450867  0.7327231168746948  1.0000

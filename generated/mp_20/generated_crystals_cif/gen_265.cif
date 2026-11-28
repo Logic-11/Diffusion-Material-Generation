@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       IrHfIrGa
+_chemical_formula_sum              "Ir2 Hf1 Ga1"
+_cell_length_a       4.4879401001350905
+_cell_length_b       4.489961963168296
+_cell_length_c       4.491604328155518
+_cell_angle_alpha    59.98972266043595
+_cell_angle_beta     60.0055760735079
+_cell_angle_gamma    60.00907444652046
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ir  Ir1       1.0  0.6678038239479065  0.6816187500953674  0.8578633069992064  1.0000
+  Hf  Hf1       1.0  0.4178121984004974  0.4315042197704316  0.6079015731811523  1.0000
+  Ir  Ir2       1.0  0.16826260089874265  0.18106515705585483  0.35790932178497314  1.0000
+  Ga  Ga1       1.0  0.9179028272628784  0.9314941763877869  0.10791219770908356  1.0000

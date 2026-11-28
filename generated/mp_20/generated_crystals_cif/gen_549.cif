@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       SiHoSiPd2
+_chemical_formula_sum              "Si2 Ho1 Pd2"
+_cell_length_a       4.0521724148111975
+_cell_length_b       5.156741969840507
+_cell_length_c       4.0631914138793945
+_cell_angle_alpha    90.18062004390933
+_cell_angle_beta     90.44602067832923
+_cell_angle_gamma    90.39352383404753
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Si  Si1       1.0  0.7337899208068848  0.2818777859210968  0.2557578980922699  1.0000
+  Ho  Ho1       1.0  0.23342323303222656  0.05808569863438606  0.7561830282211304  1.0000
+  Si  Si2       1.0  0.7339000701904297  0.8354976773262024  0.2564258575439453  1.0000
+  Pd  Pd1       1.0  0.7310469746589661  0.5593965649604797  0.7560998201370239  1.0000
+  Pd  Pd2       1.0  0.23331883549690247  0.558220624923706  0.2583313286304474  1.0000

@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       ZnYbHoZn
+_chemical_formula_sum              "Zn2 Yb1 Ho1"
+_cell_length_a       5.1006767102714985
+_cell_length_b       5.086405592942488
+_cell_length_c       5.093941688537598
+_cell_angle_alpha    60.025177000525474
+_cell_angle_beta     60.36143546965372
+_cell_angle_gamma    60.26563407995789
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Zn  Zn1       1.0  0.4905119240283966  0.5896678566932678  0.8693801760673523  1.0000
+  Yb  Yb1       1.0  0.24152837693691254  0.3378916084766388  0.6186880469322205  1.0000
+  Ho  Ho1       1.0  0.7411370277404785  0.8378756046295166  0.11946868896484374  1.0000
+  Zn  Zn2       1.0  0.9925165176391602  0.08848972618579865  0.3690023720264435  1.0000

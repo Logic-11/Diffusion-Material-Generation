@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       GeNdErAgO2
+_chemical_formula_sum              "Ge1 Nd1 Er1 Ag1 O2"
+_cell_length_a       3.315126504191949
+_cell_length_b       3.3294959058003872
+_cell_length_c       8.491623878479004
+_cell_angle_alpha    89.93868789627267
+_cell_angle_beta     90.03336114529627
+_cell_angle_gamma    90.27251339491737
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ge  Ge1       1.0  0.9380747079849243  0.3048635721206665  0.8180626034736633  1.0000
+  Nd  Nd1       1.0  0.4373612105846405  0.8040581345558167  0.550261914730072  1.0000
+  Er  Er1       1.0  0.9364248514175415  0.30428457260131836  0.2237963229417801  1.0000
+  Ag  Ag1       1.0  0.43678855895996094  0.8057013750076294  0.9664412140846252  1.0000
+  O   O1        1.0  0.4349537193775177  0.803648054599762  0.2544909417629242  1.0000
+  O   O2        1.0  0.9362950921058655  0.30304741859436035  0.479598730802536  1.0000

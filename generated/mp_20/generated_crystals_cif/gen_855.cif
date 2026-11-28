@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       SSnS2Sn2NiS
+_chemical_formula_sum              "S4 Sn3 Ni1"
+_cell_length_a       7.040429268573389
+_cell_length_b       4.047258267685889
+_cell_length_c       7.051889896392822
+_cell_angle_alpha    89.76274220681863
+_cell_angle_beta     99.61299647897793
+_cell_angle_gamma    106.79960308212642
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  S   S1        1.0  0.11513309180736545  0.31558468937873846  0.8322888612747192  1.0000
+  Sn  Sn1       1.0  0.5191388726234436  0.016922974959015846  0.4446614682674408  1.0000
+  S   S2        1.0  0.6528675556182861  0.08416816592216492  0.1250904351472855  1.0000
+  S   S3        1.0  0.13521459698677066  0.8244404792785646  0.40493422746658325  1.0000
+  Sn  Sn2       1.0  0.4952531754970551  0.5050552487373353  0.9175986647605896  1.0000
+  Sn  Sn3       1.0  0.03891299292445184  0.2782489359378815  0.17650707066059113  1.0000
+  Ni  Ni1       1.0  0.02587036788463594  0.7701776027679444  0.6912643313407898  1.0000
+  S   S4        1.0  0.6836652755737305  0.6002281308174134  0.6297951936721802  1.0000

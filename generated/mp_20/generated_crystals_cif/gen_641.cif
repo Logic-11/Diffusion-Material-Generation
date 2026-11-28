@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       YAsTeYTe2Y2
+_chemical_formula_sum              "Y4 As1 Te3"
+_cell_length_a       4.356010126398782
+_cell_length_b       4.361463977335608
+_cell_length_c       14.553434371948242
+_cell_angle_alpha    81.29935898012822
+_cell_angle_beta     81.35012776328294
+_cell_angle_gamma    59.878265349639356
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Y   Y1        1.0  0.5824090838432311  0.713020920753479  0.012082850560545928  1.0000
+  As  As1       1.0  0.2138449400663376  0.3447957634925842  0.11952316015958785  1.0000
+  Te  Te1       1.0  0.9637260437011719  0.09336202591657639  0.8694047331809996  1.0000
+  Y   Y2        1.0  0.8434420228004456  0.9769750237464905  0.22823786735534665  1.0000
+  Te  Te2       1.0  0.4640034437179566  0.5955771207809448  0.3666066825389862  1.0000
+  Te  Te3       1.0  0.7130289673805237  0.8435487747192383  0.6187587976455688  1.0000
+  Y   Y3        1.0  0.0854991525411606  0.21607987582683563  0.4972788989543914  1.0000
+  Y   Y4        1.0  0.33915457129478455  0.4685285687446594  0.7402937412261963  1.0000

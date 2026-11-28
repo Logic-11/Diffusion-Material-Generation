@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       Sn2BiPBiOSnAu2
+_chemical_formula_sum              "Sn3 Bi2 P1 O1 Au2"
+_cell_length_a       4.241014760079237
+_cell_length_b       4.211384768086924
+_cell_length_c       14.512194633483887
+_cell_angle_alpha    89.77027591332384
+_cell_angle_beta     90.26424202950804
+_cell_angle_gamma    120.12446520133433
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sn  Sn1       1.0  0.4819851517677307  0.6034992933273315  0.5270899534225464  1.0000
+  Sn  Sn2       1.0  0.15172657370567322  0.9384382963180542  0.7020153999328613  1.0000
+  Bi  Bi1       1.0  0.816868245601654  0.27097123861312866  0.3815575838088989  1.0000
+  P   P1        1.0  0.14989963173866275  0.9406324625015259  0.8923205137252808  1.0000
+  Bi  Bi2       1.0  0.48460426926612854  0.6063514351844788  0.10076094418764114  1.0000
+  O   O1        1.0  0.816373884677887  0.2715894281864166  0.6728119850158691  1.0000
+  Sn  Sn3       1.0  0.15155199170112607  0.938546895980835  0.24090175330638888  1.0000
+  Au  Au1       1.0  0.8172988891601562  0.2731930911540985  0.9702383279800416  1.0000
+  Au  Au2       1.0  0.4830823838710785  0.6072503328323364  0.842937707901001  1.0000

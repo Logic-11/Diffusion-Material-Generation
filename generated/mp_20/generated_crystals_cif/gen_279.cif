@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       SrWO2SrO4
+_chemical_formula_sum              "Sr2 W1 O6"
+_cell_length_a       4.479060854500459
+_cell_length_b       5.686302154160854
+_cell_length_c       5.708345413208008
+_cell_angle_alpha    119.80309052363594
+_cell_angle_beta     90.45210638708481
+_cell_angle_gamma    90.2254124155899
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.3350716233253479  0.8536930680274964  0.39538925886154186  1.0000
+  W   W1        1.0  0.0465262234210968  0.5202884078025818  0.7275347709655762  1.0000
+  O   O1        1.0  0.2820764482021332  0.8478850722312927  0.8921595811843873  1.0000
+  O   O2        1.0  0.2774113118648529  0.35617098212242126  0.3992797434329987  1.0000
+  Sr  Sr2       1.0  0.7567299604415894  0.1874210685491562  0.06102751940488816  1.0000
+  O   O3        1.0  0.2780632972717285  0.35708004236221313  0.8923125863075257  1.0000
+  O   O4        1.0  0.8129106163978577  0.19286343455314636  0.5642813444137573  1.0000
+  O   O5        1.0  0.815476655960083  0.684460461139679  0.5649110078811646  1.0000
+  O   O6        1.0  0.8147979974746704  0.6844964027404786  0.05633005499839791  1.0000

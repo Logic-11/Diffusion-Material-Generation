@@ -1,0 +1,28 @@
+data_image0
+_chemical_formula_structural       CuCoSi
+_chemical_formula_sum              "Cu1 Co1 Si1"
+_cell_length_a       2.634037104265992
+_cell_length_b       3.8595584138021692
+_cell_length_c       3.863884687423706
+_cell_angle_alpha    119.52411554013952
+_cell_angle_beta     89.57330692918643
+_cell_angle_gamma    89.94115358984335
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cu  Cu1       1.0  0.7518123984336853  0.5239542722702026  0.8260393738746644  1.0000
+  Co  Co1       1.0  0.2525409460067749  0.19078293442726138  0.1592185348272324  1.0000
+  Si  Si1       1.0  0.2534761428833008  0.8585098385810852  0.49348664283752447  1.0000

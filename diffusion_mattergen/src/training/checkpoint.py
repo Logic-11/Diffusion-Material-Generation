@@ -326,7 +326,7 @@ def restore_training_state(
     saved_state = checkpoint.get('training_state')
     rank_state = _saved_rank_state(saved_state, rank, world_size)
     if rank_state is None and partial_epoch and (saved_state is not None or world_size > 1):
-        raise ValueError("Resume a partial epoch with the trainer.devices used to save the checkpoint")
+        raise ValueError("Resume a partial epoch with the same number of devices used to save the checkpoint")
 
     progress = None
     if saved_state is None and rank == 0:

@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       GeTe2GeTeSbTeNi
+_chemical_formula_sum              "Ge2 Te4 Sb1 Ni1"
+_cell_length_a       4.233800043116744
+_cell_length_b       4.23446876457847
+_cell_length_c       14.375534057617188
+_cell_angle_alpha    89.92484993433749
+_cell_angle_beta     89.90888094970519
+_cell_angle_gamma    59.90442825895475
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ge  Ge1       1.0  0.7569975256919861  0.9151919484138488  0.8180939555168152  1.0000
+  Te  Te1       1.0  0.0930798277258873  0.24754877388477323  0.18543727695941925  1.0000
+  Te  Te2       1.0  0.09216917306184769  0.2507774233818054  0.6981053948402405  1.0000
+  Ge  Ge2       1.0  0.75946444272995  0.9139797687530516  0.0661357045173645  1.0000
+  Te  Te3       1.0  0.42366755008697515  0.580907642841339  0.9305983781814576  1.0000
+  Sb  Sb1       1.0  0.42648631334304804  0.5846375823020935  0.5553423762321472  1.0000
+  Te  Te4       1.0  0.7575926780700684  0.916097581386566  0.4370513856410981  1.0000
+  Ni  Ni1       1.0  0.4260685443878173  0.5804437398910522  0.11126729846000673  1.0000

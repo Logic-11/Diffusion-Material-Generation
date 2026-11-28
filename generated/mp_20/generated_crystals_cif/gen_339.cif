@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       Te2LuTe2HoCd
+_chemical_formula_sum              "Te4 Lu1 Ho1 Cd1"
+_cell_length_a       4.378942301198399
+_cell_length_b       4.3731353243124715
+_cell_length_c       14.36460018157959
+_cell_angle_alpha    81.18900327415516
+_cell_angle_beta     98.70220349450301
+_cell_angle_gamma    119.59388164729276
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Te  Te1       1.0  0.9927651286125183  0.44468092918396  0.4621840715408325  1.0000
+  Te  Te2       1.0  0.15897254645824432  0.2806096076965332  0.9566742181777954  1.0000
+  Lu  Lu1       1.0  0.8610776662826538  0.5770687460899353  0.06778964400291443  1.0000
+  Te  Te3       1.0  0.5747503042221069  0.8636726140975952  0.20489846169948578  1.0000
+  Te  Te4       1.0  0.4108107089996338  0.026174163445830345  0.7161011099815369  1.0000
+  Ho  Ho1       1.0  0.705077588558197  0.7325961589813232  0.6003291606903076  1.0000
+  Cd  Cd1       1.0  0.284050315618515  0.15357473492622375  0.33387428522109985  1.0000

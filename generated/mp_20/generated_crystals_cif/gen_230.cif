@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Pt2YbLa
+_chemical_formula_sum              "Pt2 Yb1 La1"
+_cell_length_a       5.058831568280805
+_cell_length_b       5.060349127082457
+_cell_length_c       5.0619940757751465
+_cell_angle_alpha    60.073347392123445
+_cell_angle_beta     60.00808394478658
+_cell_angle_gamma    60.00575398758984
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Pt  Pt1       1.0  0.9391151070594788  0.6731194257736206  0.32066214084625244  1.0000
+  Pt  Pt2       1.0  0.4401407837867737  0.17244867980480194  0.8190711140632629  1.0000
+  Yb  Yb1       1.0  0.6895355582237244  0.42223045229911804  0.07027583569288254  1.0000
+  La  La1       1.0  0.190173476934433  0.9218525290489197  0.5698820948600769  1.0000

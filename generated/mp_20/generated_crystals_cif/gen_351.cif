@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       YKYO2KO2
+_chemical_formula_sum              "Y2 K2 O4"
+_cell_length_a       3.4597064213612176
+_cell_length_b       5.977701286490678
+_cell_length_c       6.580315589904785
+_cell_angle_alpha    108.05575633863516
+_cell_angle_beta     89.86466229142879
+_cell_angle_gamma    90.16952780660112
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Y   Y1        1.0  0.7925520539283752  0.5154749751091003  0.7139803171157838  1.0000
+  K   K1        1.0  0.7917680740356445  0.01384059153497219  0.2096521705389023  1.0000
+  Y   Y2        1.0  0.291439950466156  0.016432467848062515  0.7134371399879457  1.0000
+  O   O1        1.0  0.7924141883850098  0.7880575060844421  0.5275782346725464  1.0000
+  O   O2        1.0  0.7932077050209045  0.24317829310894012  0.8981587290763856  1.0000
+  K   K2        1.0  0.29171499609947205  0.5154646635055542  0.21257321536540988  1.0000
+  O   O3        1.0  0.29347530007362366  0.2862403392791748  0.5279089212417603  1.0000
+  O   O4        1.0  0.2920995354652405  0.7454868555068969  0.8988291621208191  1.0000

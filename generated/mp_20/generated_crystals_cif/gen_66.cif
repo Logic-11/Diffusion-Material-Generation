@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       PrPNi2Co
+_chemical_formula_sum              "Pr1 P1 Ni2 Co1"
+_cell_length_a       3.9601794331703726
+_cell_length_b       3.964715460003438
+_cell_length_c       4.694879055023193
+_cell_angle_alpha    90.01898360122037
+_cell_angle_beta     90.08060556935867
+_cell_angle_gamma    90.10388968068315
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Pr  Pr1       1.0  0.3540337979793548  0.6896622776985168  0.6907604932785034  1.0000
+  P   P1        1.0  0.8538343906402587  0.18936812877655027  0.4213588833808899  1.0000
+  Ni  Ni1       1.0  0.8542398810386657  0.6900433301925659  0.1903093159198761  1.0000
+  Ni  Ni2       1.0  0.35343956947326655  0.18932656943798065  0.19018852710723877  1.0000
+  Co  Co1       1.0  0.8537498712539672  0.1896981596946716  0.9129809737205505  1.0000

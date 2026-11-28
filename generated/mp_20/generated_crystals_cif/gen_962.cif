@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       BrOLuGaO
+_chemical_formula_sum              "Br1 O2 Lu1 Ga1"
+_cell_length_a       3.60165988535338
+_cell_length_b       3.6041763112754714
+_cell_length_c       7.3828229904174805
+_cell_angle_alpha    90.12866961627638
+_cell_angle_beta     89.85789358085373
+_cell_angle_gamma    120.33429990006539
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Br  Br1       1.0  0.044230714440345764  0.3270201086997986  0.9190211892127992  1.0000
+  O   O1        1.0  0.709852397441864  0.6577038764953613  0.5135465860366821  1.0000
+  Lu  Lu1       1.0  0.7121188044548035  0.6610515117645264  0.19375368952751162  1.0000
+  Ga  Ga1       1.0  0.37830537557601923  0.9932349920272826  0.5385885238647461  1.0000
+  O   O2        1.0  0.3788049817085266  0.9930412769317627  0.2715946137905121  1.0000

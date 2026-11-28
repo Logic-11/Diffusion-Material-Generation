@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       HfSbHfSbHfSbHfSbHf2
+_chemical_formula_sum              "Hf6 Sb4"
+_cell_length_a       4.856329876697445
+_cell_length_b       6.1312190401580535
+_cell_length_c       8.668733596801758
+_cell_angle_alpha    116.41333414426086
+_cell_angle_beta     106.25868641651529
+_cell_angle_gamma    90.04025228798271
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Hf  Hf1       1.0  0.8727502226829529  0.7402626276016235  0.05267910286784167  1.0000
+  Sb  Sb1       1.0  0.8931413292884827  0.24229045212268827  0.09162161499261853  1.0000
+  Hf  Hf2       1.0  0.683147132396698  0.1625615507364273  0.6699234247207642  1.0000
+  Sb  Sb2       1.0  0.6750898957252502  0.6601539850234984  0.6550584435462952  1.0000
+  Hf  Hf3       1.0  0.0886915475130081  0.39180061221122736  0.481341153383255  1.0000
+  Sb  Sb3       1.0  0.28465238213539124  0.46622335910797114  0.8746734261512756  1.0000
+  Hf  Hf4       1.0  0.27822789549827576  0.9656935930252074  0.8636946678161621  1.0000
+  Sb  Sb4       1.0  0.06897278875112534  0.8911627531051636  0.4417600333690643  1.0000
+  Hf  Hf5       1.0  0.4814959466457367  0.06643597036600113  0.2670803666114807  1.0000
+  Hf  Hf6       1.0  0.48041000962257385  0.5656412839889525  0.2670509815216064  1.0000

@@ -3,6 +3,7 @@ import math
 import os
 import random
 import sys
+from contextlib import nullcontext
 from functools import partial
 from pathlib import Path
 
@@ -39,7 +40,7 @@ from src.training.data import (
     training_loaders,
     training_statistics,
 )
-from src.training.distributed import TrainingProcess, launch_training, training_loss
+from src.training.distributed import TrainingProcess, launch_training, resolve_training_devices, training_loss
 
 
 logger = logging.getLogger(__name__)
@@ -226,17 +227,16 @@ def fit(
 
 def run_training(cfg: DictConfig, *, output_dir: Path) -> None:
     validate_config(cfg)
-    trainer = cfg.trainer
-    device = torch.device(trainer.device)
-    world_size = trainer.get('devices', 1)
-    if world_size == 1:
-        if device.type == 'cuda' and not torch.cuda.is_available():
-            print('CUDA is unavailable. Using CPU.')
-            device = torch.device('cpu')
-        _run_training(cfg, output_dir=output_dir, process=TrainingProcess(device))
+    devices = resolve_training_devices(cfg.trainer)
+    logger.info("Training on %s", ", ".join(map(str, devices)))
+    if len(devices) > 1:
+        launch_training(_run_training, cfg, output_dir, devices)
         return
 
-    launch_training(_run_training, cfg, output_dir, device, world_size)
+    device = devices[0]
+    device_context = torch.cuda.device(device) if device.type == 'cuda' else nullcontext()
+    with device_context:
+        _run_training(cfg, output_dir=output_dir, process=TrainingProcess(device))
 
 
 def _run_training(cfg: DictConfig, *, output_dir: Path, process: TrainingProcess) -> None:
@@ -315,6 +315,7 @@ def _run_training(cfg: DictConfig, *, output_dir: Path, process: TrainingProcess
         run_config['data']['output'] = str(output_dir)
         run_config['data']['input'] = cache_dir
         run_config['trainer']['device'] = str(device)
+        run_config['trainer']['devices'] = process.world_size
         if init_path is not None:
             run_config['init_checkpoint'] = str(init_path)
         if resume_path is not None:

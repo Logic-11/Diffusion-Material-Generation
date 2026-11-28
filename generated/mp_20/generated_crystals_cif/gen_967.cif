@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       CdPr2Mg
+_chemical_formula_sum              "Cd1 Pr2 Mg1"
+_cell_length_a       5.486981695727992
+_cell_length_b       5.481381117008352
+_cell_length_c       5.4798197746276855
+_cell_angle_alpha    60.10697005750026
+_cell_angle_beta     60.032676499023154
+_cell_angle_gamma    60.065703572163606
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cd  Cd1       1.0  0.7778391242027284  0.36352771520614624  0.9692320823669434  1.0000
+  Pr  Pr1       1.0  0.5280317664146423  0.11388709396123885  0.7203052639961243  1.0000
+  Pr  Pr2       1.0  0.028258733451366425  0.6132392287254333  0.21935196220874786  1.0000
+  Mg  Mg1       1.0  0.27701893448829656  0.8638441562652588  0.46910518407821655  1.0000

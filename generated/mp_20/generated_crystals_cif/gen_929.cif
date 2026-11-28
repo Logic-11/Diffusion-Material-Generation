@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       LiHLiKH2
+_chemical_formula_sum              "Li2 H3 K1"
+_cell_length_a       3.22022349378341
+_cell_length_b       3.219229864306673
+_cell_length_c       8.027502059936523
+_cell_angle_alpha    90.18143282983893
+_cell_angle_beta     90.1172495345364
+_cell_angle_gamma    119.74489500219916
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Li  Li1       1.0  0.5771113634109497  0.03319705277681351  0.0924656018614769  1.0000
+  H   H1        1.0  0.5771757960319519  0.03519357368350029  0.4905604422092438  1.0000
+  Li  Li2       1.0  0.9107457399368286  0.7006543874740602  0.36271336674690247  1.0000
+  K   K1        1.0  0.2449406683444977  0.36858406662940985  0.7282586097717285  1.0000
+  H   H2        1.0  0.9102699160575867  0.7001800537109376  0.9676437973976135  1.0000
+  H   H3        1.0  0.24444784224033356  0.36726266145706177  0.22792953252792358  1.0000

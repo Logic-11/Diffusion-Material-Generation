@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       GaCrNi2
+_chemical_formula_sum              "Ga1 Cr1 Ni2"
+_cell_length_a       4.072046749508141
+_cell_length_b       4.066669414582086
+_cell_length_c       4.0766401290893555
+_cell_angle_alpha    59.88038006750224
+_cell_angle_beta     59.94663005487506
+_cell_angle_gamma    60.05744388706751
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ga  Ga1       1.0  0.30234283208847046  0.8902374505996703  0.43435898423194896  1.0000
+  Cr  Cr1       1.0  0.8027939200401306  0.39013040065765375  0.9342205524444581  1.0000
+  Ni  Ni1       1.0  0.05246464535593991  0.6402515172958373  0.184304490685463  1.0000
+  Ni  Ni2       1.0  0.552730143070221  0.14050230383872986  0.6846185326576233  1.0000

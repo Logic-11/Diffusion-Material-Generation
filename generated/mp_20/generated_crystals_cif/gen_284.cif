@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Ba2Rh2
+_chemical_formula_sum              "Ba2 Rh2"
+_cell_length_a       4.945741237037629
+_cell_length_b       4.934456256066677
+_cell_length_c       5.462551593780518
+_cell_angle_alpha    90.20893800270882
+_cell_angle_beta     90.00895688240733
+_cell_angle_gamma    119.99165834242514
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ba  Ba1       1.0  0.5818141102790834  0.5343087315559388  0.11041088402271271  1.0000
+  Ba  Ba2       1.0  0.9161824584007263  0.19981989264488223  0.6097554564476013  1.0000
+  Rh  Rh1       1.0  0.2509669363498688  0.8672463297843933  0.36019468307495117  1.0000
+  Rh  Rh2       1.0  0.2455752342939377  0.8659183979034425  0.8606990575790405  1.0000

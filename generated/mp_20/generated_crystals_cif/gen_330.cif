@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       AsTbFe2As
+_chemical_formula_sum              "As2 Tb1 Fe2"
+_cell_length_a       3.9160241079084095
+_cell_length_b       3.939192054900368
+_cell_length_c       6.049627780914307
+_cell_angle_alpha    108.90200381928298
+_cell_angle_beta     108.96086821110913
+_cell_angle_gamma    89.78461898328678
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  As  As1       1.0  0.8941987156867981  0.4464661478996277  0.5024116635322571  1.0000
+  Tb  Tb1       1.0  0.5264930129051208  0.08187726140022278  0.7677814364433289  1.0000
+  Fe  Fe1       1.0  0.2765255272388458  0.33284154534339905  0.2683860957622528  1.0000
+  Fe  Fe2       1.0  0.7766681909561157  0.8307741284370421  0.2682470381259918  1.0000
+  As  As2       1.0  0.158662810921669  0.7162143588066101  0.033678725361824036  1.0000

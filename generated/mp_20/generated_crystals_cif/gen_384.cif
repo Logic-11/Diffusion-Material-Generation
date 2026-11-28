@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       WSrO4BaSrO
+_chemical_formula_sum              "W1 Sr2 O5 Ba1"
+_cell_length_a       6.175407731017411
+_cell_length_b       6.111213652543641
+_cell_length_c       6.133217811584473
+_cell_angle_alpha    60.931687496462
+_cell_angle_beta     59.422631497086286
+_cell_angle_gamma    59.557317820432644
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  W   W1        1.0  0.48527821898460394  0.9061445593833922  0.9152028560638429  1.0000
+  Sr  Sr1       1.0  0.9707259535789489  0.41541668772697454  0.42593774199485784  1.0000
+  O   O1        1.0  0.6606370210647583  0.7224615812301636  0.1874442994594574  1.0000
+  O   O2        1.0  0.22598634660243982  0.7197011113166809  0.18595434725284576  1.0000
+  O   O3        1.0  0.7145614027976989  0.7054994106292725  0.6869844794273376  1.0000
+  O   O4        1.0  0.6543296575546265  0.18410181999206543  0.7407082319259644  1.0000
+  Ba  Ba1       1.0  0.7480998039245605  0.13446258008480072  0.1531563103199005  1.0000
+  Sr  Sr2       1.0  0.25238439440727234  0.6266040802001953  0.6317493915557862  1.0000
+  O   O5        1.0  0.21800018846988675  0.18141205608844757  0.7341806292533875  1.0000

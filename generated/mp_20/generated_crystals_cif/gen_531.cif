@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       ClBiOClInBiO
+_chemical_formula_sum              "Cl2 Bi2 O2 In1"
+_cell_length_a       3.8960323304142475
+_cell_length_b       3.9198222957134
+_cell_length_c       10.48453426361084
+_cell_angle_alpha    89.84222513384361
+_cell_angle_beta     100.47102377190582
+_cell_angle_gamma    89.81087455874093
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cl  Cl1       1.0  0.9842473268508911  0.8170421719551088  0.05529714003205299  1.0000
+  Bi  Bi1       1.0  0.5710346698760986  0.31711921095848083  0.22821694612503052  1.0000
+  O   O1        1.0  0.12773774564266205  0.31714996695518494  0.3442808985710144  1.0000
+  Cl  Cl2       1.0  0.7560839653015137  0.3187274932861328  0.6141645908355713  1.0000
+  In  In1       1.0  0.3965945243835449  0.3170020580291748  0.8766408562660217  1.0000
+  Bi  Bi2       1.0  0.1846700757741928  0.8169811964035035  0.46137624979019165  1.0000
+  O   O2        1.0  0.6258289217948914  0.8189449310302734  0.3430421054363251  1.0000

@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       AlYbSiYb2AlAuAlSiAl
+_chemical_formula_sum              "Al4 Yb3 Si2 Au1"
+_cell_length_a       4.285951056322762
+_cell_length_b       7.327459921734163
+_cell_length_c       8.207687377929688
+_cell_angle_alpha    123.79122441852549
+_cell_angle_beta     90.13193443957613
+_cell_angle_gamma    89.99604781811118
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Al  Al1       1.0  0.7185604572296143  0.3284845352172852  0.04376927390694618  1.0000
+  Yb  Yb1       1.0  0.7181915044784546  0.9732025265693666  0.5926554799079895  1.0000
+  Si  Si1       1.0  0.21801608800888062  0.9845970273017883  0.28996866941452026  1.0000
+  Yb  Yb2       1.0  0.7176308035850525  0.3321301937103272  0.3774494230747223  1.0000
+  Yb  Yb3       1.0  0.7181791663169861  0.6979755759239198  0.9609181880950928  1.0000
+  Al  Al2       1.0  0.21745626628398895  0.6242873668670655  0.2747537195682526  1.0000
+  Au  Au1       1.0  0.2177535593509674  0.6893250942230225  0.6424598097801208  1.0000
+  Al  Al3       1.0  0.21748566627502441  0.04564112424850464  0.9974098801612854  1.0000
+  Si  Si2       1.0  0.2181181013584137  0.33538866043090826  0.9138290286064148  1.0000
+  Al  Al4       1.0  0.2177462875843048  0.3311335146427155  0.6251466274261475  1.0000

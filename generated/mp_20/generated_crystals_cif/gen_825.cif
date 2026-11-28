@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       CoZrTiCoSi4
+_chemical_formula_sum              "Co2 Zr1 Ti1 Si4"
+_cell_length_a       3.713986413480288
+_cell_length_b       3.8197965616292473
+_cell_length_c       8.260151863098145
+_cell_angle_alpha    90.13427720455057
+_cell_angle_beta     103.13345917576709
+_cell_angle_gamma    89.91016502481537
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Co  Co1       1.0  0.51399827003479  0.9483309984207152  0.3744243383407593  1.0000
+  Zr  Zr1       1.0  0.2917935252189636  0.9476106762886047  0.9332176446914673  1.0000
+  Ti  Ti1       1.0  0.08177343755960464  0.448611170053482  0.5125829577445984  1.0000
+  Co  Co2       1.0  0.8613834381103516  0.4483983814716339  0.07233449816703795  1.0000
+  Si  Si1       1.0  0.9361973404884338  0.9483105540275573  0.22195518016815186  1.0000
+  Si  Si2       1.0  0.6447353363037109  0.9464683532714843  0.6373074650764465  1.0000
+  Si  Si3       1.0  0.7237571477890015  0.44840276241302485  0.7976576685905457  1.0000
+  Si  Si4       1.0  0.4426622688770294  0.4463762044906616  0.22917881608009338  1.0000

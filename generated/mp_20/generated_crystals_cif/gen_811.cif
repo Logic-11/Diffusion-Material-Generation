@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       Sb2Au2Ce2
+_chemical_formula_sum              "Sb2 Au2 Ce2"
+_cell_length_a       4.747969272915448
+_cell_length_b       4.753096587922811
+_cell_length_c       8.090563774108887
+_cell_angle_alpha    90.11191516347866
+_cell_angle_beta     89.96142559654054
+_cell_angle_gamma    120.00470521890523
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sb  Sb1       1.0  0.8449881672859192  0.6944342255592346  0.3901728093624115  1.0000
+  Sb  Sb2       1.0  0.17900651693344116  0.36242955923080444  0.889851450920105  1.0000
+  Au  Au1       1.0  0.17882369458675385  0.36105096340179443  0.38956403732299805  1.0000
+  Au  Au2       1.0  0.846279501914978  0.6948593854904175  0.8906649351119995  1.0000
+  Ce  Ce1       1.0  0.5123026371002197  0.028728250414133072  0.13976137340068817  1.0000
+  Ce  Ce2       1.0  0.5118483304977417  0.028187256306409836  0.639733612537384  1.0000

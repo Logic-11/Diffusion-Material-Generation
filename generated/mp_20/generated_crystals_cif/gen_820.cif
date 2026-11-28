@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       MnLiPd2
+_chemical_formula_sum              "Mn1 Li1 Pd2"
+_cell_length_a       4.372555760930523
+_cell_length_b       4.374287114951757
+_cell_length_c       4.385078430175781
+_cell_angle_alpha    59.90409180589621
+_cell_angle_beta     59.95567315143418
+_cell_angle_gamma    59.92570085821432
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mn  Mn1       1.0  0.07777255028486255  0.6368498206138611  0.6492910981178284  1.0000
+  Li  Li1       1.0  0.5772935748100281  0.13661211729049683  0.1489446461200714  1.0000
+  Pd  Pd1       1.0  0.827501654624939  0.3863629102706909  0.3987938463687897  1.0000
+  Pd  Pd2       1.0  0.32722696661949163  0.8864678740501404  0.8989104628562927  1.0000
