@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Sc2NiScInSc3
+_chemical_formula_sum              "Sc6 Ni1 In1"
+_cell_length_a       4.984346089718595
+_cell_length_b       6.265309616388364
+_cell_length_c       6.277296543121338
+_cell_angle_alpha    119.91850648686388
+_cell_angle_beta     90.1014034815869
+_cell_angle_gamma    90.05635157191062
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sc  Sc1       1.0  0.9368526339530945  0.6166953444480896  0.4908171594142914  1.0000
+  Sc  Sc2       1.0  0.43757274746894836  0.8005473613739014  0.8332914113998413  1.0000
+  Ni  Ni1       1.0  0.4385439455509186  0.3010001480579376  0.33869513869285583  1.0000
+  Sc  Sc3       1.0  0.43797898292541504  0.8034309148788452  0.33453038334846497  1.0000
+  In  In1       1.0  0.9376517534255981  0.6341643333435059  0.001274084206670558  1.0000
+  Sc  Sc4       1.0  0.9391593337059021  0.14408084750175476  0.017285440117120743  1.0000
+  Sc  Sc5       1.0  0.43784624338150024  0.3009965419769287  0.8317248821258545  1.0000
+  Sc  Sc6       1.0  0.9375067353248596  0.14127150177955627  0.4939339756965637  1.0000

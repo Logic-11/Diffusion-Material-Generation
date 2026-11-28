@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       Er4Bi2
+_chemical_formula_sum              "Er4 Bi2"
+_cell_length_a       4.305781584257151
+_cell_length_b       4.8613671014606865
+_cell_length_c       8.365302085876465
+_cell_angle_alpha    108.06877594899682
+_cell_angle_beta     90.57166878677965
+_cell_angle_gamma    90.54589852704623
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Er  Er1       1.0  0.8296254873275757  0.5997307896614075  0.9111990332603455  1.0000
+  Er  Er2       1.0  0.32660308480262756  0.4244725406169892  0.5611266493797302  1.0000
+  Er  Er3       1.0  0.32830700278282166  0.7745378017425537  0.26061204075813293  1.0000
+  Er  Er4       1.0  0.32829520106315613  0.10061398893594742  0.9119277596473694  1.0000
+  Bi  Bi1       1.0  0.82771235704422  0.9493525624275209  0.6094269156455994  1.0000
+  Bi  Bi2       1.0  0.8271071314811707  0.2510586082935333  0.21268002688884735  1.0000

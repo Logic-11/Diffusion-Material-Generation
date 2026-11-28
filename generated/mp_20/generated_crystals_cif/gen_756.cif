@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       PrInCuPrInCuPr
+_chemical_formula_sum              "Pr3 In2 Cu2"
+_cell_length_a       4.812520722864838
+_cell_length_b       4.842847325156414
+_cell_length_c       9.490233421325684
+_cell_angle_alpha    89.68452291060318
+_cell_angle_beta     89.78139548308646
+_cell_angle_gamma    59.84932052997037
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Pr  Pr1       1.0  0.7330133318901062  0.8281758427619934  0.35729309916496277  1.0000
+  In  In1       1.0  0.06720326095819472  0.16226385533809662  0.7815583944320679  1.0000
+  Cu  Cu1       1.0  0.06687028706073762  0.16244782507419583  0.1905801296234131  1.0000
+  Pr  Pr2       1.0  0.7332744598388672  0.8292098641395569  0.9607356786727905  1.0000
+  In  In2       1.0  0.3986598551273346  0.49545028805732727  0.15354959666728973  1.0000
+  Cu  Cu2       1.0  0.06551631540060045  0.16277332603931427  0.4880332946777344  1.0000
+  Pr  Pr3       1.0  0.39959591627120966  0.49511197209358215  0.6245470643043518  1.0000

@@ -1,0 +1,28 @@
+data_image0
+_chemical_formula_structural       Sr3
+_chemical_formula_sum              "Sr3"
+_cell_length_a       4.144127378936373
+_cell_length_b       4.130993474726575
+_cell_length_c       10.285414695739746
+_cell_angle_alpha    82.61877493289315
+_cell_angle_beta     98.1632464838191
+_cell_angle_gamma    70.67197803474194
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.20269361138343805  0.5624102354049684  0.3780687749385834  1.0000
+  Sr  Sr2       1.0  0.8658950328826904  0.8928546309471131  0.7127112150192261  1.0000
+  Sr  Sr3       1.0  0.5335378646850586  0.22745464742183685  0.045660339295864105  1.0000

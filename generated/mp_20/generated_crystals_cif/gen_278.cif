@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       AuGdAuZn
+_chemical_formula_sum              "Au2 Gd1 Zn1"
+_cell_length_a       4.8913140047916945
+_cell_length_b       4.896435924196568
+_cell_length_c       4.894023418426514
+_cell_angle_alpha    60.259113385790464
+_cell_angle_beta     60.182779535056184
+_cell_angle_gamma    60.28588039733654
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Au  Au1       1.0  0.9775474071502686  0.743992269039154  0.5808258056640627  1.0000
+  Gd  Gd1       1.0  0.7269870042800903  0.49443772435188293  0.33050763607025146  1.0000
+  Au  Au2       1.0  0.47745370864868164  0.24405826628208158  0.08081561326980591  1.0000
+  Zn  Zn1       1.0  0.22747527062892917  0.9938524961471558  0.8312593102455139  1.0000

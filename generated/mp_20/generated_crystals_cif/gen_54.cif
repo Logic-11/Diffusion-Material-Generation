@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Au2YbSm
+_chemical_formula_sum              "Au2 Yb1 Sm1"
+_cell_length_a       5.198299484022869
+_cell_length_b       5.205027477161099
+_cell_length_c       5.201866149902344
+_cell_angle_alpha    60.04885355114491
+_cell_angle_beta     60.0052407299709
+_cell_angle_gamma    60.17878290034907
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Au  Au1       1.0  0.8307315707206727  0.8994262218475342  0.8535091876983643  1.0000
+  Au  Au2       1.0  0.33036485314369196  0.39935669302940363  0.3541409075260163  1.0000
+  Yb  Yb1       1.0  0.08089654147624968  0.148244708776474  0.10498493909835815  1.0000
+  Sm  Sm1       1.0  0.580226480960846  0.6478306651115416  0.6054981350898743  1.0000

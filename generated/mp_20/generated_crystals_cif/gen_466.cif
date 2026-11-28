@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       TeLiHoTe
+_chemical_formula_sum              "Te2 Li1 Ho1"
+_cell_length_a       4.373256346873186
+_cell_length_b       4.367305274350927
+_cell_length_c       7.524704933166504
+_cell_angle_alpha    106.65145717749292
+_cell_angle_beta     72.76224487753302
+_cell_angle_gamma    119.52356909296118
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Te  Te1       1.0  0.09215978533029556  0.05517578125000001  0.11082796752452852  1.0000
+  Li  Li1       1.0  0.3417280614376068  0.806772768497467  0.3588415384292603  1.0000
+  Ho  Ho1       1.0  0.8415490984916687  0.3038919270038605  0.8586292862892152  1.0000
+  Te  Te2       1.0  0.5909423828125  0.5552510619163513  0.6092396974563599  1.0000

@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       HoBi2RhBi2RhBiRh2
+_chemical_formula_sum              "Ho1 Bi5 Rh4"
+_cell_length_a       3.906424091211967
+_cell_length_b       6.766289556050084
+_cell_length_c       9.76191520690918
+_cell_angle_alpha    90.08240189736485
+_cell_angle_beta     101.35681710809853
+_cell_angle_gamma    106.77371122715634
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ho  Ho1       1.0  0.32459807395935064  0.6825090050697327  0.46334561705589294  1.0000
+  Bi  Bi1       1.0  0.8340567946434022  0.23716139793395996  0.9282269477844238  1.0000
+  Bi  Bi2       1.0  0.20114134252071383  0.7729907035827637  0.1258378028869629  1.0000
+  Rh  Rh1       1.0  0.517613410949707  0.466199904680252  0.0670710876584053  1.0000
+  Bi  Bi3       1.0  0.4774324297904968  0.6507388949394225  0.8024371266365051  1.0000
+  Bi  Bi4       1.0  0.5524603724479675  0.28263893723487854  0.32064446806907654  1.0000
+  Rh  Rh2       1.0  0.16264194250106814  0.9517648220062256  0.8725438714027405  1.0000
+  Bi  Bi5       1.0  0.10146255791187286  0.0951741114258766  0.6071960926055908  1.0000
+  Rh  Rh3       1.0  0.7759440541267396  0.4218572974205017  0.625390350818634  1.0000
+  Rh  Rh4       1.0  0.8891213536262513  0.954838216304779  0.3233890235424042  1.0000

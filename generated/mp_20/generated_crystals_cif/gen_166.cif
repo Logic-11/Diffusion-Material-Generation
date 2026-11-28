@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       Dy2PdDyPdIn2DyPdNi
+_chemical_formula_sum              "Dy4 Pd3 In2 Ni1"
+_cell_length_a       4.332259837331194
+_cell_length_b       7.235316576202057
+_cell_length_c       7.618849754333496
+_cell_angle_alpha    109.93829322519207
+_cell_angle_beta     89.37393363271605
+_cell_angle_gamma    89.83956819369473
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Dy  Dy1       1.0  0.29339438676834106  0.5254428386688232  0.23296992480754852  1.0000
+  Dy  Dy2       1.0  0.7921963930130005  0.6220415830612183  0.6519517302513123  1.0000
+  Pd  Pd1       1.0  0.2922866940498352  0.5022921562194824  0.8489574193954468  1.0000
+  Dy  Dy3       1.0  0.7930194139480591  0.2110099494457245  0.8358350992202759  1.0000
+  Pd  Pd2       1.0  0.7934171557426453  0.23859624564647675  0.2443360835313797  1.0000
+  In  In1       1.0  0.2941165268421173  0.234333261847496  0.4923233091831207  1.0000
+  In  In2       1.0  0.7936758995056152  0.9029024243354797  0.38373449444770813  1.0000
+  Dy  Dy4       1.0  0.29230257868766785  0.9309157729148864  0.0488508865237236  1.0000
+  Pd  Pd3       1.0  0.29323655366897583  0.908256709575653  0.6406084895133972  1.0000
+  Ni  Ni1       1.0  0.7937153577804565  0.6420338153839111  0.04126255214214328  1.0000

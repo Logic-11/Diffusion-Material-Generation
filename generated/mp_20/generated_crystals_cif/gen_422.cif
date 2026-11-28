@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       BiOGeO2
+_chemical_formula_sum              "Bi1 O3 Ge1"
+_cell_length_a       3.718954035305185
+_cell_length_b       3.7213722408037393
+_cell_length_c       4.842808246612549
+_cell_angle_alpha    89.00776724448608
+_cell_angle_beta     90.02741888298962
+_cell_angle_gamma    89.53076167633905
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Bi  Bi1       1.0  0.2501375079154968  0.17508403956890106  0.580424964427948  1.0000
+  O   O1        1.0  0.7552557587623596  0.6424503922462463  0.38024839758872986  1.0000
+  Ge  Ge1       1.0  0.7525229454040527  0.6615829467773438  0.015149771235883238  1.0000
+  O   O2        1.0  0.25298061966896057  0.6596952080726624  0.8706064820289612  1.0000
+  O   O3        1.0  0.7539210319519043  0.1614036113023758  0.8719495534896851  1.0000

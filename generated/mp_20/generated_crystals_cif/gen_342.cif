@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       CoErGa4CoEr
+_chemical_formula_sum              "Co2 Er2 Ga4"
+_cell_length_a       4.10487911461375
+_cell_length_b       5.040741807833251
+_cell_length_c       8.194709777832031
+_cell_angle_alpha    123.06076203050505
+_cell_angle_beta     89.80977491822021
+_cell_angle_gamma    89.70375668290701
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Co  Co1       1.0  0.9084487557411194  0.8975130319595337  0.013994842767715454  1.0000
+  Er  Er1       1.0  0.9095007181167603  0.3784525394439697  0.45623141527175903  1.0000
+  Ga  Ga1       1.0  0.40838122367858887  0.6678286790847779  0.7908561825752259  1.0000
+  Ga  Ga2       1.0  0.40952539443969727  0.26267173886299133  0.13365717232227325  1.0000
+  Ga  Ga3       1.0  0.90848308801651  0.7097100019454956  0.2503976821899414  1.0000
+  Ga  Ga4       1.0  0.40828388929367065  0.9243598580360414  0.5026172399520874  1.0000
+  Co  Co2       1.0  0.4095517098903656  0.7780902385711671  0.1386984884738922  1.0000
+  Er  Er2       1.0  0.9079133868217468  0.21992047131061554  0.8319246172904968  1.0000

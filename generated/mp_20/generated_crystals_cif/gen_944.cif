@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Cu2SnInSe4
+_chemical_formula_sum              "Cu2 Sn1 In1 Se4"
+_cell_length_a       5.806739374261594
+_cell_length_b       5.81290321331716
+_cell_length_c       5.7844367027282715
+_cell_angle_alpha    90.38666635399386
+_cell_angle_beta     90.16269078429447
+_cell_angle_gamma    90.19016181729006
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cu  Cu1       1.0  0.15957587957382202  0.5342591404914856  0.005607792176306248  1.0000
+  Cu  Cu2       1.0  0.6603708267211914  0.03245791792869568  0.00433504581451416  1.0000
+  Sn  Sn1       1.0  0.659505307674408  0.5346024632453918  0.5062068104743958  1.0000
+  In  In1       1.0  0.1595921367406845  0.03307507187128066  0.5049379467964172  1.0000
+  Se  Se1       1.0  0.4105142652988434  0.7834633588790892  0.2258676290512085  1.0000
+  Se  Se2       1.0  0.9096170663833618  0.2850527763366699  0.22685815393924713  1.0000
+  Se  Se3       1.0  0.4098297357559204  0.2844541370868683  0.7856570482254028  1.0000
+  Se  Se4       1.0  0.9099537134170532  0.7834126353263855  0.7860860228538513  1.0000

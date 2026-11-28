@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Rh2InHo
+_chemical_formula_sum              "Rh2 In1 Ho1"
+_cell_length_a       4.708159641145821
+_cell_length_b       4.712354150806748
+_cell_length_c       4.717162132263184
+_cell_angle_alpha    59.92793307258103
+_cell_angle_beta     60.072977122818614
+_cell_angle_gamma    59.933034652656346
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Rh  Rh1       1.0  0.3254978358745575  0.9036538600921631  0.00879386905580759  1.0000
+  Rh  Rh2       1.0  0.8256452679634094  0.4027516841888427  0.5095332860946656  1.0000
+  In  In1       1.0  0.5751010179519653  0.1532520353794098  0.2596558630466461  1.0000
+  Ho  Ho1       1.0  0.0753968432545662  0.653390109539032  0.7587832808494568  1.0000

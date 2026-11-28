@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       DyAlSiDySi2
+_chemical_formula_sum              "Dy2 Al1 Si3"
+_cell_length_a       4.02351652048456
+_cell_length_b       4.12562372135579
+_cell_length_c       7.126678943634033
+_cell_angle_alpha    90.03933073250461
+_cell_angle_beta     90.091322131563
+_cell_angle_gamma    89.75546808548097
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Dy  Dy1       1.0  0.83640056848526  0.8790711164474487  0.629913330078125  1.0000
+  Al  Al1       1.0  0.33628445863723755  0.3783421218395233  0.8108934164047241  1.0000
+  Si  Si1       1.0  0.3376578092575073  0.8782504200935364  0.9800462126731873  1.0000
+  Dy  Dy2       1.0  0.8371873497962952  0.37785080075263977  0.1561977118253708  1.0000
+  Si  Si2       1.0  0.33694779872894287  0.878036379814148  0.3087107539176941  1.0000
+  Si  Si3       1.0  0.3370107412338257  0.3788280487060547  0.4751416742801666  1.0000

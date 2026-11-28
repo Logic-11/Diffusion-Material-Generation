@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Mn2SnCo
+_chemical_formula_sum              "Mn2 Sn1 Co1"
+_cell_length_a       4.328264680027359
+_cell_length_b       4.324722180336889
+_cell_length_c       4.3314900398254395
+_cell_angle_alpha    60.45388888516311
+_cell_angle_beta     60.284042049189104
+_cell_angle_gamma    60.19737575740463
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mn  Mn1       1.0  0.3055741786956787  0.10480193048715591  0.0747345387935639  1.0000
+  Mn  Mn2       1.0  0.8064191341400146  0.6046063899993896  0.5729257464408876  1.0000
+  Sn  Sn1       1.0  0.05615117400884631  0.8548040986061096  0.8233372569084167  1.0000
+  Co  Co1       1.0  0.5561259984970093  0.3535264730453491  0.32392433285713207  1.0000

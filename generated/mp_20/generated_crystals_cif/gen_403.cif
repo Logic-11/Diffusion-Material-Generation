@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       DyLuDy2
+_chemical_formula_sum              "Dy3 Lu1"
+_cell_length_a       4.98580320217123
+_cell_length_b       4.977315224255415
+_cell_length_c       4.978362560272217
+_cell_angle_alpha    89.9809462758479
+_cell_angle_beta     89.82430955579771
+_cell_angle_gamma    90.07469061662954
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Dy  Dy1       1.0  0.2901991307735443  0.7783659100532531  0.3202398121356964  1.0000
+  Lu  Lu1       1.0  0.7899583578109741  0.27852967381477356  0.32036277651786804  1.0000
+  Dy  Dy2       1.0  0.29016923904418945  0.27784380316734314  0.8202971816062927  1.0000
+  Dy  Dy3       1.0  0.7902785539627075  0.7785082459449768  0.8205025792121887  1.0000

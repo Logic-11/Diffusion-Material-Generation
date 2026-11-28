@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       InYbMg2
+_chemical_formula_sum              "In1 Yb1 Mg2"
+_cell_length_a       5.221545887542707
+_cell_length_b       5.216419062751323
+_cell_length_c       5.219135284423828
+_cell_angle_alpha    60.112639926481584
+_cell_angle_beta     60.11448991061417
+_cell_angle_gamma    60.091337486022745
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  In  In1       1.0  0.4735102951526642  0.63660728931427  0.17762595415115356  1.0000
+  Yb  Yb1       1.0  0.7228718996047974  0.8871140480041504  0.4278431534767151  1.0000
+  Mg  Mg1       1.0  0.9745509028434755  0.13712859153747559  0.6771566867828369  1.0000
+  Mg  Mg2       1.0  0.2226722687482834  0.3869751989841461  0.9283394813537598  1.0000

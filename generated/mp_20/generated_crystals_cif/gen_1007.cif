@@ -1,0 +1,28 @@
+data_image0
+_chemical_formula_structural       MgYb2
+_chemical_formula_sum              "Mg1 Yb2"
+_cell_length_a       4.0330363301277234
+_cell_length_b       4.002441355067891
+_cell_length_c       6.969076156616211
+_cell_angle_alpha    106.49034646682445
+_cell_angle_beta     106.51014691763818
+_cell_angle_gamma    90.1849846446473
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.32260778546333313  0.6708500385284424  0.28062736988067627  1.0000
+  Yb  Yb1       1.0  0.9739726185798645  0.3239494264125824  0.5837783217430115  1.0000
+  Yb  Yb2       1.0  0.673309862613678  0.021942026913166046  0.9785727262496947  1.0000

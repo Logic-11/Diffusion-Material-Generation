@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       InCuInS2InS2
+_chemical_formula_sum              "In3 Cu1 S4"
+_cell_length_a       5.728923513494796
+_cell_length_b       5.743457348206704
+_cell_length_c       7.030862808227539
+_cell_angle_alpha    65.6407322250771
+_cell_angle_beta     65.67268991239183
+_cell_angle_gamma    89.6349006248245
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  In  In1       1.0  0.8160190582275391  0.9170022010803223  0.28432729840278625  1.0000
+  Cu  Cu1       1.0  0.5612331628799438  0.1716003268957138  0.7846823930740356  1.0000
+  In  In2       1.0  0.3152084946632385  0.41659724712371826  0.28454652428627014  1.0000
+  S   S1        1.0  0.4460941553115845  0.5224930644035339  0.5471785664558411  1.0000
+  S   S2        1.0  0.9178943634033203  0.04889954254031182  0.5487953424453735  1.0000
+  In  In3       1.0  0.06609442830085754  0.6657889485359192  0.7838801741600037  1.0000
+  S   S3        1.0  0.6858426928520203  0.28598320484161377  0.016687195748090744  1.0000
+  S   S4        1.0  0.21311283111572268  0.8136108517646791  0.016354355961084366  1.0000

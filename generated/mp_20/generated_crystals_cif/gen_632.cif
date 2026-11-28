@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       CuTe5SnTe
+_chemical_formula_sum              "Cu1 Te6 Sn1"
+_cell_length_a       4.411574204990532
+_cell_length_b       4.3952105324608945
+_cell_length_c       14.252897262573242
+_cell_angle_alpha    89.54194268465632
+_cell_angle_beta     80.9441003082304
+_cell_angle_gamma    89.41261992258868
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cu  Cu1       1.0  0.3988597095012665  0.24262163043022159  0.7262745499610901  1.0000
+  Te  Te1       1.0  0.29915738105773926  0.24248500168323514  0.9289485216140747  1.0000
+  Te  Te2       1.0  0.022907843813300133  0.24221061170101169  0.4807216227054596  1.0000
+  Te  Te3       1.0  0.16882576048374176  0.7414054274559021  0.1927894949913025  1.0000
+  Te  Te4       1.0  0.6682594418525696  0.24139595031738278  0.19244718551635742  1.0000
+  Te  Te5       1.0  0.9000756740570068  0.7445340752601624  0.7241458296775818  1.0000
+  Sn  Sn1       1.0  0.7971851229667664  0.7436378002166748  0.9321962594985963  1.0000
+  Te  Te6       1.0  0.5251005291938782  0.741487443447113  0.4779268205165863  1.0000

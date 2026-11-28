@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       AlScAlSc2MgSi2Sc2
+_chemical_formula_sum              "Al2 Sc5 Mg1 Si2"
+_cell_length_a       3.485259440790485
+_cell_length_b       7.621593742374527
+_cell_length_c       7.6506781578063965
+_cell_angle_alpha    79.55195828656385
+_cell_angle_beta     89.82191214421161
+_cell_angle_gamma    89.89160739953518
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Al  Al1       1.0  0.21920156478881836  0.08623924851417542  0.09391579031944275  1.0000
+  Sc  Sc1       1.0  0.7195919156074524  0.3642432689666748  0.9243756532669067  1.0000
+  Al  Al2       1.0  0.22003699839115143  0.21357068419456482  0.673464834690094  1.0000
+  Sc  Sc2       1.0  0.7212834358215332  0.23225100338459018  0.35044440627098083  1.0000
+  Sc  Sc3       1.0  0.7210854291915894  0.8964393138885498  0.8677328824996948  1.0000
+  Mg  Mg1       1.0  0.2211528718471527  0.5929269194602967  0.1679537147283554  1.0000
+  Si  Si1       1.0  0.2242731750011444  0.6353938579559327  0.7941295504570007  1.0000
+  Si  Si2       1.0  0.7219658493995667  0.8570836186408998  0.24837769567966458  1.0000
+  Sc  Sc4       1.0  0.22072294354438782  0.9029166698455812  0.508023738861084  1.0000
+  Sc  Sc5       1.0  0.7222444415092468  0.5514233112335205  0.5365589261054993  1.0000

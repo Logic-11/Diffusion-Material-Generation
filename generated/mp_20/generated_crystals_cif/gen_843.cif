@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       O3Tm2NiFO
+_chemical_formula_sum              "O4 Tm2 Ni1 F1"
+_cell_length_a       3.588400547756177
+_cell_length_b       3.604314639706053
+_cell_length_c       8.787361145019531
+_cell_angle_alpha    90.167123564241
+_cell_angle_beta     89.83988238632928
+_cell_angle_gamma    59.158998971001886
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  O   O1        1.0  0.3517739474773407  0.4600900411605835  0.07249508053064346  1.0000
+  O   O2        1.0  0.35261705517768854  0.45769277215003973  0.6127765774726868  1.0000
+  O   O3        1.0  0.017972409725189206  0.12556122243404388  0.2733536660671234  1.0000
+  Tm  Tm1       1.0  0.6865061521530151  0.7924878001213074  0.7142295241355896  1.0000
+  Tm  Tm2       1.0  0.3525325953960418  0.4581846296787262  0.34056001901626587  1.0000
+  Ni  Ni1       1.0  0.019000973552465442  0.12683960795402527  0.04873717948794365  1.0000
+  F   F1        1.0  0.6853369474411011  0.792432427406311  0.44632086157798767  1.0000
+  O   O4        1.0  0.01958847045898438  0.12598936259746552  0.8300352096557617  1.0000

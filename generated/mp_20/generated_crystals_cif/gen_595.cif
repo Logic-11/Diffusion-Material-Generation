@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       SiEuSi2Au
+_chemical_formula_sum              "Si3 Eu1 Au1"
+_cell_length_a       4.281021206903864
+_cell_length_b       4.288553741715736
+_cell_length_c       6.0332183837890625
+_cell_angle_alpha    110.85404974457838
+_cell_angle_beta     110.84748706248307
+_cell_angle_gamma    89.91421565394725
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Si  Si1       1.0  0.2603573799133301  0.5580815076828003  0.9449207186698914  1.0000
+  Eu  Eu1       1.0  0.8770582675933838  0.17399385571479797  0.17562626302242282  1.0000
+  Si  Si2       1.0  0.6275058388710022  0.4241132438182831  0.6769611239433289  1.0000
+  Si  Si3       1.0  0.49282678961753845  0.7897900938987732  0.4070061445236206  1.0000
+  Au  Au1       1.0  0.12680141627788546  0.9230470657348634  0.6755878329277039  1.0000

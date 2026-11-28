@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       SAsSCdGa2SCd
+_chemical_formula_sum              "S3 As1 Cd2 Ga2"
+_cell_length_a       5.774887140179256
+_cell_length_b       5.778355066309682
+_cell_length_c       6.889117240905762
+_cell_angle_alpha    114.88591403646474
+_cell_angle_beta     115.72442744718177
+_cell_angle_gamma    90.20032328434506
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  S   S1        1.0  0.011864049360156049  0.797127902507782  0.8153811693191527  1.0000
+  As  As1       1.0  0.5126630067825317  0.2401721477508545  0.8154725432395934  1.0000
+  S   S2        1.0  0.298877090215683  0.5149338245391846  0.31612005829811096  1.0000
+  Cd  Cd1       1.0  0.1307516098022461  0.3908929228782654  0.5607963800430298  1.0000
+  Ga  Ga1       1.0  0.3870018422603607  0.14251543581485748  0.06826457381248474  1.0000
+  Ga  Ga2       1.0  0.6382559537887574  0.8888548016548158  0.5641229152679443  1.0000
+  S   S3        1.0  0.7242377996444702  0.015872258692979813  0.3162803053855896  1.0000
+  Cd  Cd2       1.0  0.8927676677703857  0.649662971496582  0.07231128960847855  1.0000

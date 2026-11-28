@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Ag2ScYb
+_chemical_formula_sum              "Ag2 Sc1 Yb1"
+_cell_length_a       4.95142049420296
+_cell_length_b       4.94963473429048
+_cell_length_c       4.949941635131836
+_cell_angle_alpha    60.616756003948204
+_cell_angle_beta     60.50547632416832
+_cell_angle_gamma    60.350048627161286
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ag  Ag1       1.0  0.05961030349135394  0.6305785179138185  0.6501744985580444  1.0000
+  Ag  Ag2       1.0  0.5593749284744263  0.1301748901605606  0.14941072463989255  1.0000
+  Sc  Sc1       1.0  0.8098763227462769  0.38022923469543457  0.40014988183975214  1.0000
+  Yb  Yb1       1.0  0.3084517717361449  0.881636679172516  0.900484561920166  1.0000

@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       Ta5OTa3
+_chemical_formula_sum              "Ta8 O1"
+_cell_length_a       5.146989762949951
+_cell_length_b       4.809852377529806
+_cell_length_c       5.956009864807129
+_cell_angle_alpha    89.98136974802073
+_cell_angle_beta     90.10131470280469
+_cell_angle_gamma    89.97100152014008
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ta  Ta1       1.0  0.6191519498825073  0.284641832113266  0.48062312602996826  1.0000
+  Ta  Ta2       1.0  0.4551042914390564  0.7710374593734741  0.22376012802124023  1.0000
+  Ta  Ta3       1.0  0.12604139745235443  0.278982162475586  0.7241145372390747  1.0000
+  Ta  Ta4       1.0  0.9599888324737549  0.7706394791603088  0.47928526997566223  1.0000
+  Ta  Ta5       1.0  0.9593908786773682  0.7709478735923768  0.9683360457420349  1.0000
+  O   O1        1.0  0.7895488142967224  0.0280924029648304  0.2243221551179886  1.0000
+  Ta  Ta6       1.0  0.619926929473877  0.28476929664611816  0.967760443687439  1.0000
+  Ta  Ta7       1.0  0.1260303258895874  0.28489384055137634  0.22355371713638306  1.0000
+  Ta  Ta8       1.0  0.45348215103149414  0.7754269242286683  0.7239318490028381  1.0000

@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       NdHgZnPd
+_chemical_formula_sum              "Nd1 Hg1 Zn1 Pd1"
+_cell_length_a       4.936592829047397
+_cell_length_b       4.937314396580297
+_cell_length_c       4.937126636505127
+_cell_angle_alpha    59.96810059437083
+_cell_angle_beta     59.92680344668498
+_cell_angle_gamma    59.92239818972091
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Nd  Nd1       1.0  0.24085845053195953  0.7754645347595215  0.45174118876457214  1.0000
+  Hg  Hg1       1.0  0.9911247491836548  0.5257905125617981  0.20221346616744995  1.0000
+  Zn  Zn1       1.0  0.7399188876152039  0.27539145946502686  0.9516755938529968  1.0000
+  Pd  Pd1       1.0  0.4899280071258545  0.025958269834518433  0.7021321654319763  1.0000

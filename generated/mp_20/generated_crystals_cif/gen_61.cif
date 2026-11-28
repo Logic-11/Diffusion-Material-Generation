@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       Li2HgAsO3
+_chemical_formula_sum              "Li2 Hg1 As1 O3"
+_cell_length_a       4.567494117670963
+_cell_length_b       4.795637961797679
+_cell_length_c       4.915805339813232
+_cell_angle_alpha    98.84959133010163
+_cell_angle_beta     96.62643350966098
+_cell_angle_gamma    94.83048355971899
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Li  Li1       1.0  0.3093094825744629  0.10890335589647293  0.6387593150138855  1.0000
+  Li  Li2       1.0  0.31486108899116516  0.6895942091941833  0.052948299795389175  1.0000
+  Hg  Hg1       1.0  0.7472130656242371  0.5718333125114441  0.5110974907875061  1.0000
+  As  As1       1.0  0.8670699000358582  0.159815713763237  0.10241300612688065  1.0000
+  O   O1        1.0  0.09360150992870331  0.9445624351501465  0.28389787673950195  1.0000
+  O   O2        1.0  0.600714385509491  0.9028364419937134  0.8543360233306885  1.0000
+  O   O3        1.0  0.08212771266698837  0.339239239692688  0.8840959668159485  1.0000

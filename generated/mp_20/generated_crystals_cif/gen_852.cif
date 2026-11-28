@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       GaMgGa3
+_chemical_formula_sum              "Ga4 Mg1"
+_cell_length_a       4.188942439165381
+_cell_length_b       4.196868528456454
+_cell_length_c       6.792539596557617
+_cell_angle_alpha    90.13163390625745
+_cell_angle_beta     89.9967445041641
+_cell_angle_gamma    120.20396572177256
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ga  Ga1       1.0  0.3180286884307861  0.6905179619789122  0.36925622820854187  1.0000
+  Mg  Mg1       1.0  0.9822989702224731  0.024273352697491646  0.026601821184158325  1.0000
+  Ga  Ga2       1.0  0.983303427696228  0.024695049971342087  0.6157454252243042  1.0000
+  Ga  Ga3       1.0  0.6502547860145569  0.35774084925651545  0.8142136931419373  1.0000
+  Ga  Ga4       1.0  0.6489351987838745  0.3571358025074005  0.21563376486301422  1.0000

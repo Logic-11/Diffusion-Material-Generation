@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Cu2SiCu3Si2
+_chemical_formula_sum              "Cu5 Si3"
+_cell_length_a       3.91239049149223
+_cell_length_b       3.8874175119136574
+_cell_length_c       7.62857723236084
+_cell_angle_alpha    89.25459663713278
+_cell_angle_beta     89.65349334739194
+_cell_angle_gamma    89.14048467899535
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cu  Cu1       1.0  0.8461414575576782  0.9011443853378296  0.289164662361145  1.0000
+  Cu  Cu2       1.0  0.34580346941947937  0.40217971801757807  0.9168648123741151  1.0000
+  Si  Si1       1.0  0.3454507291316986  0.9013118147850036  0.10462845116853715  1.0000
+  Cu  Cu3       1.0  0.8462644219398499  0.9027607440948485  0.9194199442863465  1.0000
+  Cu  Cu4       1.0  0.34633979201316833  0.902266800403595  0.5996741056442261  1.0000
+  Cu  Cu5       1.0  0.34600478410720825  0.40051558613777155  0.29167208075523376  1.0000
+  Si  Si2       1.0  0.8465757369995117  0.40215617418289185  0.7504717111587526  1.0000
+  Si  Si3       1.0  0.8463883399963379  0.4002400636672973  0.45791962742805487  1.0000

@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       TmGe2TmRh2
+_chemical_formula_sum              "Tm2 Ge2 Rh2"
+_cell_length_a       4.151439602392515
+_cell_length_b       4.157684770598861
+_cell_length_c       6.686563491821289
+_cell_angle_alpha    90.04698737497982
+_cell_angle_beta     89.922985283266
+_cell_angle_gamma    90.13752154434445
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Tm  Tm1       1.0  0.360678106546402  0.1149776875972748  0.8540051579475404  1.0000
+  Ge  Ge1       1.0  0.8614184856414795  0.6155660152435303  0.9490386247634889  1.0000
+  Ge  Ge2       1.0  0.36139076948165894  0.11490995436906816  0.39862036705017095  1.0000
+  Tm  Tm2       1.0  0.861214280128479  0.6149178743362427  0.4934611916542054  1.0000
+  Rh  Rh1       1.0  0.8615539073944092  0.11427967250347139  0.17388625442981723  1.0000
+  Rh  Rh2       1.0  0.36218664050102234  0.6152463555336  0.17358398437500003  1.0000

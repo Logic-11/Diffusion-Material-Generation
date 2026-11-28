@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       HoTl2Y
+_chemical_formula_sum              "Ho1 Tl2 Y1"
+_cell_length_a       5.35166352994049
+_cell_length_b       5.348790526498675
+_cell_length_c       5.352155685424805
+_cell_angle_alpha    60.02517768186502
+_cell_angle_beta     60.02380610564573
+_cell_angle_gamma    60.008786408849126
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ho  Ho1       1.0  0.807156205177307  0.8898406028747559  0.11925728619098663  1.0000
+  Tl  Tl1       1.0  0.5569803714752197  0.6396617293357849  0.8692449331283569  1.0000
+  Tl  Tl2       1.0  0.05667682737112045  0.13948895037174225  0.36918529868125916  1.0000
+  Y   Y1        1.0  0.3065033555030823  0.3892042934894562  0.6192389726638794  1.0000

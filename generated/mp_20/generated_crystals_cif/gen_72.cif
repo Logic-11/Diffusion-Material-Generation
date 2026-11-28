@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       OFOFKF3
+_chemical_formula_sum              "O2 F5 K1"
+_cell_length_a       4.330552796848501
+_cell_length_b       4.342593937068275
+_cell_length_c       7.8701395988464355
+_cell_angle_alpha    78.18560478352947
+_cell_angle_beta     98.92150672956915
+_cell_angle_gamma    101.82868749077265
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  O   O1        1.0  0.19711612164974213  0.4617424011230469  0.0493963249027729  1.0000
+  F   F1        1.0  0.3542345464229584  0.29774025082588196  0.9698646068572998  1.0000
+  O   O2        1.0  0.7213146686553955  0.9403874278068541  0.30454984307289124  1.0000
+  F   F2        1.0  0.8722944855690002  0.7961018681526184  0.7221491932868958  1.0000
+  K   K1        1.0  0.18035921454429626  0.4823561906814575  0.5674020648002625  1.0000
+  F   F3        1.0  0.6754162311553955  0.9850024580955504  0.8121868968009949  1.0000
+  F   F4        1.0  0.4682695269584656  0.1913255900144577  0.4190106689929962  1.0000
+  F   F5        1.0  0.879016637802124  0.7796005606651306  0.20900990068912506  1.0000

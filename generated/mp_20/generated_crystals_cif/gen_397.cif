@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       Ce2PdZnPd2ZnCePd
+_chemical_formula_sum              "Ce3 Pd4 Zn2"
+_cell_length_a       3.9099045092629345
+_cell_length_b       7.482435600215318
+_cell_length_c       7.398708820343018
+_cell_angle_alpha    120.69657401889948
+_cell_angle_beta     90.18568803157592
+_cell_angle_gamma    90.06493029037236
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ce  Ce1       1.0  0.30568224191665644  0.39328157901763916  0.3983100950717926  1.0000
+  Ce  Ce2       1.0  0.30517941713333124  0.8129466772079467  0.004392929375171661  1.0000
+  Pd  Pd1       1.0  0.8045589923858641  0.14825162291526794  0.0031148316338658333  1.0000
+  Zn  Zn1       1.0  0.8043267726898192  0.6472252011299133  0.24922525882720947  1.0000
+  Pd  Pd2       1.0  0.8040676712989806  0.7242395877838135  0.6630302667617798  1.0000
+  Pd  Pd3       1.0  0.3056781589984893  0.4159240126609802  0.0051905214786529845  1.0000
+  Zn  Zn2       1.0  0.8044726848602294  0.4012937545776367  0.757556676864624  1.0000
+  Ce  Ce3       1.0  0.3043169975280761  0.9975623488426207  0.6092947721481323  1.0000
+  Pd  Pd4       1.0  0.8044680356979369  0.06583657115697861  0.34605059027671814  1.0000

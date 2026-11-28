@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       GdO6BaBi
+_chemical_formula_sum              "Gd1 O6 Ba1 Bi1"
+_cell_length_a       5.80192739624863
+_cell_length_b       4.339044666849427
+_cell_length_c       6.326059818267822
+_cell_angle_alpha    109.6073021941075
+_cell_angle_beta     107.28765400442306
+_cell_angle_gamma    89.98966905510493
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Gd  Gd1       1.0  0.2822515368461609  0.04129967465996742  0.32336553931236267  1.0000
+  O   O1        1.0  0.3727028965950012  0.8693715929985045  0.9796108603477477  1.0000
+  O   O2        1.0  0.649581789970398  0.43506801128387446  0.49286466836929316  1.0000
+  O   O3        1.0  0.12093637138605116  0.5580034852027892  0.35766321420669556  1.0000
+  O   O4        1.0  0.6472294330596924  0.805183172225952  0.49132519960403437  1.0000
+  O   O5        1.0  0.15397271513938904  0.2100703865289688  0.660527765750885  1.0000
+  O   O6        1.0  0.9277663826942444  0.8714101910591125  0.986357808113098  1.0000
+  Ba  Ba1       1.0  0.6533393859863281  0.375587522983551  0.9906504750251769  1.0000
+  Bi  Bi1       1.0  0.025665299966931343  0.7173905968666077  0.6746763586997986  1.0000

@@ -1,0 +1,28 @@
+data_image0
+_chemical_formula_structural       NbVMo
+_chemical_formula_sum              "Nb1 V1 Mo1"
+_cell_length_a       2.758758093028092
+_cell_length_b       2.7629544924814984
+_cell_length_c       7.015766143798828
+_cell_angle_alpha    104.82955010046125
+_cell_angle_beta     75.26733174507596
+_cell_angle_gamma    109.06183638114088
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Nb  Nb1       1.0  0.5220006108283997  0.7199630737304688  0.7193899750709534  1.0000
+  V   V1        1.0  0.8551462292671204  0.38764017820358276  0.05232715606689454  1.0000
+  Mo  Mo1       1.0  0.1976405680179596  0.0470721460878849  0.3630383610725403  1.0000

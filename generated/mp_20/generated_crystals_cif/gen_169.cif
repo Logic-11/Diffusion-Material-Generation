@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       NiSeTi2CCrCTi
+_chemical_formula_sum              "Ni1 Se1 Ti3 C2 Cr1"
+_cell_length_a       3.1362099769143343
+_cell_length_b       3.1246895877323526
+_cell_length_c       12.256514549255371
+_cell_angle_alpha    90.02278801644051
+_cell_angle_beta     89.87156080297643
+_cell_angle_gamma    119.8765544373861
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ni  Ni1       1.0  0.21366244554519653  0.7806070446968079  0.7288022637367249  1.0000
+  Se  Se1       1.0  0.21397319436073303  0.7816677093505859  0.5286403894424438  1.0000
+  Ti  Ti1       1.0  0.5470688343048096  0.4480254054069519  0.3802206218242645  1.0000
+  Ti  Ti2       1.0  0.21340978145599362  0.7803713679313659  0.19673465192317963  1.0000
+  C   C1        1.0  0.8801658749580383  0.11385487020015717  0.2890944182872772  1.0000
+  Cr  Cr1       1.0  0.8796787261962891  0.11313436180353165  0.034462712705135345  1.0000
+  C   C2        1.0  0.8799397349357607  0.11483813822269441  0.7866610288619995  1.0000
+  Ti  Ti3       1.0  0.5464521646499634  0.44698819518089294  0.8808380961418152  1.0000

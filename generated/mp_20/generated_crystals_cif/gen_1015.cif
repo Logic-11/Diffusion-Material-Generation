@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Ho3Tm
+_chemical_formula_sum              "Ho3 Tm1"
+_cell_length_a       4.953720991754268
+_cell_length_b       4.954135360451845
+_cell_length_c       4.935375213623047
+_cell_angle_alpha    90.6074385744983
+_cell_angle_beta     90.17577059176992
+_cell_angle_gamma    90.52917142639532
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ho  Ho1       1.0  0.16989028453826904  0.13167114555835724  0.8667050004005432  1.0000
+  Ho  Ho2       1.0  0.6699825525283813  0.6317227482795715  0.8669248223304749  1.0000
+  Ho  Ho3       1.0  0.1697942167520523  0.6311483979225159  0.3669021725654602  1.0000
+  Tm  Tm1       1.0  0.6699700951576233  0.1315566748380661  0.3671090304851532  1.0000

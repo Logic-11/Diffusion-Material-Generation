@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       RbCrSKS2CrS
+_chemical_formula_sum              "Rb1 Cr2 S4 K1"
+_cell_length_a       3.7013219906277373
+_cell_length_b       6.368142030013636
+_cell_length_c       7.525504112243652
+_cell_angle_alpha    90.23652513630343
+_cell_angle_beta     89.7561237812717
+_cell_angle_gamma    89.66664145093168
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Rb  Rb1       1.0  0.9341315031051635  0.8151801824569701  0.2513516843318939  1.0000
+  Cr  Cr1       1.0  0.9362932443618773  0.8155583143234252  0.7519728541374207  1.0000
+  S   S1        1.0  0.4358534216880798  0.6471104621887207  0.9164959192276001  1.0000
+  K   K1        1.0  0.43626788258552546  0.3160654902458191  0.25120916962623596  1.0000
+  S   S2        1.0  0.9363859891891478  0.47979632019996643  0.5793725252151489  1.0000
+  S   S3        1.0  0.9352465271949767  0.15173748135566711  0.9237479567527771  1.0000
+  Cr  Cr2       1.0  0.43614077568054194  0.3154468536376953  0.7510594129562379  1.0000
+  S   S4        1.0  0.4362554848194122  0.9848312139511107  0.5853293538093567  1.0000

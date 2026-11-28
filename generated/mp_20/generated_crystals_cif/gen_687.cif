@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       CaYbCa2
+_chemical_formula_sum              "Ca3 Yb1"
+_cell_length_a       5.430457432908915
+_cell_length_b       5.471027477117535
+_cell_length_c       6.877823352813721
+_cell_angle_alpha    113.88377936775206
+_cell_angle_beta     113.25035426168176
+_cell_angle_gamma    90.20559798976102
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ca  Ca1       1.0  0.28262558579444885  0.7635121345520021  0.20662961900234222  1.0000
+  Yb  Yb1       1.0  0.7844820618629456  0.2660074830055237  0.2058175504207611  1.0000
+  Ca  Ca2       1.0  0.5335914492607117  0.5110008716583252  0.7067927122116089  1.0000
+  Ca  Ca3       1.0  0.03506890684366226  0.013659296557307243  0.7063490152359009  1.0000

@@ -3,21 +3,26 @@
 from collections.abc import Mapping
 
 import torch
+from tqdm.auto import tqdm
 
 
 class Sampler:
-    def __init__(self, atom_pred, pos_pred, lat_pred, corrector):
+    def __init__(self, atom_pred, pos_pred, lat_pred, corrector, *, num_steps=None):
+        """Use a separate step count when only the continuous fields are sampled."""
+        if atom_pred is None and (type(num_steps) is not int or num_steps < 1):
+            raise ValueError("Continuous sampling requires a positive integer num_steps")
         self.atom_pred = atom_pred
+        self.num_steps = num_steps
         self.position_pred = pos_pred
         self.lattice_pred = lat_pred
         self.corrector = corrector
 
     @torch.no_grad()
     def sample_t(self, model, noisy, t, s):
-        """Take one joint reverse step from t to s, with one time per crystal.
+        """Take one reverse step from t to s, with one time per crystal.
 
-        Return (sample_state, mean_state). For atomic numbers the second state
-        contains the posterior mode. Both states share the input batch metadata.
+        Return (sample_state, mean_state). Atomic numbers are kept fixed when
+        no atom predictor is supplied. Otherwise the mean contains posterior modes.
         """
         num_atoms, batch = noisy["num_atoms"], noisy["batch"]
         lattice = noisy["lattice"]
@@ -28,11 +33,12 @@ class Sampler:
         if (t.shape != num_atoms.shape or s.shape != num_atoms.shape
                 or not torch.all((0 <= s) & (s < t) & (t <= 1))):
             raise ValueError("t and s must have shape [B] and satisfy 0 <= s < t <= 1")
-        step_from_time = self.atom_pred.atom_corr.scheduler.step_from_time
-        # s=0 is the clean endpoint; step_from_time itself numbers noisy levels from 1.
-        step_s = torch.where(s == 0, 0, step_from_time(s))
-        if not torch.all(step_from_time(t) == step_s + 1):
-            raise ValueError("t and s must span exactly one reverse atom diffusion step")
+        if self.atom_pred is not None:
+            step_from_time = self.atom_pred.atom_corr.scheduler.step_from_time
+            # s=0 is the clean endpoint; step_from_time itself numbers noisy levels from 1.
+            step_s = torch.where(s == 0, 0, step_from_time(s))
+            if not torch.all(step_from_time(t) == step_s + 1):
+                raise ValueError("t and s must span exactly one reverse atom diffusion step")
 
         continuous_t, continuous_s = t.to(lattice), s.to(lattice)
         scores = self._predict_scores(model, noisy, continuous_t)
@@ -42,11 +48,14 @@ class Sampler:
             lattice, scores["lattice_score"], continuous_t, continuous_s, self.lattice_pred.lat_corr)
         corrected = {**noisy, "frac_coords": corrected_coords, "lattice": corrected_lattice}
 
-        # All three predictors use the same corrected geometry and new prediction at t.
+        # Predictors use the same corrected geometry and the updated scores at t.
         scores = self._predict_scores(model, corrected, continuous_t)
         sample_state, mean_state = corrected.copy(), corrected.copy()
-        sample_state["atomic_numbers"], mean_state["atomic_numbers"] = self.atom_pred.atom_type_predict(
-            corrected["atomic_numbers"], scores["atom_logits"], t, batch)
+        if self.atom_pred is not None:
+            atom_sample, atom_mode = self.atom_pred.atom_type_predict(
+                corrected["atomic_numbers"], scores["atom_logits"], t, batch)
+            sample_state["atomic_numbers"] = atom_sample
+            mean_state["atomic_numbers"] = atom_mode
         sample_state["frac_coords"], mean_state["frac_coords"] = self.position_pred.position_predict(
             corrected_coords, scores["coord_score"], continuous_t, continuous_s, num_atoms, batch)
         sample_state["lattice"], mean_state["lattice"] = self.lattice_pred.lattice_predict(
@@ -54,16 +63,21 @@ class Sampler:
         return sample_state, mean_state
 
     @torch.no_grad()
-    def sample(self, model, initial_state):
+    def sample(self, model, initial_state, *, show_progress=False,
+               progress_desc="Sampling", progress_position=0):
         """Denoise a batch of prior crystals from t=1 to 0 and return (sample, mean).
 
-        Each step continues from the sampled state. The final mean contains
-        the continuous predictor means and the most probable atom types.
+        Each step continues from the sampled state. The final mean contains the
+        continuous predictor means and either fixed elements or posterior modes.
         Use ``to_structures(mean_state)`` to build the final crystals.
+        Set ``show_progress=True`` to display completed reverse diffusion steps.
         """
-        steps = model.timesteps
-        if steps < 1 or steps != self.atom_pred.atom_corr.scheduler.timesteps:
-            raise ValueError("model and atom predictor must share a positive number of diffusion steps")
+        if self.atom_pred is None:
+            steps = self.num_steps
+        else:
+            steps = model.timesteps
+            if steps < 1 or steps != self.atom_pred.atom_corr.scheduler.timesteps:
+                raise ValueError("model and atom predictor must share a positive number of diffusion steps")
         batch_shape = initial_state["num_atoms"].shape
         # Keep the discrete time grid precise. Continuous updates use the lattice dtype.
         times = torch.arange(steps, -1, -1, dtype=torch.float64,
@@ -73,10 +87,12 @@ class Sampler:
         if was_training:
             model.eval()
         try:
-            for index in range(steps):
-                t = times[index].expand(batch_shape)
-                s = times[index + 1].expand(batch_shape)
-                state, mean_state = self.sample_t(model, state, t, s)
+            with tqdm(range(steps), desc=progress_desc, unit="step", dynamic_ncols=True,
+                      position=progress_position, leave=False, disable=not show_progress) as pbar:
+                for index in pbar:
+                    t = times[index].expand(batch_shape)
+                    s = times[index + 1].expand(batch_shape)
+                    state, mean_state = self.sample_t(model, state, t, s)
         finally:
             if was_training:
                 model.train()

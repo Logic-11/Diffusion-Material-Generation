@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       GeLiRh2
+_chemical_formula_sum              "Ge1 Li1 Rh2"
+_cell_length_a       4.196028366479619
+_cell_length_b       4.1923479606925165
+_cell_length_c       4.195814609527588
+_cell_angle_alpha    59.93500024682005
+_cell_angle_beta     59.82191500439267
+_cell_angle_gamma    59.94656597646193
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ge  Ge1       1.0  0.4292551279067993  0.8358671665191652  0.7105570435523986  1.0000
+  Li  Li1       1.0  0.929467499256134  0.3361544013023377  0.2107740044593811  1.0000
+  Rh  Rh1       1.0  0.1795160472393036  0.5862142443656921  0.4611327648162842  1.0000
+  Rh  Rh2       1.0  0.6801837086677551  0.08684533089399339  0.9616995453834534  1.0000

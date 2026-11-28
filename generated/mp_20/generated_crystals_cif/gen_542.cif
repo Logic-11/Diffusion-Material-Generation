@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       OCO2Pd
+_chemical_formula_sum              "O3 C1 Pd1"
+_cell_length_a       4.124164004745506
+_cell_length_b       3.8958284421923346
+_cell_length_c       4.784735679626465
+_cell_angle_alpha    97.62353867516052
+_cell_angle_beta     120.22527885241182
+_cell_angle_gamma    102.50990965234375
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  O   O1        1.0  0.23521581292152405  0.08247524499893188  0.3301960825920105  1.0000
+  C   C1        1.0  0.2490077018737793  0.08398719877004625  0.06846624612808229  1.0000
+  O   O2        1.0  0.5123683214187622  0.34459996223449707  0.0778690874576569  1.0000
+  O   O3        1.0  0.999604344367981  0.8243884444236755  0.7972849607467651  1.0000
+  Pd  Pd1       1.0  0.12216379493474963  0.467550277709961  0.5506489872932434  1.0000

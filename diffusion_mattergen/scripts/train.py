@@ -3,6 +3,7 @@ import math
 import os
 import random
 import sys
+from contextlib import nullcontext
 from functools import partial
 from pathlib import Path
 
@@ -21,10 +22,11 @@ from tqdm.auto import tqdm
 if __name__ == "__main__" and not __package__:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.diffusion.joint_diffusion import JointDiffusion
+from src.diffusion.crystal_diffusion import CrystalDiffusion
 from src.training.checkpoint import (
     EpochProgress,
     TrainingState,
+    load_joint_denoiser_weights,
     read_resume_checkpoint,
     restore_rng_state,
     restore_training_state,
@@ -38,7 +40,7 @@ from src.training.data import (
     training_loaders,
     training_statistics,
 )
-from src.training.distributed import TrainingProcess, launch_training, training_loss
+from src.training.distributed import TrainingProcess, launch_training, resolve_training_devices, training_loss
 
 
 logger = logging.getLogger(__name__)
@@ -65,7 +67,7 @@ def check_gradients(model, *, report_missing=True):
 
 
 def train_step(
-    model: JointDiffusion, optimizer, batch, *, trainer: DictConfig | None = None,
+    model: CrystalDiffusion, optimizer, batch, *, trainer: DictConfig | None = None,
     process: TrainingProcess | None = None, loss_fn=None,
 ):
     trainer = default_trainer() if trainer is None else trainer
@@ -94,7 +96,7 @@ def train_step(
 
 
 @torch.no_grad()
-def evaluate(model: JointDiffusion, val_loader, device, *, t_min=None, process: TrainingProcess | None = None):
+def evaluate(model: CrystalDiffusion, val_loader, device, *, t_min=None, process: TrainingProcess | None = None):
     if t_min is None:
         t_min = default_trainer().t_min
     if process is None:
@@ -127,7 +129,7 @@ def evaluate(model: JointDiffusion, val_loader, device, *, t_min=None, process: 
 
 
 def fit(
-    model: JointDiffusion, optimizer, lr_scheduler, train_loader, val_loader, *,
+    model: CrystalDiffusion, optimizer, lr_scheduler, train_loader, val_loader, *,
     trainer: DictConfig, device: torch.device, state: TrainingState, save_checkpoint,
     latest_path=None, save_interval=None, process: TrainingProcess | None = None, loss_fn=None,
 ) -> None:
@@ -167,12 +169,16 @@ def fit(
                 progress.batches_completed += 1
                 state.global_step += 1
 
+                field_metrics = {
+                    "X": f"{batch_metrics['loss_coord']:.3f}",
+                    "L": f"{batch_metrics['loss_lattice']:.3f}",
+                }
+                if 'loss_atom' in batch_metrics:
+                    field_metrics["A"] = f"{batch_metrics['loss_atom']:.3f}"
                 pbar.set_postfix(
                     loss=f"{batch_loss:.4f}",
                     avg=f"{progress.mean_loss:.4f}",
-                    X=f"{batch_metrics['loss_coord']:.3f}",
-                    L=f"{batch_metrics['loss_lattice']:.3f}",
-                    A=f"{batch_metrics['loss_atom']:.3f}",
+                    **field_metrics,
                     lr=f"{optimizer.param_groups[0]['lr']:.1e}",
                     refresh=False,
                 )
@@ -190,12 +196,9 @@ def fit(
         val_loss = None
         partial_epoch = progress.batches_completed < num_batches
         if not partial_epoch:
-            if (epoch + 1) % trainer.check_val_every_n_epoch == 0:
-                val_loss = evaluate(model, val_loader, device, t_min=trainer.t_min, process=process)
+            val_loss = evaluate(model, val_loader, device, t_min=trainer.t_min, process=process)
             if isinstance(lr_scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
-                metric = epoch_loss if trainer.lr_scheduler_monitor == 'loss_train' else val_loss
-                if metric is not None:
-                    lr_scheduler.step(metric)
+                lr_scheduler.step(val_loss)
             elif lr_scheduler is not None:
                 lr_scheduler.step()
 
@@ -224,17 +227,16 @@ def fit(
 
 def run_training(cfg: DictConfig, *, output_dir: Path) -> None:
     validate_config(cfg)
-    trainer = cfg.trainer
-    device = torch.device(trainer.device)
-    world_size = trainer.get('devices', 1)
-    if world_size == 1:
-        if device.type == 'cuda' and not torch.cuda.is_available():
-            print('CUDA is unavailable. Using CPU.')
-            device = torch.device('cpu')
-        _run_training(cfg, output_dir=output_dir, process=TrainingProcess(device))
+    devices = resolve_training_devices(cfg.trainer)
+    logger.info("Training on %s", ", ".join(map(str, devices)))
+    if len(devices) > 1:
+        launch_training(_run_training, cfg, output_dir, devices)
         return
 
-    launch_training(_run_training, cfg, output_dir, device, world_size)
+    device = devices[0]
+    device_context = torch.cuda.device(device) if device.type == 'cuda' else nullcontext()
+    with device_context:
+        _run_training(cfg, output_dir=output_dir, process=TrainingProcess(device))
 
 
 def _run_training(cfg: DictConfig, *, output_dir: Path, process: TrainingProcess) -> None:
@@ -246,6 +248,13 @@ def _run_training(cfg: DictConfig, *, output_dir: Path, process: TrainingProcess
     torch.manual_seed(seed)
 
     cache_dir = to_absolute_path(cfg.data.input)
+    init_path = None
+    if cfg.get('init_checkpoint') is not None:
+        init_path = Path(to_absolute_path(cfg.init_checkpoint)).resolve()
+        if not init_path.is_file():
+            raise FileNotFoundError(f"Initialization checkpoint not found at {init_path}")
+        if init_path.parent == output_dir.resolve():
+            raise ValueError("Use a separate data.output for a CSP run initialized from a joint checkpoint")
     resume_path, checkpoint = read_resume_checkpoint(cfg.resume, output_dir)
     with training_loaders(
         cache_dir, cfg.data, cfg.dataloader,
@@ -268,7 +277,12 @@ def _run_training(cfg: DictConfig, *, output_dir: Path, process: TrainingProcess
         else:
             density = checkpoint['diffusion_config']['lattice']['limit_density']
         lattice.limit_density = density
-        model = instantiate(cfg.model).to(device)
+        model = instantiate(cfg.model)
+        if init_path is not None:
+            load_joint_denoiser_weights(model, init_path)
+            if process.is_primary:
+                logger.info("Initialized CSP denoiser from %s", init_path)
+        model.to(device)
         optimizer = instantiate(cfg.optimizer)(model.parameters())
         lr_scheduler = instantiate(cfg.lr_scheduler)(optimizer) if cfg.lr_scheduler is not None else None
 
@@ -301,6 +315,9 @@ def _run_training(cfg: DictConfig, *, output_dir: Path, process: TrainingProcess
         run_config['data']['output'] = str(output_dir)
         run_config['data']['input'] = cache_dir
         run_config['trainer']['device'] = str(device)
+        run_config['trainer']['devices'] = process.world_size
+        if init_path is not None:
+            run_config['init_checkpoint'] = str(init_path)
         if resume_path is not None:
             run_config['resume']['checkpoint_path'] = str(resume_path)
 

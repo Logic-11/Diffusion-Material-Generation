@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Er2AlSiErSiAlSi
+_chemical_formula_sum              "Er3 Al2 Si3"
+_cell_length_a       4.306138456833738
+_cell_length_b       6.304511241161241
+_cell_length_c       6.695707321166992
+_cell_angle_alpha    119.02063714954635
+_cell_angle_beta     90.12021383751974
+_cell_angle_gamma    89.9986774433226
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Er  Er1       1.0  0.6682288646697998  0.41175505518913263  0.9732425808906555  1.0000
+  Er  Er2       1.0  0.6677278280258179  0.7161844968795776  0.6081624031066895  1.0000
+  Al  Al1       1.0  0.16806799173355103  0.8854817152023314  0.9775888323783875  1.0000
+  Si  Si1       1.0  0.16796928644180298  0.06147429347038269  0.6805899143218994  1.0000
+  Er  Er3       1.0  0.6672824621200562  0.0806088000535965  0.3522981107234955  1.0000
+  Si  Si2       1.0  0.16733229160308838  0.43378522992134094  0.6712509393692017  1.0000
+  Al  Al2       1.0  0.16725125908851624  0.3585138320922851  0.2736658453941345  1.0000
+  Si  Si3       1.0  0.1681801974773407  0.7457106709480286  0.2878111004829406  1.0000

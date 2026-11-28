@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       As2LuTi
+_chemical_formula_sum              "As2 Lu1 Ti1"
+_cell_length_a       3.8502113314068653
+_cell_length_b       3.8414604664291705
+_cell_length_c       6.756939888000488
+_cell_angle_alpha    73.40214385698519
+_cell_angle_beta     73.3424623929723
+_cell_angle_gamma    59.881533575698036
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  As  As1       1.0  0.495209276676178  0.828172504901886  0.8060488700866699  1.0000
+  As  As2       1.0  0.01038573402911423  0.34321403503417974  0.26121076941490173  1.0000
+  Lu  Lu1       1.0  0.25295844674110407  0.5861603617668153  0.5333237051963806  1.0000
+  Ti  Ti1       1.0  0.7528262734413147  0.08572898060083389  0.03330087289214134  1.0000

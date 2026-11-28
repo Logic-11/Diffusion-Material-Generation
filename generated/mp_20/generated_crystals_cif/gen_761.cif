@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       MgScCdMg
+_chemical_formula_sum              "Mg2 Sc1 Cd1"
+_cell_length_a       4.954760948286568
+_cell_length_b       4.954714546530271
+_cell_length_c       4.954768180847168
+_cell_angle_alpha    60.08498553443761
+_cell_angle_beta     60.07919966324659
+_cell_angle_gamma    60.045622023568896
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.25913915038108826  0.05763646215200424  0.44698360562324524  1.0000
+  Sc  Sc1       1.0  0.009712184779345967  0.8084277510643005  0.19756272435188293  1.0000
+  Cd  Cd1       1.0  0.5096073746681213  0.3084352910518646  0.697213351726532  1.0000
+  Mg  Mg2       1.0  0.7597707509994507  0.5576876401901245  0.9463597536087036  1.0000

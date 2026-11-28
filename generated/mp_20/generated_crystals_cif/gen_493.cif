@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       ZnTeSnMnSb2ZnSb
+_chemical_formula_sum              "Zn2 Te1 Sn1 Mn1 Sb3"
+_cell_length_a       6.269614229065955
+_cell_length_b       6.248313139421999
+_cell_length_c       6.265527725219727
+_cell_angle_alpha    90.40191817475639
+_cell_angle_beta     90.55327516205574
+_cell_angle_gamma    89.92226129080443
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Zn  Zn1       1.0  0.8216143846511842  0.8811737895011902  0.3983720541000366  1.0000
+  Te  Te1       1.0  0.06029070541262627  0.12432989478111267  0.6626464128494263  1.0000
+  Sn  Sn1       1.0  0.3287788033485413  0.3884567618370056  0.3972871005535126  1.0000
+  Mn  Mn1       1.0  0.3276379704475403  0.8801506757736206  0.9064620733261108  1.0000
+  Sb  Sb1       1.0  0.588930070400238  0.12210626155138016  0.14061406254768372  1.0000
+  Sb  Sb2       1.0  0.0614023543894291  0.6457468867301941  0.14251211285591125  1.0000
+  Zn  Zn2       1.0  0.8215636610984803  0.387991338968277  0.9056510329246521  1.0000
+  Sb  Sb3       1.0  0.5885686874389648  0.6462668180465698  0.6641671061515808  1.0000

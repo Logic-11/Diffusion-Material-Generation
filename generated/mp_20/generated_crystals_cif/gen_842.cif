@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       YSiGeSiMn
+_chemical_formula_sum              "Y1 Si2 Ge1 Mn1"
+_cell_length_a       3.863376850377557
+_cell_length_b       3.8605218592908255
+_cell_length_c       6.061710357666016
+_cell_angle_alpha    108.56846559039518
+_cell_angle_beta     108.62882381021963
+_cell_angle_gamma    89.9121256780023
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Y   Y1        1.0  0.06643036007881163  0.3071137368679046  0.487907737493515  1.0000
+  Si  Si1       1.0  0.6830804347991942  0.9223459362983703  0.7205471992492676  1.0000
+  Ge  Ge1       1.0  0.4487684667110443  0.6900026202201842  0.2544318437576294  1.0000
+  Si  Si2       1.0  0.3087958097457886  0.05100602656602859  0.9747090935707092  1.0000
+  Mn  Mn1       1.0  0.8102613687515259  0.5500209331512451  0.9756974577903748  1.0000

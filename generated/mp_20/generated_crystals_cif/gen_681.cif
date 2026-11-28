@@ -1,0 +1,28 @@
+data_image0
+_chemical_formula_structural       SrNdDy
+_chemical_formula_sum              "Sr1 Nd1 Dy1"
+_cell_length_a       3.734760992035193
+_cell_length_b       3.7587568178399207
+_cell_length_c       8.541637420654297
+_cell_angle_alpha    102.73553938694543
+_cell_angle_beta     102.65679364331518
+_cell_angle_gamma    90.18555116368738
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.0476871021091938  0.02429321222007275  0.07029314339160919  1.0000
+  Nd  Nd1       1.0  0.3627881109714508  0.33975225687026983  0.7010506391525269  1.0000
+  Dy  Dy1       1.0  0.7152738571166992  0.6921090483665466  0.40814319252967834  1.0000

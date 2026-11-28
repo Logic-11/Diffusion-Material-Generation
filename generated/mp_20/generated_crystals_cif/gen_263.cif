@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       CoMoWCoW2
+_chemical_formula_sum              "Co2 Mo1 W3"
+_cell_length_a       4.870287446592138
+_cell_length_b       4.8607910435471
+_cell_length_c       5.2220330238342285
+_cell_angle_alpha    62.233435208795775
+_cell_angle_beta     61.780701294299305
+_cell_angle_gamma    59.447118259356316
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Co  Co1       1.0  0.6568231582641602  0.28564000129699707  0.6302881240844727  1.0000
+  Mo  Mo1       1.0  0.8208158016204834  0.11806899309158325  0.12958891689777374  1.0000
+  W   W1        1.0  0.48900553584098816  0.7798394560813904  0.13229063153266907  1.0000
+  Co  Co2       1.0  0.9914630651473999  0.6149322390556335  0.6293941140174866  1.0000
+  W   W2        1.0  0.15117496252059937  0.4503282010555267  0.12948498129844666  1.0000
+  W   W3        1.0  0.3255045711994171  0.9519808292388916  0.6312370300292969  1.0000

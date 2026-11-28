@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       YbSYSCuS
+_chemical_formula_sum              "Yb1 S3 Y1 Cu1"
+_cell_length_a       3.8831626913836326
+_cell_length_b       3.8803751754860034
+_cell_length_c       9.609172821044922
+_cell_angle_alpha    90.26042395938728
+_cell_angle_beta     90.04402990553619
+_cell_angle_gamma    119.8812523805534
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Yb  Yb1       1.0  0.26703426241874695  0.2951952517032624  0.724554181098938  1.0000
+  S   S1        1.0  0.5981678366661072  0.9610705375671387  0.5320669412612915  1.0000
+  Y   Y1        1.0  0.9304375052452087  0.6269760131835939  0.35669952630996704  1.0000
+  S   S2        1.0  0.6021637320518494  0.9634708166122438  0.8923822641372682  1.0000
+  Cu  Cu1       1.0  0.9354588985443116  0.6341717839241029  0.9999914765357972  1.0000
+  S   S3        1.0  0.26255530118942266  0.28700664639472967  0.20261892676353455  1.0000

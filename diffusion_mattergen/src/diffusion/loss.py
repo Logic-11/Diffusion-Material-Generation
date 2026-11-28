@@ -87,6 +87,27 @@ def aggregate_per_crystal(values, batch, num_crystals, reduce="sum"):
     return result
 
 
+def geometry_losses_per_crystal(prediction, info, batch, num_atoms, reduce="sum"):
+    """Return the coordinate and lattice score-matching losses for each crystal."""
+    b, n = num_atoms.numel(), batch.numel()
+    if (num_atoms.shape != (b,) or num_atoms.dtype != torch.long or b == 0
+            or torch.any(num_atoms <= 0) or batch.dtype != torch.long
+            or batch.shape != (n,) or torch.any(batch < 0) or torch.any(batch >= b)
+            or not torch.equal(torch.bincount(batch, minlength=b), num_atoms)):
+        raise ValueError("batch membership must agree with positive num_atoms [B]")
+    coord = prediction["coord_score_times_std"]
+    lattice = prediction["lattice_score_times_std"]
+    if (coord.shape != (n, 3) or info["coord_target"].shape != coord.shape
+            or lattice.shape != (b, 3, 3)
+            or info["lattice_target"].shape != lattice.shape):
+        raise ValueError("Coordinate and lattice predictions/targets must be [N,3] and [B,3,3]")
+    coord_per_crystal = aggregate_per_crystal(
+        (coord - info["coord_target"]).square(), batch, b, reduce=reduce)
+    lattice_per_crystal = aggregate_per_crystal(
+        (lattice - info["lattice_target"]).square(), None, b)
+    return coord_per_crystal, lattice_per_crystal
+
+
 def absorbing_d3pm_terms(atom_logits, atom_target, masked_atom, k_atom,
                          timesteps=1000, keep_probs=None):
     """Return per-atom (KL / first-step reconstruction NLL, auxiliary CE).
@@ -164,18 +185,9 @@ class JointDiffusionLoss(nn.Module):
         self.register_buffer("_keep_probs", _standard_mask_keep_probs(timesteps), persistent=False)
 
     def forward(self, prediction, info, batch, num_atoms):
+        coord_per_crystal, lattice_per_crystal = geometry_losses_per_crystal(
+            prediction, info, batch, num_atoms, reduce=self.reduce)
         b, n = num_atoms.numel(), batch.numel()
-        if (num_atoms.shape != (b,) or num_atoms.dtype != torch.long or b == 0
-                or torch.any(num_atoms <= 0) or batch.dtype != torch.long
-                or batch.shape != (n,) or torch.any(batch < 0) or torch.any(batch >= b)
-                or not torch.equal(torch.bincount(batch, minlength=b), num_atoms)):
-            raise ValueError("batch membership must agree with positive num_atoms [B]")
-        coord = prediction["coord_score_times_std"]
-        lattice = prediction["lattice_score_times_std"]
-        if (coord.shape != (n, 3) or info["coord_target"].shape != coord.shape
-                or lattice.shape != (b, 3, 3)
-                or info["lattice_target"].shape != lattice.shape):
-            raise ValueError("Coordinate and lattice predictions/targets must be [N,3] and [B,3,3]")
         if prediction["atom_logits"].shape != (n, self.num_atom_types + 1):
             raise ValueError(
                 f"atom_logits must have shape [{n}, {self.num_atom_types + 1}]: "
@@ -197,10 +209,6 @@ class JointDiffusionLoss(nn.Module):
         vb, ce = absorbing_d3pm_terms(prediction["atom_logits"], info["atom_target"],
                                      info["masked_atom"], k_graph[batch],
                                      timesteps=self.timesteps, keep_probs=self._keep_probs)
-        coord_per_crystal = aggregate_per_crystal(
-            (coord - info["coord_target"]).square(), batch, b, reduce=self.reduce)
-        lattice_per_crystal = aggregate_per_crystal(
-            (lattice - info["lattice_target"]).square(), None, b)
         vb_per_crystal = aggregate_per_crystal(vb, batch, b, reduce=self.reduce)
         ce_per_crystal = aggregate_per_crystal(ce, batch, b, reduce=self.reduce)
         atom_per_crystal = vb_per_crystal + self.d3pm_hybrid_lambda * ce_per_crystal

@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       GeCuDy2GeCu
+_chemical_formula_sum              "Ge2 Cu2 Dy2"
+_cell_length_a       4.248279593230367
+_cell_length_b       5.4885025854918394
+_cell_length_c       5.498504638671875
+_cell_angle_alpha    84.54095345347918
+_cell_angle_beta     112.72360348650643
+_cell_angle_gamma    112.93799173525811
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ge  Ge1       1.0  0.14603012800216678  0.15376010537147525  0.4570360481739044  1.0000
+  Cu  Cu1       1.0  0.745741069316864  0.7461232542991638  0.060741130262613276  1.0000
+  Dy  Dy1       1.0  0.4429121613502502  0.7440258264541626  0.46023109555244446  1.0000
+  Dy  Dy2       1.0  0.9469498991966246  0.32096222043037415  0.889829158782959  1.0000
+  Ge  Ge2       1.0  0.24420386552810666  0.9112249612808228  0.893596351146698  1.0000
+  Cu  Cu2       1.0  0.6424670219421387  0.31671470403671265  0.28848597407341003  1.0000

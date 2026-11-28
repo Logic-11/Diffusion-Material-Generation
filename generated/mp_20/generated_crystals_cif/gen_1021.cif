@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       PbCa2PbCaPb2Ca
+_chemical_formula_sum              "Pb4 Ca4"
+_cell_length_a       5.558078457195797
+_cell_length_b       6.840714217079324
+_cell_length_c       6.848554611206055
+_cell_angle_alpha    108.3389647096612
+_cell_angle_beta     90.20464862927305
+_cell_angle_gamma    89.69813545005728
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Pb  Pb1       1.0  0.8823825120925903  0.28760260343551636  0.30528759956359863  1.0000
+  Ca  Ca1       1.0  0.3860783576965332  0.5390210747718812  0.5560351014137268  1.0000
+  Ca  Ca2       1.0  0.3828423023223877  0.039444703608751304  0.05649047717452049  1.0000
+  Pb  Pb2       1.0  0.3828325867652893  0.5370538234710694  0.05651650577783591  1.0000
+  Ca  Ca3       1.0  0.882574737071991  0.7876036763191224  0.30932995676994324  1.0000
+  Pb  Pb3       1.0  0.8839852213859558  0.7903130650520326  0.8080844879150391  1.0000
+  Pb  Pb4       1.0  0.3838512897491455  0.03776630014181137  0.5572344064712524  1.0000
+  Ca  Ca4       1.0  0.8872018456459045  0.28818508982658386  0.8072382807731628  1.0000

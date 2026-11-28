@@ -34,15 +34,31 @@ def sample_n(statistic: str | Path, batch_size: int = 1,
     indices = torch.multinomial(probabilities, batch_size, replacement=True)
     return num_atoms[indices].to(device=device)
 
-def sample_prior(num_atoms: torch.tensor, limit_density: float, sigma_max: float,
-                 lat_cor: LatticeCorruption, 
-                 device: str | torch.device = 'cuda'):
+def sample_geometry_prior(
+    num_atoms: torch.Tensor,
+    sigma_max: float,
+    lat_cor: LatticeCorruption,
+    device: str | torch.device,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    """Draw wrapped fractional positions and lattices for the given atom counts."""
     batch_size = num_atoms.shape[0]
-    total_num = torch.sum(num_atoms).item()
+    total_num = num_atoms.sum().item()
     batch = torch.repeat_interleave(torch.arange(batch_size, device=device), num_atoms)
-    masked_atoms = num_atoms.new_zeros((total_num), device=device)
     gaussian = torch.randn((total_num, 3), device=device)
-    scale = (sigma_max * num_atoms[batch].pow(-1.0/3.0)).unsqueeze(-1)
+    scale = (sigma_max * num_atoms[batch].pow(-1.0 / 3.0)).unsqueeze(-1)
     prior_coord = wrap_frac(scale * gaussian)
     prior_lattice = lat_cor.prior_sample(num_atoms)
+    return prior_coord, prior_lattice
+
+
+def sample_prior(
+    num_atoms: torch.Tensor,
+    limit_density: float,
+    sigma_max: float,
+    lat_cor: LatticeCorruption,
+    device: str | torch.device = "cuda",
+) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    """Draw the joint prior with every atomic number initially masked."""
+    prior_coord, prior_lattice = sample_geometry_prior(num_atoms, sigma_max, lat_cor, device)
+    masked_atoms = num_atoms.new_zeros((prior_coord.shape[0],), device=device)
     return masked_atoms, prior_coord, prior_lattice

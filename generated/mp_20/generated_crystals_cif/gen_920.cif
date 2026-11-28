@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       Dy5Al
+_chemical_formula_sum              "Dy5 Al1"
+_cell_length_a       3.768044558355709
+_cell_length_b       5.474772428306273
+_cell_length_c       8.880763053894043
+_cell_angle_alpha    107.47778781720142
+_cell_angle_beta     89.91506910376505
+_cell_angle_gamma    90.11280991151223
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Dy  Dy1       1.0  0.2564131021499634  0.8716921210289001  0.2631858289241791  1.0000
+  Dy  Dy2       1.0  0.25679725408554077  0.5079367160797119  0.5432182550430298  1.0000
+  Dy  Dy3       1.0  0.7558454871177673  0.04509720951318741  0.6202871799468994  1.0000
+  Dy  Dy4       1.0  0.7558895349502563  0.6909715533256532  0.907129168510437  1.0000
+  Dy  Dy5       1.0  0.2562958896160126  0.22859537601470947  0.9800989627838135  1.0000
+  Al  Al1       1.0  0.7547192573547363  0.3720605671405792  0.2598227262496948  1.0000

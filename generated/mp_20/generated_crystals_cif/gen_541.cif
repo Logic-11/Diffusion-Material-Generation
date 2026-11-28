@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       CuLa3AgLaCuAg2Cu
+_chemical_formula_sum              "Cu3 La4 Ag3"
+_cell_length_a       4.274441201869052
+_cell_length_b       7.570912181258798
+_cell_length_c       9.791080474853516
+_cell_angle_alpha    59.002884393744424
+_cell_angle_beta     78.18941037313662
+_cell_angle_gamma    73.69053500744877
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cu  Cu1       1.0  0.25309559702873236  0.31920200586318964  0.13527464866638184  1.0000
+  La  La1       1.0  0.11278840154409409  0.9214591979980469  0.8169376254081726  1.0000
+  La  La2       1.0  0.3927805423736572  0.8360089063644409  0.341657817363739  1.0000
+  La  La3       1.0  0.6562967896461487  0.2662634253501892  0.386030375957489  1.0000
+  Ag  Ag1       1.0  0.06093341484665869  0.6546187400817871  0.18541492521762842  1.0000
+  La  La4       1.0  0.3788076937198639  0.3839926421642303  0.822124183177948  1.0000
+  Cu  Cu2       1.0  0.7045097947120667  0.5574336051940918  0.9965307712554932  1.0000
+  Ag  Ag2       1.0  0.9883112907409668  0.43923783302307123  0.5459984540939331  1.0000
+  Ag  Ag3       1.0  0.7740740776062011  0.7705202102661133  0.6436697244644165  1.0000
+  Cu  Cu3       1.0  0.8734750151634216  0.12045868486166  0.09599743783473969  1.0000

@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       Co2ErBeCo2
+_chemical_formula_sum              "Co4 Er1 Be1"
+_cell_length_a       3.6068929009996187
+_cell_length_b       4.8581188994660165
+_cell_length_c       4.879354476928711
+_cell_angle_alpha    120.26936016027888
+_cell_angle_beta     90.35921582385058
+_cell_angle_gamma    90.13961839746537
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Co  Co1       1.0  0.8627511262893677  0.5730050206184387  0.542682945728302  1.0000
+  Co  Co2       1.0  0.3635203540325165  0.23676852881908417  0.37329328060150146  1.0000
+  Er  Er1       1.0  0.861941933631897  0.24277505278587344  0.8773247003555298  1.0000
+  Be  Be1       1.0  0.8615536689758301  0.9096399545669556  0.20960015058517464  1.0000
+  Co  Co3       1.0  0.3629053831100464  0.7460812330245972  0.37457254528999334  1.0000
+  Co  Co4       1.0  0.36090460419654846  0.7449163198471069  0.8828310966491699  1.0000

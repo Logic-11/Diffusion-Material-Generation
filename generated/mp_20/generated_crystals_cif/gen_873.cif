@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       CdSCr2S2
+_chemical_formula_sum              "Cd1 S3 Cr2"
+_cell_length_a       5.243798850158957
+_cell_length_b       3.640818988692737
+_cell_length_c       6.463711261749268
+_cell_angle_alpha    106.61403517509798
+_cell_angle_beta     114.49090788359597
+_cell_angle_gamma    89.97070753874554
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cd  Cd1       1.0  0.17010080814361572  0.36393675208091736  0.5090707540512085  1.0000
+  S   S1        1.0  0.9860102534294128  0.6774464845657349  0.13770797848701477  1.0000
+  Cr  Cr1       1.0  0.5112835764884949  0.6993847489356995  0.18255288898944855  1.0000
+  Cr  Cr2       1.0  0.8309994339942932  0.026434900239109993  0.8355795741081239  1.0000
+  S   S2        1.0  0.6728758811950684  0.36728915572166443  0.5152831077575684  1.0000
+  S   S3        1.0  0.35825222730636597  0.04901885613799095  0.8816421031951905  1.0000

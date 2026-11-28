@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       LuDyMgDy
+_chemical_formula_sum              "Lu1 Dy2 Mg1"
+_cell_length_a       4.941414361629159
+_cell_length_b       4.952976903915082
+_cell_length_c       4.935450077056885
+_cell_angle_alpha    90.09872604863875
+_cell_angle_beta     89.85106341222873
+_cell_angle_gamma    90.30628184028188
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Lu  Lu1       1.0  0.6743062138557434  0.5816400647163391  0.762976884841919  1.0000
+  Dy  Dy1       1.0  0.6738313436508179  0.0812453031539917  0.26156139373779297  1.0000
+  Mg  Mg1       1.0  0.1747959703207016  0.5813465118408203  0.2625407576560974  1.0000
+  Dy  Dy2       1.0  0.17379464209079742  0.08162586390972137  0.7623425126075745  1.0000

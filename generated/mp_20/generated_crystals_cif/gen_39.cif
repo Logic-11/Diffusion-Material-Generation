@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       LaGd3
+_chemical_formula_sum              "La1 Gd3"
+_cell_length_a       5.114279615924969
+_cell_length_b       5.105953486867464
+_cell_length_c       6.272871017456055
+_cell_angle_alpha    114.05278698596142
+_cell_angle_beta     114.10623334364043
+_cell_angle_gamma    89.99754334983706
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  La  La1       1.0  0.9725554585456847  0.343750536441803  0.9850188493728638  1.0000
+  Gd  Gd1       1.0  0.4727998375892639  0.8443654179573059  0.9851917624473572  1.0000
+  Gd  Gd2       1.0  0.22247441112995148  0.09309761226177216  0.48499250411987305  1.0000
+  Gd  Gd3       1.0  0.7224613428115845  0.593299388885498  0.4851926267147064  1.0000

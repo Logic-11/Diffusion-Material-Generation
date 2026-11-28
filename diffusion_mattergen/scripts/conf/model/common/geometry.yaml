@@ -1,0 +1,30 @@
+denoiser:
+  _target_: src.backbone.denoiser.Denoiser
+  hidden_dim: 512
+  num_radial: 128
+  num_spherical: 7         # Number of angular basis functions.
+  num_layers: 4
+  atom_types: 100          # Real elements. MASK uses index zero.
+  use_triplets: true
+position_corruption:
+  _target_: src.diffusion.corruption.PositionCorruption
+  scheduler:
+    _target_: src.diffusion.scheduler.PositionVEScheduler
+    sigma_min: 0.01
+    sigma_max: 5.0
+lattice_corruption:
+  _target_: src.diffusion.corruption.LatticeCorruption
+  scheduler:
+    _target_: src.diffusion.scheduler.LatticeVPScheduler
+    limit_density: null    # null estimates mean(N / volume) over the training split.
+    beta_min: 0.1
+    beta_max: 20.0
+    limit_var_scaling_constant: 0.25
+loss_fn:
+  coord_weight: 0.1
+  lattice_weight: 1.0
+  reduce: sum
+cutoff: 7.0                # Periodic graph radius in angstroms.
+max_neighbor: 50
+max_cell_images_per_dim: 5
+max_offset_integer: 3      # Wrapped-normal position target.

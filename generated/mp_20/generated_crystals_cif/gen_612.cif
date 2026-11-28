@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       MnPrP2MnPPr2
+_chemical_formula_sum              "Mn2 Pr3 P3"
+_cell_length_a       4.0896363212689675
+_cell_length_b       4.113480113950929
+_cell_length_c       12.341185569763184
+_cell_angle_alpha    90.10701790721716
+_cell_angle_beta     89.85894544824423
+_cell_angle_gamma    120.13301351088104
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mn  Mn1       1.0  0.19046235084533691  0.8369852304458618  0.3289951682090759  1.0000
+  Pr  Pr1       1.0  0.5228962898254395  0.5036335587501526  0.49207606911659235  1.0000
+  P   P1        1.0  0.8570919632911682  0.17052276432514193  0.3173009157180786  1.0000
+  P   P2        1.0  0.18860045075416565  0.8387333154678345  0.9938166141510009  1.0000
+  Mn  Mn2       1.0  0.1909071803092957  0.8382084965705873  0.6593021154403687  1.0000
+  P   P3        1.0  0.8574865460395813  0.17134352028369904  0.6705713868141174  1.0000
+  Pr  Pr2       1.0  0.5225290656089783  0.5056444406509399  0.840083360671997  1.0000
+  Pr  Pr3       1.0  0.5222679972648621  0.5047474503517151  0.14806532859802246  1.0000

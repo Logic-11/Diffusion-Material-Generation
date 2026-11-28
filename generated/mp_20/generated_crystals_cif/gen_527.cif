@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       NiLa2Al4Ni
+_chemical_formula_sum              "Ni2 La2 Al4"
+_cell_length_a       4.276588035287963
+_cell_length_b       4.244394633877276
+_cell_length_c       9.250894546508789
+_cell_angle_alpha    103.7699023684189
+_cell_angle_beta     90.42878814099241
+_cell_angle_gamma    90.06268313174014
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ni  Ni1       1.0  0.9217129349708557  0.2570655047893524  0.6898984909057617  1.0000
+  La  La1       1.0  0.4220889210700989  0.6891497373580932  0.5545135736465454  1.0000
+  La  La2       1.0  0.9219661951065063  0.4669183194637298  0.10763395577669144  1.0000
+  Al  Al1       1.0  0.9216161966323853  0.12105961143970488  0.4161759614944458  1.0000
+  Al  Al2       1.0  0.42171892523765564  0.03441564366221428  0.24271699786186218  1.0000
+  Al  Al3       1.0  0.9222649931907654  0.8265835046768188  0.8319499492645264  1.0000
+  Al  Al4       1.0  0.4223235845565796  0.32790327072143555  0.8326950073242188  1.0000
+  Ni  Ni2       1.0  0.42247724533081055  0.8964667916297911  0.9691163897514343  1.0000

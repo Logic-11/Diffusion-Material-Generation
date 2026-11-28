@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       MgAlSeMgSeInSe2
+_chemical_formula_sum              "Mg2 Al1 Se4 In1"
+_cell_length_a       5.950323675000898
+_cell_length_b       5.934957066599873
+_cell_length_c       7.216976642608643
+_cell_angle_alpha    114.11866290223671
+_cell_angle_beta     114.29932298488059
+_cell_angle_gamma    89.75647947954384
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.724834680557251  0.502251148223877  0.6965979337692261  1.0000
+  Al  Al1       1.0  0.4747524857521057  0.7509963512420655  0.19698937237262726  1.0000
+  Se  Se1       1.0  0.11527576297521593  0.4000202417373658  0.9621366262435913  1.0000
+  Mg  Mg2       1.0  0.9741884469985961  0.25219276547431946  0.1965049803256988  1.0000
+  Se  Se2       1.0  0.8257580995559692  0.6264535188674927  0.43106722831726074  1.0000
+  In  In1       1.0  0.22328607738018036  0.0005936599336564541  0.6958648562431335  1.0000
+  Se  Se3       1.0  0.3585115075111389  0.11233543604612352  0.4325754642486572  1.0000
+  Se  Se4       1.0  0.5996916890144348  0.8685733079910278  0.9614229202270508  1.0000

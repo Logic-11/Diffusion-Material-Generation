@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       HoZnLuZn
+_chemical_formula_sum              "Ho1 Zn2 Lu1"
+_cell_length_a       5.047798135525249
+_cell_length_b       5.039652508172778
+_cell_length_c       5.037796974182129
+_cell_angle_alpha    59.7770853827644
+_cell_angle_beta     59.84727978806342
+_cell_angle_gamma    59.96493712348664
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ho  Ho1       1.0  0.8192074298858643  0.2741045355796814  0.43233510851860046  1.0000
+  Zn  Zn1       1.0  0.5679531097412109  0.024489261209964752  0.18252688646316523  1.0000
+  Lu  Lu1       1.0  0.3189367055892944  0.7743643522262573  0.9321104288101195  1.0000
+  Zn  Zn2       1.0  0.06810270994901657  0.5244976282119751  0.6822851300239563  1.0000

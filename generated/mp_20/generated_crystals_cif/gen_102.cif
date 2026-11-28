@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       Eu4Mg
+_chemical_formula_sum              "Eu4 Mg1"
+_cell_length_a       4.0590242224447
+_cell_length_b       4.0536398981406085
+_cell_length_c       13.49400806427002
+_cell_angle_alpha    98.44335259815513
+_cell_angle_beta     80.9757176212549
+_cell_angle_gamma    90.09438215252595
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Eu  Eu1       1.0  0.6172155737876892  0.8460224866867065  0.40542820096015936  1.0000
+  Eu  Eu2       1.0  0.39231857657432556  0.06998725980520247  0.852326810359955  1.0000
+  Eu  Eu3       1.0  0.005581378936767578  0.45810458064079285  0.6310747861862183  1.0000
+  Eu  Eu4       1.0  0.780800461769104  0.6826400756835938  0.08125601708889006  1.0000
+  Mg  Mg1       1.0  0.19789685308933258  0.26510682702064514  0.24473510682582858  1.0000

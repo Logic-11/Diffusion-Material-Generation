@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       BiAg3
+_chemical_formula_sum              "Bi1 Ag3"
+_cell_length_a       4.490245768794026
+_cell_length_b       4.4878945546541
+_cell_length_c       5.328764915466309
+_cell_angle_alpha    115.5777825700746
+_cell_angle_beta     115.23239276629532
+_cell_angle_gamma    90.39351084941623
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Bi  Bi1       1.0  0.9185216426849365  0.218162938952446  0.9004421830177307  1.0000
+  Ag  Ag1       1.0  0.4180695116519928  0.7172259092330933  0.8990811109542847  1.0000
+  Ag  Ag2       1.0  0.16764602065086368  0.9679490923881532  0.3982725143432618  1.0000
+  Ag  Ag3       1.0  0.6689272522926331  0.468295156955719  0.40004739165306097  1.0000

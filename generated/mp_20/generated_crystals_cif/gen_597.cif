@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       PrZnPrAg
+_chemical_formula_sum              "Pr2 Zn1 Ag1"
+_cell_length_a       5.32555073909312
+_cell_length_b       5.336252999712168
+_cell_length_c       5.3360466957092285
+_cell_angle_alpha    59.98731717276516
+_cell_angle_beta     60.18363993556037
+_cell_angle_gamma    60.09175174896301
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Pr  Pr1       1.0  0.7668908238410949  0.6318278312683105  0.05847609415650368  1.0000
+  Zn  Zn1       1.0  0.016875838860869432  0.8812405467033386  0.3085884153842925  1.0000
+  Pr  Pr2       1.0  0.26696863770484924  0.13210566341876984  0.5578467845916748  1.0000
+  Ag  Ag1       1.0  0.5166739225387573  0.38135966658592224  0.8088515400886536  1.0000

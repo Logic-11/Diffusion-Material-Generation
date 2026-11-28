@@ -1,0 +1,28 @@
+data_image0
+_chemical_formula_structural       AsSrCo
+_chemical_formula_sum              "As1 Sr1 Co1"
+_cell_length_a       4.062850173969934
+_cell_length_b       4.041794662728508
+_cell_length_c       4.617640495300293
+_cell_angle_alpha    90.13566371946756
+_cell_angle_beta     90.21922424848916
+_cell_angle_gamma    60.928729951782465
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  As  As1       1.0  0.395783007144928  0.8208315968513489  0.24605390429496765  1.0000
+  Sr  Sr1       1.0  0.06143474951386455  0.4877812564373016  0.7407180070877075  1.0000
+  Co  Co1       1.0  0.7295668125152588  0.15301135182380676  0.2449216991662979  1.0000

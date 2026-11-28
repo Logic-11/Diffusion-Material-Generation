@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       MnB3FeYbB
+_chemical_formula_sum              "Mn1 B4 Fe1 Yb1"
+_cell_length_a       2.87517266800036
+_cell_length_b       5.000447177514068
+_cell_length_c       4.699988842010498
+_cell_angle_alpha    105.74046054752036
+_cell_angle_beta     90.8526218793163
+_cell_angle_gamma    107.8542377405141
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mn  Mn1       1.0  0.7226939797401428  0.5186834335327148  0.8158679008483887  1.0000
+  B   B1        1.0  0.16861626505851746  0.4135879576206207  0.48238995671272283  1.0000
+  B   B2        1.0  0.3484933376312256  0.7689502239227295  0.6319147348403931  1.0000
+  B   B3        1.0  0.7664554119110107  0.6091508865356445  0.35915160179138184  1.0000
+  Fe  Fe1       1.0  0.00012755393981932686  0.07304830849170683  0.7046833634376526  1.0000
+  Yb  Yb1       1.0  0.4728669822216034  0.018881110474467278  0.18817302584648132  1.0000
+  B   B4        1.0  0.17766691744327545  0.43344801664352417  0.10265953838825226  1.0000

@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       SePdNaSe
+_chemical_formula_sum              "Se2 Pd1 Na1"
+_cell_length_a       3.914563808830197
+_cell_length_b       3.9041663816218626
+_cell_length_c       6.783109664916992
+_cell_angle_alpha    89.77552834486701
+_cell_angle_beta     90.17160417646463
+_cell_angle_gamma    119.9724233980905
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Se  Se1       1.0  0.19947081804275515  0.047588374465703964  0.7852407097816467  1.0000
+  Pd  Pd1       1.0  0.8657808303833009  0.3814098536968231  0.5935073494911194  1.0000
+  Na  Na1       1.0  0.8659490942955018  0.38160479068756104  0.09322085976600648  1.0000
+  Se  Se2       1.0  0.53294837474823  0.7146974802017212  0.40222990512847906  1.0000

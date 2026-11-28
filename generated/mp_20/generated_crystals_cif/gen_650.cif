@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       ZnGdZn2
+_chemical_formula_sum              "Zn3 Gd1"
+_cell_length_a       4.757693850690556
+_cell_length_b       4.758709476406813
+_cell_length_c       4.764440536499023
+_cell_angle_alpha    59.94881824474741
+_cell_angle_beta     59.80768991488872
+_cell_angle_gamma    59.91485649044801
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Zn  Zn1       1.0  0.7368544936180115  0.5395621657371521  0.12204323709011078  1.0000
+  Gd  Gd1       1.0  0.23714242875576017  0.040561284869909286  0.6213923096656799  1.0000
+  Zn  Zn2       1.0  0.48601868748664856  0.29006803035736084  0.8723356127738953  1.0000
+  Zn  Zn3       1.0  0.986892580986023  0.790089249610901  0.3714922666549681  1.0000

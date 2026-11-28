@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Pt3Bi
+_chemical_formula_sum              "Pt3 Bi1"
+_cell_length_a       4.123241446083808
+_cell_length_b       4.126803422235113
+_cell_length_c       4.146766185760498
+_cell_angle_alpha    89.99380752319122
+_cell_angle_beta     90.02817020598417
+_cell_angle_gamma    89.8132856296713
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Pt  Pt1       1.0  0.14919446408748627  0.9573376774787903  0.47203731536865234  1.0000
+  Pt  Pt2       1.0  0.6488519906997681  0.9573144316673279  0.973257303237915  1.0000
+  Pt  Pt3       1.0  0.6491400003433228  0.4574640393257141  0.47249600291252136  1.0000
+  Bi  Bi1       1.0  0.14976847171783447  0.4573046565055847  0.9733388423919678  1.0000

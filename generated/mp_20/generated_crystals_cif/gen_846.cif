@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       BiO4TiOTi
+_chemical_formula_sum              "Bi1 O5 Ti2"
+_cell_length_a       3.914392007160663
+_cell_length_b       3.9392869014339054
+_cell_length_c       6.759526252746582
+_cell_angle_alpha    106.33148957769866
+_cell_angle_beta     89.87503052943578
+_cell_angle_gamma    89.22888777094997
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Bi  Bi1       1.0  0.22179983556270597  0.7451783418655396  0.20925122499465945  1.0000
+  O   O1        1.0  0.7238093018531798  0.07409503310918807  0.5895674228668213  1.0000
+  O   O2        1.0  0.22484488785266873  0.5375624299049377  0.48199680447578436  1.0000
+  O   O3        1.0  0.7242645025253295  0.4565415978431701  0.2165622413158417  1.0000
+  O   O4        1.0  0.22542320191860196  0.2615516483783722  0.9491301178932191  1.0000
+  Ti  Ti1       1.0  0.7247236967086791  0.20586484670639038  0.8911515474319459  1.0000
+  O   O5        1.0  0.7242935299873351  0.6975172758102417  0.847837269306183  1.0000
+  Ti  Ti2       1.0  0.7217925786972045  0.532536506652832  0.5393131971359253  1.0000

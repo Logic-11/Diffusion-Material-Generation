@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       GaOCdGaCdO3
+_chemical_formula_sum              "Ga2 O4 Cd2"
+_cell_length_a       4.656513838934096
+_cell_length_b       4.671491629466914
+_cell_length_c       5.9099040031433105
+_cell_angle_alpha    113.30649356671404
+_cell_angle_beta     113.3730521471273
+_cell_angle_gamma    90.18854323021198
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ga  Ga1       1.0  0.2806958258152008  0.2738182246685028  0.46237948536872864  1.0000
+  O   O1        1.0  0.9321985840797424  0.9257345795631409  0.26529115438461304  1.0000
+  Cd  Cd1       1.0  0.03327911347150803  0.5249139666557312  0.9619480967521667  1.0000
+  Ga  Ga2       1.0  0.7804421782493591  0.773766815662384  0.46204847097396856  1.0000
+  Cd  Cd2       1.0  0.5313952565193176  0.024607494473457336  0.9624329805374146  1.0000
+  O   O2        1.0  0.6297672986984253  0.12294836342334749  0.6592444777488708  1.0000
+  O   O3        1.0  0.4321177899837494  0.4275166094303131  0.2659182548522949  1.0000
+  O   O4        1.0  0.13048531115055084  0.6208025217056274  0.6582255959510803  1.0000

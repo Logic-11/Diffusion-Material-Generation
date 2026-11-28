@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       GeMnGeMn2Ge2MnGeMn
+_chemical_formula_sum              "Ge5 Mn5"
+_cell_length_a       4.1692713979978215
+_cell_length_b       4.177170374367388
+_cell_length_c       8.80595588684082
+_cell_angle_alpha    76.89756228750235
+_cell_angle_beta     90.19731984415382
+_cell_angle_gamma    120.5706516615936
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ge  Ge1       1.0  0.45048549771308904  0.9936481714248658  0.3206554651260376  1.0000
+  Mn  Mn1       1.0  0.5491408109664917  0.19588065147399902  0.01867438107728958  1.0000
+  Ge  Ge2       1.0  0.049089629203081145  0.19317208230495456  0.5213626623153687  1.0000
+  Mn  Mn2       1.0  0.1485033631324768  0.3949625492095947  0.21980145573616028  1.0000
+  Mn  Mn3       1.0  0.34966856241226196  0.7921361327171326  0.6213923096656799  1.0000
+  Ge  Ge3       1.0  0.6501485109329224  0.3937937915325165  0.7210975289344788  1.0000
+  Ge  Ge4       1.0  0.8490487337112427  0.7953076958656311  0.12095461040735245  1.0000
+  Mn  Mn4       1.0  0.9493371248245239  0.9926142692565918  0.821116030216217  1.0000
+  Ge  Ge5       1.0  0.2507309317588806  0.5942058563232422  0.9202001094818115  1.0000
+  Mn  Mn5       1.0  0.7494684457778931  0.593459725379944  0.42182597517967224  1.0000

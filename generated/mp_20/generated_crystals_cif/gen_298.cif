@@ -1,0 +1,34 @@
+data_image0
+_chemical_formula_structural       MgCu2MgCuDy2Cu2
+_chemical_formula_sum              "Mg2 Cu5 Dy2"
+_cell_length_a       3.8921418352685535
+_cell_length_b       6.810535819504074
+_cell_length_c       6.925666332244873
+_cell_angle_alpha    119.86965669243946
+_cell_angle_beta     90.34037814939924
+_cell_angle_gamma    90.07434229256192
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.8127486705780029  0.9984333515167235  0.14983224868774406  1.0000
+  Cu  Cu1       1.0  0.3150641620159149  0.8240995407104492  0.732927143573761  1.0000
+  Cu  Cu2       1.0  0.8147846460342407  0.5944142937660216  0.7355716824531555  1.0000
+  Mg  Mg2       1.0  0.31456446647644043  0.5900234580039978  0.9699836969375609  1.0000
+  Cu  Cu3       1.0  0.31467658281326294  0.9210352897644042  0.3978970050811767  1.0000
+  Dy  Dy1       1.0  0.8143149018287659  0.15818268060684204  0.7267759442329407  1.0000
+  Dy  Dy2       1.0  0.8147493004798889  0.5727534890174865  0.3313333988189697  1.0000
+  Cu  Cu4       1.0  0.31399232149124146  0.23197409510612488  0.07080453634262082  1.0000
+  Cu  Cu5       1.0  0.31449273228645325  0.33576276898384094  0.4904830455780029  1.0000

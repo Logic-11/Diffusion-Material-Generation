@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       Lu2TlHo
+_chemical_formula_sum              "Lu2 Tl1 Ho1"
+_cell_length_a       5.304242147070541
+_cell_length_b       5.304583775748872
+_cell_length_c       5.305266380310059
+_cell_angle_alpha    60.09962909145578
+_cell_angle_beta     60.062825088098364
+_cell_angle_gamma    60.076208055752396
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Lu  Lu1       1.0  0.9820341467857361  0.9906219840049743  0.5970456004142761  1.0000
+  Lu  Lu2       1.0  0.48191580176353455  0.49035927653312683  0.09600228816270828  1.0000
+  Tl  Tl1       1.0  0.23156839609146124  0.24058352410793302  0.8469668030738831  1.0000
+  Ho  Ho1       1.0  0.731596827507019  0.740352988243103  0.34722012281417847  1.0000

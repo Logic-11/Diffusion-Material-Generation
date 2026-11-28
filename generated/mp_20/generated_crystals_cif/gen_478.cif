@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       PbAg2AsPbAsAgPb
+_chemical_formula_sum              "Pb3 Ag3 As2"
+_cell_length_a       4.3371248071019535
+_cell_length_b       7.262759867144769
+_cell_length_c       7.242453098297119
+_cell_angle_alpha    117.72589255622431
+_cell_angle_beta     89.53235311067994
+_cell_angle_gamma    89.5373801076436
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Pb  Pb1       1.0  0.48285359144210815  0.5611917972564698  0.9761925339698792  1.0000
+  Ag  Ag1       1.0  0.9809026718139648  0.4202310144901276  0.21455229818820956  1.0000
+  Ag  Ag2       1.0  0.9820215106010437  0.9464050531387329  0.9816866517066956  1.0000
+  As  As1       1.0  0.9804806113243103  0.5166441798210144  0.6448220014572144  1.0000
+  Pb  Pb2       1.0  0.48130089044570923  0.806569814682007  0.606255054473877  1.0000
+  As  As2       1.0  0.9813876748085022  0.8481295108795166  0.3131150603294373  1.0000
+  Ag  Ag3       1.0  0.9828934669494629  0.18094754219055176  0.7370176911354065  1.0000
+  Pb  Pb3       1.0  0.48165667057037354  0.1836690902709961  0.3581354320049286  1.0000

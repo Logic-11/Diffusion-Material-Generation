@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       ZnLuZnCa
+_chemical_formula_sum              "Zn2 Lu1 Ca1"
+_cell_length_a       5.004676712297287
+_cell_length_b       5.002684238734259
+_cell_length_c       5.001457214355469
+_cell_angle_alpha    60.15531470402409
+_cell_angle_beta     60.089941929521366
+_cell_angle_gamma    60.18609923643408
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Zn  Zn1       1.0  0.47941499948501587  0.1226441115140915  0.5934597253799438  1.0000
+  Lu  Lu1       1.0  0.7285496592521667  0.3732505142688751  0.8433016538619995  1.0000
+  Zn  Zn2       1.0  0.9785117506980896  0.6229736804962159  0.09302287548780441  1.0000
+  Ca  Ca1       1.0  0.22825956344604492  0.8727362751960754  0.34279617667198176  1.0000

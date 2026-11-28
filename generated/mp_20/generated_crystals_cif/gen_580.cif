@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       SiGeRu3
+_chemical_formula_sum              "Si1 Ge1 Ru3"
+_cell_length_a       4.083441622775839
+_cell_length_b       5.26549990060491
+_cell_length_c       4.092215538024902
+_cell_angle_alpha    90.03129843519716
+_cell_angle_beta     120.5956360497496
+_cell_angle_gamma    90.01767903712903
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Si  Si1       1.0  0.8649303317070007  0.6933090686798096  0.304629236459732  1.0000
+  Ge  Ge1       1.0  0.5312129855155945  0.19145938754081723  0.636136531829834  1.0000
+  Ru  Ru1       1.0  0.1993357539176941  0.43716686964035034  0.9716593027114868  1.0000
+  Ru  Ru2       1.0  0.5315998196601868  0.6912304759025574  0.6392598152160645  1.0000
+  Ru  Ru3       1.0  0.1984378695487976  0.9477413892745972  0.9712040424346923  1.0000

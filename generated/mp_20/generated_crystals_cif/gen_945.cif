@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       CrBrAg2IBrIBr
+_chemical_formula_sum              "Cr1 Br3 Ag2 I2"
+_cell_length_a       6.238388524023775
+_cell_length_b       7.661459609020598
+_cell_length_c       7.616791248321533
+_cell_angle_alpha    79.98750591214778
+_cell_angle_beta     114.13750754569705
+_cell_angle_gamma    114.51260769710355
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cr  Cr1       1.0  0.09893250465393068  0.7596928477287292  0.7026289701461792  1.0000
+  Br  Br1       1.0  0.5040744543075562  0.03575371205806732  0.7908533811569214  1.0000
+  Ag  Ag1       1.0  0.2715674936771393  0.5497546792030334  0.27823323011398315  1.0000
+  Ag  Ag2       1.0  0.6707749962806702  0.16050980985164642  0.4930398166179657  1.0000
+  I   I1        1.0  0.32494300603866577  0.2505507469177246  0.17360720038414001  1.0000
+  Br  Br2       1.0  0.13512787222862246  0.4791294932365418  0.6011527180671692  1.0000
+  I   I2        1.0  0.7645878195762634  0.8584526181221008  0.4003784954547882  1.0000
+  Br  Br3       1.0  0.9364851713180542  0.6602520942687988  0.9633752107620239  1.0000

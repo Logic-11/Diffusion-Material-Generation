@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       Ti2Al2ZnAl
+_chemical_formula_sum              "Ti2 Al3 Zn1"
+_cell_length_a       4.524605025671589
+_cell_length_b       4.519909960624027
+_cell_length_c       5.448678493499756
+_cell_angle_alpha    89.51958063093308
+_cell_angle_beta     89.46900992817497
+_cell_angle_gamma    59.80463306596184
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ti  Ti1       1.0  0.10520869493484497  0.2077062577009201  0.8386683464050292  1.0000
+  Ti  Ti2       1.0  0.4391890168190002  0.541460692882538  0.30993035435676575  1.0000
+  Al  Al1       1.0  0.43888717889785767  0.5417786836624146  0.8163304924964904  1.0000
+  Al  Al2       1.0  0.7711282968521118  0.87504643201828  0.07421563565731049  1.0000
+  Zn  Zn1       1.0  0.771550714969635  0.8747283816337587  0.5745097398757935  1.0000
+  Al  Al3       1.0  0.10485343635082243  0.20834246277809143  0.3319469392299652  1.0000

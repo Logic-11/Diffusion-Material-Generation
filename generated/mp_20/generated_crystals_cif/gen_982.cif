@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       BFeSiNbFeNb
+_chemical_formula_sum              "B1 Fe2 Si1 Nb2"
+_cell_length_a       3.445896488933604
+_cell_length_b       3.43884821322434
+_cell_length_c       6.070433616638184
+_cell_angle_alpha    89.8295619599477
+_cell_angle_beta     89.7105527562498
+_cell_angle_gamma    89.56795205768148
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  B   B1        1.0  0.9019502401351929  0.4860934615135193  0.8178873658180237  1.0000
+  Fe  Fe1       1.0  0.9036064743995667  0.9855622053146362  0.027496274560689926  1.0000
+  Si  Si1       1.0  0.40295499563217163  0.9870215058326721  0.2648986279964447  1.0000
+  Nb  Nb1       1.0  0.9018934965133667  0.4856854379177093  0.4054318070411682  1.0000
+  Fe  Fe2       1.0  0.4020133912563324  0.4864532947540283  0.027937935665249825  1.0000
+  Nb  Nb2       1.0  0.40177270770072937  0.9862092137336731  0.7018101215362549  1.0000

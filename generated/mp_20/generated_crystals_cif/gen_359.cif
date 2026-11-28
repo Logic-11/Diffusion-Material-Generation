@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       SrO3ZrOHg
+_chemical_formula_sum              "Sr1 O4 Zr1 Hg1"
+_cell_length_a       4.110333343832806
+_cell_length_b       4.110278210756372
+_cell_length_c       7.185113906860352
+_cell_angle_alpha    106.53047438706358
+_cell_angle_beta     73.28523831676706
+_cell_angle_gamma    89.83290134775105
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.039046596735715866  0.6191192269325257  0.3593131601810456  1.0000
+  O   O1        1.0  0.6716574430465698  0.48711585998535156  0.09719434380531312  1.0000
+  O   O2        1.0  0.17125090956687927  0.9879710078239441  0.09787807613611224  1.0000
+  O   O3        1.0  0.509692907333374  0.14838969707489016  0.41596716642379766  1.0000
+  Zr  Zr1       1.0  0.7013481855392456  0.9585395455360413  0.037856850773096105  1.0000
+  O   O4        1.0  0.8523693680763245  0.8054001331329347  0.7339438796043397  1.0000
+  Hg  Hg1       1.0  0.3579989969730377  0.30290016531944275  0.7271076440811158  1.0000

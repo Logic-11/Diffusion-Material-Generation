@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       RhTbRhCa
+_chemical_formula_sum              "Rh2 Tb1 Ca1"
+_cell_length_a       4.862803159031464
+_cell_length_b       4.856799939097167
+_cell_length_c       4.8574604988098145
+_cell_angle_alpha    60.09178012886038
+_cell_angle_beta     60.201644673042715
+_cell_angle_gamma    60.16532964037657
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Rh  Rh1       1.0  0.2985428273677826  0.09234335273504257  0.7074770331382751  1.0000
+  Tb  Tb1       1.0  0.5485050678253174  0.34192734956741333  0.9576506614685059  1.0000
+  Rh  Rh2       1.0  0.7986100912094117  0.5923718810081482  0.20743218064308167  1.0000
+  Ca  Ca1       1.0  0.04858761280775068  0.8426281213760376  0.45707231760025024  1.0000

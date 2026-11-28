@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       SmSSmSSm2O2
+_chemical_formula_sum              "Sm4 S2 O2"
+_cell_length_a       3.812460427348402
+_cell_length_b       3.820793246264189
+_cell_length_c       10.916009902954102
+_cell_angle_alpha    90.02391499726366
+_cell_angle_beta     90.00288484427503
+_cell_angle_gamma    90.10216164228837
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sm  Sm1       1.0  0.40386155247688293  0.8987977504730225  0.10716203600168228  1.0000
+  S   S1        1.0  0.903893232345581  0.3975223302841186  0.10906845331192017  1.0000
+  Sm  Sm2       1.0  0.9039760828018188  0.3990196287631988  0.3566347062587738  1.0000
+  S   S2        1.0  0.9039788246154785  0.3980803489685058  0.6090888381004333  1.0000
+  Sm  Sm3       1.0  0.4044542908668518  0.8983839154243468  0.6074093580245972  1.0000
+  Sm  Sm4       1.0  0.9040396213531494  0.39814451336860657  0.8619095087051392  1.0000
+  O   O1        1.0  0.403312087059021  0.8980316519737244  0.35770928859710693  1.0000
+  O   O2        1.0  0.4052599370479584  0.898352563381195  0.8623305559158325  1.0000

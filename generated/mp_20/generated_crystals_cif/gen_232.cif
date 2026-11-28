@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       AgPr3
+_chemical_formula_sum              "Ag1 Pr3"
+_cell_length_a       5.438607354793079
+_cell_length_b       5.442829620504346
+_cell_length_c       5.441619396209717
+_cell_angle_alpha    60.411001599639306
+_cell_angle_beta     60.63058801709004
+_cell_angle_gamma    60.339879541204375
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ag  Ag1       1.0  0.6935631632804871  0.12396550178527832  0.9285691380500793  1.0000
+  Pr  Pr1       1.0  0.9422739148139954  0.3745377361774444  0.1788095235824585  1.0000
+  Pr  Pr2       1.0  0.19326969981193545  0.6245573163032531  0.4283909201622009  1.0000
+  Pr  Pr3       1.0  0.44288918375968933  0.8751030564308167  0.6785800457000732  1.0000

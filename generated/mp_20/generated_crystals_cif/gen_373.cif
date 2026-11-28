@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Re3SiRe2SiRe
+_chemical_formula_sum              "Re6 Si2"
+_cell_length_a       4.973974418151653
+_cell_length_b       3.0722264696263104
+_cell_length_c       7.954326152801514
+_cell_angle_alpha    78.64663627357268
+_cell_angle_beta     78.10469587028672
+_cell_angle_gamma    71.90288912881934
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Re  Re1       1.0  0.1447983831167221  0.24768152832984924  0.8904330730438232  1.0000
+  Re  Re2       1.0  0.5250356793403625  0.49208593368530273  0.021206267178058624  1.0000
+  Re  Re3       1.0  0.2695693671703338  0.9873510599136353  0.275219202041626  1.0000
+  Si  Si1       1.0  0.395954966545105  0.7420921921730043  0.6492312550544739  1.0000
+  Re  Re4       1.0  0.8910868763923645  0.7463808059692383  0.14516031742095947  1.0000
+  Re  Re5       1.0  0.6526753306388855  0.2323238402605057  0.41148242354393005  1.0000
+  Si  Si2       1.0  0.027592778205871582  0.4898501932621002  0.5208091735839844  1.0000
+  Re  Re6       1.0  0.7647042870521545  0.003963558468967676  0.7560579776763916  1.0000

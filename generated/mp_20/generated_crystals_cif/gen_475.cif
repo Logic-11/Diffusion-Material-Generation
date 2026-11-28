@@ -1,0 +1,32 @@
+data_image0
+_chemical_formula_structural       Te7
+_chemical_formula_sum              "Te7"
+_cell_length_a       4.472883107620768
+_cell_length_b       5.469427858045006
+_cell_length_c       9.564175605773926
+_cell_angle_alpha    101.93681027370293
+_cell_angle_beta     76.92708158244152
+_cell_angle_gamma    90.58609441089683
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Te  Te1       1.0  0.9603955149650574  0.4678201079368592  0.10092340409755707  1.0000
+  Te  Te2       1.0  0.6767702698707581  0.3300876319408417  0.6677303314208984  1.0000
+  Te  Te3       1.0  0.24534638226032257  0.6143656969070435  0.5279368162155151  1.0000
+  Te  Te4       1.0  0.10361982882022858  0.03973155468702316  0.8154751658439636  1.0000
+  Te  Te5       1.0  0.3880441188812256  0.18388158082962036  0.24466118216514587  1.0000
+  Te  Te6       1.0  0.5320733189582825  0.7508750557899476  0.9584722518920898  1.0000
+  Te  Te7       1.0  0.8170861601829529  0.8962078094482423  0.38647159934043884  1.0000

@@ -4,20 +4,24 @@ defaults:
   - resume: default
   - _self_
 
+# Optional joint checkpoint for initializing a fresh CSP run.
+init_checkpoint: null
+
 # Relative paths start at the directory where training is launched.
 data:
   input: data_cache/mp_20_mattergen
   output: output/${now:%Y-%m-%d}/${now:%H-%M-%S-%f}
-  batchsize: 64  # Global training batch target. Each GPU uses batchsize // trainer.devices.
+  batchsize: 64  # Global training batch target, divided by the GPU count for multi-GPU runs.
 
 trainer:
   seed: 42
   device: cuda
-  devices: 1  # Number of GPUs on this machine. A single device also supports CPU.
+  devices: 1  # Number of consecutive GPUs when gpu_ids is null.
+  # CUDA-visible indices in rank order, e.g. [2] or [1, 3].
+  # The list overrides devices and any index in device.
+  gpu_ids: null
   max_epochs: 1000
   max_steps: null
-  check_val_every_n_epoch: 5
-  lr_scheduler_monitor: loss_train  # loss_train each epoch, or loss_val after validation.
   check_gradients: true
   gradient_clip_val: 0.5     # Set to 0 or null to disable clipping.
   gradient_clip_algorithm: value  # value or norm
@@ -32,7 +36,7 @@ optimizer:
   eps: 1.0e-8
   weight_decay: 0.0
 
-# Epoch-based schedule. Set lr_scheduler=null to disable it.
+# Monitors validation loss each epoch. Set lr_scheduler=null to disable it.
 lr_scheduler:
   _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
   _partial_: true

@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       CuNdCuNdSi2
+_chemical_formula_sum              "Cu2 Nd2 Si2"
+_cell_length_a       4.109666461222938
+_cell_length_b       5.640977978731314
+_cell_length_c       5.621963024139404
+_cell_angle_alpha    76.99495387859542
+_cell_angle_beta     69.02019564608241
+_cell_angle_gamma    69.21607903119772
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cu  Cu1       1.0  0.9494848847389222  0.6523536443710327  0.35583940148353577  1.0000
+  Nd  Nd1       1.0  0.19144715368747714  0.7654180526733398  0.7576557397842407  1.0000
+  Cu  Cu2       1.0  0.5421380996704102  0.25677549839019775  0.5612530708312988  1.0000
+  Nd  Nd2       1.0  0.3008872866630554  0.14150965213775635  0.16129985451698303  1.0000
+  Si  Si1       1.0  0.9030969142913818  0.3404137790203094  0.7572212815284729  1.0000
+  Si  Si2       1.0  0.5905526876449585  0.5661664605140686  0.1597150415182113  1.0000

@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       Co5Ge
+_chemical_formula_sum              "Co5 Ge1"
+_cell_length_a       4.303136833682758
+_cell_length_b       4.31866948545227
+_cell_length_c       4.276706218719482
+_cell_angle_alpha    99.27671046752586
+_cell_angle_beta     99.60249735634706
+_cell_angle_gamma    120.5539596412703
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Co  Co1       1.0  0.4365976154804229  0.9941850900650023  0.20899011194705958  1.0000
+  Co  Co2       1.0  0.7798024415969848  0.6516851186752318  0.2099004834890365  1.0000
+  Co  Co3       1.0  0.10852037370204926  0.3228347599506378  0.20976622402668  1.0000
+  Co  Co4       1.0  0.9412202835083007  0.49007815122604365  0.7087133526802063  1.0000
+  Co  Co5       1.0  0.2767821252346039  0.15567322075366974  0.7096040844917297  1.0000
+  Ge  Ge1       1.0  0.6088580489158629  0.8234828114509581  0.7096797227859497  1.0000

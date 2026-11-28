@@ -1,0 +1,31 @@
+data_image0
+_chemical_formula_structural       HfCaAsCaAs2
+_chemical_formula_sum              "Hf1 Ca2 As3"
+_cell_length_a       4.034790356695001
+_cell_length_b       5.801564115072847
+_cell_length_c       7.20751953125
+_cell_angle_alpha    113.97227832455445
+_cell_angle_beta     106.04098254250982
+_cell_angle_gamma    89.85274332692579
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Hf  Hf1       1.0  0.5097604990005493  0.6015337705612183  0.2542608678340912  1.0000
+  Ca  Ca1       1.0  0.8401719331741332  0.9349362254142761  0.9147171378135681  1.0000
+  As  As1       1.0  0.5103533267974854  0.10327503085136414  0.25415539741516113  1.0000
+  Ca  Ca2       1.0  0.17937269806861875  0.272970587015152  0.5937331914901733  1.0000
+  As  As2       1.0  0.1558258831501007  0.7499796152114868  0.5445848107337952  1.0000
+  As  As3       1.0  0.8660254478454589  0.45800748467445374  0.9635960459709167  1.0000

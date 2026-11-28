@@ -1,0 +1,30 @@
+data_image0
+_chemical_formula_structural       SrNNi2Bi
+_chemical_formula_sum              "Sr1 N1 Ni2 Bi1"
+_cell_length_a       4.407483099987385
+_cell_length_b       5.007127015907565
+_cell_length_c       4.510947227478027
+_cell_angle_alpha    90.0526632595486
+_cell_angle_beta     90.02662658146596
+_cell_angle_gamma    90.08354937938577
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.525978684425354  0.8083087205886841  0.31458574533462524  1.0000
+  N   N1        1.0  0.5278866291046143  0.30867910385131836  0.3126412630081177  1.0000
+  Ni  Ni1       1.0  0.02747858315706253  0.30886417627334595  0.3134738802909851  1.0000
+  Ni  Ni2       1.0  0.5272455215454102  0.30854764580726624  0.813775897026062  1.0000
+  Bi  Bi1       1.0  0.02813389152288437  0.8091984391212462  0.8133640885353088  1.0000

@@ -1,0 +1,29 @@
+data_image0
+_chemical_formula_structural       NAgFeN
+_chemical_formula_sum              "N2 Ag1 Fe1"
+_cell_length_a       2.8950828823693513
+_cell_length_b       2.886607404742725
+_cell_length_c       6.451951503753662
+_cell_angle_alpha    90.10410141454763
+_cell_angle_beta     102.73699496734241
+_cell_angle_gamma    119.23204476571908
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  N   N1        1.0  0.22710123658180237  0.06312635540962219  0.7961875200271605  1.0000
+  Ag  Ag1       1.0  0.45382341742515564  0.17533035576343536  0.13821040093898773  1.0000
+  Fe  Fe1       1.0  0.4553931951522827  0.6763625741004944  0.640774130821228  1.0000
+  N   N2        1.0  0.6789027452468872  0.2859479784965515  0.48091322183609003  1.0000

@@ -1,0 +1,33 @@
+data_image0
+_chemical_formula_structural       Cd7Ce
+_chemical_formula_sum              "Cd7 Ce1"
+_cell_length_a       5.114330287318786
+_cell_length_b       6.709030960776002
+_cell_length_c       6.696186065673828
+_cell_angle_alpha    119.20001175404482
+_cell_angle_beta     90.09893779641747
+_cell_angle_gamma    89.59009549722924
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cd  Cd1       1.0  0.7982871532440186  0.7619669437408446  0.8541509509086609  1.0000
+  Cd  Cd2       1.0  0.2977474331855774  0.9320817589759827  0.17910932004451757  1.0000
+  Cd  Cd3       1.0  0.2966296374797821  0.44047081470489496  0.18079757690429688  1.0000
+  Cd  Cd4       1.0  0.8004230856895447  0.2670904397964477  0.351932168006897  1.0000
+  Cd  Cd5       1.0  0.2975969910621643  0.4423569440841674  0.689250111579895  1.0000
+  Cd  Cd6       1.0  0.7981591820716858  0.28468123078346247  0.859736979007721  1.0000
+  Cd  Cd7       1.0  0.7963326573371887  0.7570775747299194  0.3350569307804108  1.0000
+  Ce  Ce1       1.0  0.2973412871360779  0.9387551546096801  0.6823902130126953  1.0000

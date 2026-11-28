@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       Si2OsSiTmSiOs2TmSi
+_chemical_formula_sum              "Si5 Os3 Tm2"
+_cell_length_a       4.010262501674355
+_cell_length_b       6.384553929588984
+_cell_length_c       6.535726070404053
+_cell_angle_alpha    109.16641553552918
+_cell_angle_beta     90.10464099984628
+_cell_angle_gamma    90.15814186330485
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Si  Si1       1.0  0.016815293580293655  0.5564441680908203  0.4233064651489258  1.0000
+  Si  Si2       1.0  0.5175431966781616  0.7142418622970581  0.0777052640914917  1.0000
+  Os  Os1       1.0  0.016979895532131195  0.45069238543510437  0.004785841330885887  1.0000
+  Si  Si3       1.0  0.5172838568687439  0.8595861196517943  0.5231878161430359  1.0000
+  Tm  Tm1       1.0  0.5170444846153259  0.22050602734088895  0.2578768730163574  1.0000
+  Si  Si4       1.0  0.017258204519748688  0.2543836534023285  0.6010210514068604  1.0000
+  Os  Os2       1.0  0.01681513525545597  0.8950267434120178  0.32136109471321106  1.0000
+  Os  Os3       1.0  0.5177512764930725  0.53379225730896  0.6713573932647705  1.0000
+  Tm  Tm2       1.0  0.018672864884138107  0.9001095890998839  0.8536702394485474  1.0000
+  Si  Si5       1.0  0.5166832804679871  0.23020793497562406  0.8395861983299255  1.0000
